@@ -1,22 +1,57 @@
 #!/usr/bin/env node
 
 import { spawnSync } from "node:child_process";
+import { mkdtemp, rm } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 
 const root = process.cwd();
 const command = path.join(root, "node_modules", ".bin", "skills");
+const experimental = ["prosto-write", "prosto-contract", "prosto-implement"];
 
 const normal = run({}, { allowEmpty: true });
-if (normal.includes("prosto-write")) {
-  fail("Experimental prosto-write leaked into normal Skills CLI discovery");
+for (const skill of experimental) {
+  if (normal.includes(skill)) fail(`Experimental ${skill} leaked into normal Skills CLI discovery`);
 }
 
 const internal = run({ INSTALL_INTERNAL_SKILLS: "1" });
-if (!internal.includes("prosto-write")) {
-  fail("Internal Skills CLI discovery did not find prosto-write");
+for (const skill of experimental) {
+  if (!internal.includes(skill)) fail(`Internal Skills CLI discovery did not find ${skill}`);
 }
 
-console.log("Skills CLI discovery hides Experimental Skills normally and exposes them internally.");
+const installRoot = await mkdtemp(path.join(os.tmpdir(), "prosto-install-smoke-"));
+try {
+  const install = spawnSync(
+    command,
+    ["add", root, "--skill", "*", "--agent", "codex", "--copy", "-y"],
+    {
+      cwd: installRoot,
+      env: { ...process.env, INSTALL_INTERNAL_SKILLS: "1", NO_COLOR: "1" },
+      encoding: "utf8",
+    },
+  );
+  if (install.status !== 0) {
+    fail(`Skills CLI install exited ${install.status}:\n${install.stderr || install.stdout}`);
+  }
+
+  const installedScript = path.join(
+    installRoot,
+    ".agents/skills/prosto-implement/scripts/workctl.mjs",
+  );
+  const runtime = spawnSync(process.execPath, [installedScript, "--help"], {
+    cwd: installRoot,
+    encoding: "utf8",
+  });
+  if (runtime.status !== 0 || !runtime.stdout.includes("workctl manages")) {
+    fail(`Installed workctl failed without repository dependencies:\n${runtime.stderr || runtime.stdout}`);
+  }
+} finally {
+  await rm(installRoot, { recursive: true, force: true });
+}
+
+console.log(
+  "Skills CLI hides Experimental Skills normally, exposes them internally, and installs a self-contained workctl.",
+);
 
 function run(environment, options = {}) {
   const result = spawnSync(command, ["add", ".", "--list"], {

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Prosto Contract"
+  short_description: "Turn product docs into an approved contract"
+  default_prompt: "Use $prosto-contract to create an implementation contract from these product documents."
+policy:
+  allow_implicit_invocation: true
