@@ -1,0 +1,6 @@
+interface:
+  display_name: "Prosto Implement"
+  short_description: "Deliver large repository changes quickly"
+  default_prompt: "Use $prosto-implement to deliver this approved repository change."
+policy:
+  allow_implicit_invocation: false

@@ -8,8 +8,8 @@ import { inspectRepository } from "../lib/repository.mjs";
 test("the repository satisfies its own contract", async () => {
   const repository = await inspectRepository(process.cwd());
   assert.deepEqual(repository.errors, []);
-  assert.equal(repository.skills.length, 1);
-  assert.equal(repository.cases.length, 5);
+  assert.equal(repository.skills.length, 3);
+  assert.equal(repository.cases.length, 15);
 });
 
 test("Peer graph rejects missing Peers, cycles, and unstable closure", async (t) => {
