@@ -15,4 +15,4 @@ The agent selects the next capability.
 
 ## Then
 
-The agent does not treat recommendations or conversation fragments as an approved contract and directs the user to a durable discovery process such as `grill-with-docs` first.
+The agent does not treat recommendations or conversation fragments as an approved contract and directs the user to create an approved durable Outcome Brief with `prosto-shape` first.
