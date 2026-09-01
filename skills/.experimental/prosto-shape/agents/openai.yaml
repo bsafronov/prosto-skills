@@ -1,0 +1,6 @@
+interface:
+  display_name: "Prosto Shape"
+  short_description: "Shape fuzzy intent into a durable user outcome"
+  default_prompt: "Use $prosto-shape to turn this idea into an approved end-user outcome."
+policy:
+  allow_implicit_invocation: true

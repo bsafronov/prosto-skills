@@ -25,7 +25,7 @@ Act as contract writer. Convert settled product knowledge into the smallest cont
 5. Show the user a concise outcome summary and the unresolved questions. Revise until the user approves it.
 6. Freeze the approved revision. Return its path and revision to the caller.
 
-Recommendations are not decisions until accepted. Keep rationale in source documents; the contract points to it instead of copying it. If no durable product source exists, stop and direct the user to document the idea through an interview such as `grill-with-docs` before compiling the contract.
+Recommendations are not decisions until accepted. Keep rationale in source documents; the contract points to it instead of copying it. If no durable product source exists, stop and direct the user to shape the idea with `prosto-shape` before compiling the contract.
 
 ## Completion
 
