@@ -7,7 +7,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const command = path.join(root, "node_modules", ".bin", "skills");
-const experimental = ["prosto-write", "prosto-contract", "prosto-implement"];
+const experimental = ["prosto-write", "prosto-shape", "prosto-contract", "prosto-implement"];
 
 const normal = run({}, { allowEmpty: true });
 for (const skill of experimental) {

@@ -9,7 +9,8 @@ test("the repository satisfies its own contract", async () => {
   const repository = await inspectRepository(process.cwd());
   assert.deepEqual(repository.errors, []);
   assert.equal(repository.skills.length, 4);
-  assert.equal(repository.cases.length, 19);
+  assert.equal(repository.flows.length, 1);
+  assert.equal(repository.cases.length, 21);
 });
 
 test("Peer graph rejects missing Peers, cycles, and unstable closure", async (t) => {

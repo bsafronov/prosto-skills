@@ -22,11 +22,11 @@ Act as contract writer. Convert settled product knowledge into the smallest cont
 2. Read [the contract schema](references/contract-schema.md), then create or update one draft contract.
 3. Preserve source pointers. Record only confirmed behavior, explicit non-goals, constraints, and decisions that affect delivery.
 4. Surface contradictions and missing product choices. Ask focused product questions with a recommendation; infer technical choices unless the user requests them.
-5. Show the user a concise outcome summary and the unresolved questions. Revise until the user approves it.
-6. Freeze the approved revision. Return its path and revision to the caller.
+5. When the contract adds no product meaning and every source approval is current, inherit that approval and freeze the contract without another user round. Otherwise show a concise outcome summary and only the unresolved product choices; revise until the user approves them.
+6. Return the frozen path and revision to the caller.
 
 Recommendations are not decisions until accepted. Keep rationale in source documents; the contract points to it instead of copying it. If no durable product source exists, stop and direct the user to shape the idea with `prosto-shape` before compiling the contract.
 
 ## Completion
 
-Finish only when the contract is approved, every acceptance condition is observable, every decision is confirmed, every source pointer resolves, and `openQuestions` is empty. Do not create the implementation task graph or edit product code.
+Finish only when the contract is approved directly or through unchanged approved sources, every acceptance condition is observable, every decision is confirmed, every source pointer resolves, and `openQuestions` is empty. Do not create the implementation task graph or edit product code.

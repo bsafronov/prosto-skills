@@ -15,4 +15,4 @@ The agent begins delivery.
 
 ## Then
 
-The agent validates the contract through the required `prosto-contract` Peer, maps every acceptance ID to coherent tasks, obtains one outcome approval, and continues autonomously through proof.
+The agent validates the contract through the required `prosto-contract` Peer, maps every acceptance ID to coherent tasks, preserves the existing outcome approval, and continues autonomously through proof without requesting another approval.

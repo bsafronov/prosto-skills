@@ -15,4 +15,4 @@ The agent converts those documents for later repository implementation.
 
 ## Then
 
-The agent activates `prosto-contract`, preserves source pointers, produces observable acceptance conditions, asks only unresolved product questions, and requests approval before freezing the contract.
+The agent activates `prosto-contract`, preserves source pointers, produces observable acceptance conditions, and asks only unresolved product questions. When the contract adds no product meaning, it inherits the current source approval and freezes without requesting duplicate approval.

@@ -24,6 +24,10 @@ The single observable change for that user.
 
 Confirmed behavior, access, policy, ordering, defaults, and boundaries that define the outcome.
 
+## Key product decisions
+
+Accepted choices with the shortest product reason needed to revisit them later. Omit routine choices whose rationale adds no value.
+
 ## Representative examples
 
 - Success: situation -> user action -> visible result.
@@ -60,6 +64,7 @@ Durable product documents, repository behavior, or decision records that establi
 - Keep one user outcome per brief. Put independent outcomes under `Parked outcomes` until they receive their own brief.
 - Express rules, examples, and success evidence as externally observable product results.
 - Record a product recommendation as settled only after the user accepts it.
+- Retain selected product memory: accepted choices, useful reasons, explicit non-goals, and parked outcomes. Do not copy the raw conversation or every rejected idea.
 - Keep technical choices, architecture, and task planning in downstream work.
 - Set `status` to `approved` only after explicit approval and when `Open product questions` is empty.
 - Increment `revision` and return the brief to `draft` when approved product meaning changes.

@@ -31,7 +31,7 @@ Use this schema when compiling durable product documents for implementation.
 }
 ```
 
-Store the draft at a user-approved repository-local path. Use `.prosto/contracts/<workId>.json` when the repository has no convention. Do not commit operational planning material unless the repository or user requires it.
+Follow the repository's product-document convention. When none exists, use `.prosto/contracts/<workId>.json` without asking the user to choose a technical path. Do not commit operational planning material unless the repository or user requires it.
 
 ## Drafting rules
 
@@ -43,6 +43,6 @@ Store the draft at a user-approved repository-local path. Use `.prosto/contracts
 - Label unresolved matters in `openQuestions`; never hide them as assumptions.
 - Turn ambiguous ordering, range, default, and failure language into an open question. For example, "by version" needs an explicit direction before approval.
 - Increment `revision` when approved product meaning changes.
-- Set `status` to `approved` only after explicit user approval and only when `openQuestions` is empty.
+- Set `status` to `approved` only when `openQuestions` is empty and either the user explicitly approves the contract or its product meaning is fully derived from current approved sources.
 
 The approved contract is the product source for implementation. Later product changes create a new revision; they do not silently rewrite the approved revision.

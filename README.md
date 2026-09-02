@@ -4,7 +4,7 @@ Composable Skills written for agents, by agents.
 
 Prosto Skills aims to become an ecosystem of focused capabilities that solve problems independently and combine without duplicating behavior. User-invoked Orchestrators and Routers coordinate model-invoked Peer Skills. Core Skills improve how the ecosystem writes, reviews, evaluates, reflects, and evolves.
 
-The project is pre-release. `prosto-write`, `prosto-contract`, and `prosto-implement` are Experimental; no Skill is Stable or included in a normal install yet.
+The project is pre-release. `prosto-write`, `prosto-shape`, `prosto-contract`, and `prosto-implement` are Experimental; no Skill is Stable or included in a normal install yet.
 
 ## Install
 
@@ -14,10 +14,10 @@ After the first Promotion, install Stable Skills with:
 npx skills@latest add bsafronov/prosto-skills
 ```
 
-Maintainers can expose Experimental and System Skills for local testing:
+Maintainers can install all Experimental Skills from the current checkout globally into Codex:
 
 ```sh
-INSTALL_INTERNAL_SKILLS=1 npx skills@latest add bsafronov/prosto-skills
+npm run install:codex
 ```
 
 ## Architecture
@@ -31,7 +31,7 @@ INSTALL_INTERNAL_SKILLS=1 npx skills@latest add bsafronov/prosto-skills
 
 Every Skill is named `prosto-<verb>`. Orchestrators require Peers rather than copying them. The validator rejects missing Peers, non-model-invoked Peers, dependency cycles, cross-harness invocation conflicts, and Stable Skills whose Peer Closure is not Stable.
 
-The Experimental Core can write agent-facing material, compile product documents into approved implementation contracts, and deliver large repository changes through durable task state and non-blocking process work. Planned additions include `prosto-review`, `prosto-evaluate`, `prosto-reflect`, `prosto-improve`, `prosto-promote`, and `prosto-find`. Only complete, independently useful slices are added.
+The Experimental Core can write agent-facing material and run the internal Feature Delivery Flow: shape raw intent into one approved user outcome, compile it into an implementation contract without duplicate approval, and deliver the complete bounded change through durable task state and non-blocking process work. Planned additions include `prosto-review`, `prosto-evaluate`, `prosto-reflect`, `prosto-improve`, `prosto-promote`, and `prosto-find`. Only complete, independently useful slices are added.
 
 See [CONTEXT.md](CONTEXT.md) for the domain language and [the ADRs](docs/adr/) for accepted decisions.
 

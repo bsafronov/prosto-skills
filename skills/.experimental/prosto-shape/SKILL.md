@@ -27,8 +27,8 @@ Act as product shaper. Turn fuzzy intent into the smallest durable statement of 
 7. Revise until no unresolved product choice can change the end-user experience. Show a concise outcome summary and request one explicit approval.
 8. On approval, freeze the brief and return its path and revision. In a composed run, hand that exact source to `prosto-contract`; otherwise name it as the next step.
 
-A recommended product choice remains open until the user accepts it. Preserve accepted choices without replaying the interview downstream.
+A recommended product choice remains open until the user accepts it. Preserve accepted choices and only the product rationale needed to revisit them; never replay the interview downstream.
 
 ## Completion
 
-Finish only when the brief is approved, contains one observable outcome, includes representative success and boundary examples, makes non-goals and parked outcomes explicit, has observable success evidence, and has no open product questions. Return the durable source for contracting; downstream Skills own the implementation contract, architecture, and delivery plan.
+Finish only when the brief is approved, contains one observable outcome, includes representative success and boundary examples, retains material product decisions, makes non-goals and parked outcomes explicit, has observable success evidence, and has no open product questions. Return the durable source for contracting; downstream Skills own the implementation contract, architecture, and delivery plan.
