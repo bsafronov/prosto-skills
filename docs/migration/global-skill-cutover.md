@@ -50,7 +50,7 @@ stating broad principles.
 
 ## Registry findings
 
-The global registry and filesystem do not agree:
+Before repair, the global registry and filesystem did not agree:
 
 - `.agents/.skill-lock.json` contains 66 records;
 - `.agents/skills` contains 58 directories;
@@ -76,6 +76,19 @@ three current Experimental directories match the repository checkout exactly.
 Local Experimental installation may remain unregistered during development,
 but a Stable cutover must use one reproducible source and provenance path.
 
+The stale records were removed through the Skills CLI on 2026-09-05 after an
+exact registry backup. The repaired state is:
+
+- 55 registry records;
+- 58 shared Skill directories;
+- no registry record without a directory;
+- exactly 3 documented directory-only exceptions: `write-skill`,
+  `evaluate-skill`, and `improve-skill`.
+
+The Skills CLI still reports 56 global Skills because it also discovers the
+Codex-local `frontend-design` Skill. No installed Skill directory was removed
+during registry repair.
+
 The agent-specific Claude Skill at `.claude/skills/codebase-memory` also has
 invalid YAML frontmatter and is skipped by the Skills CLI. Repair or remove it
 as a separate host-maintenance task; it is outside the shared Skill cutover.
@@ -93,7 +106,83 @@ as a separate host-maintenance task; it is outside the shared Skill cutover.
 - **Review**: usage or ownership evidence is insufficient for a decision.
 
 Every disposition is provisional until supported by completed-task evidence.
-No task-history or telemetry evidence was inspected for this snapshot.
+
+## Usage evidence
+
+A local scan covered 1,641 Codex session files and 37,750 user or assistant
+messages. Injected `AGENTS.md`, environment, app, permission, and plugin context
+was excluded. The scan counted two explicit signals:
+
+- a user message invoking `$skill-name`;
+- a short assistant message declaring use of `` `skill-name` `` or
+  `$skill-name`.
+
+The counts are reference-frequency evidence, not proof that a Skill produced a
+successful outcome. Forked tasks, repeated mentions, and assistant declarations
+can increase counts. Absence means no matching explicit signal, not proof that
+the capability was unused. Raw task content was not retained.
+
+| Skill | User invocations | Assistant declarations | Sessions |
+| --- | ---: | ---: | ---: |
+| `caveman` | 34 | 345 | 270 |
+| `caveman-commit` | 61 | 131 | 140 |
+| `code-review` | 26 | 101 | 108 |
+| `wayfinder` | 105 | 18 | 94 |
+| `domain-modeling` | 4 | 66 | 57 |
+| `tdd` | 13 | 45 | 52 |
+| `grilling` | 5 | 53 | 51 |
+| `to-spec` | 48 | 25 | 45 |
+| `to-tickets` | 44 | 22 | 40 |
+| `wait-what` | 46 | 18 | 34 |
+| `frontend-design` | 17 | 21 | 30 |
+| `shadcn` | 15 | 23 | 27 |
+| `codebase-design` | 6 | 23 | 25 |
+| `setup-matt-pocock-skills` | 22 | 6 | 21 |
+| `research` | 21 | 6 | 21 |
+| `handoff` | 37 | 6 | 19 |
+| `prototype` | 23 | 13 | 14 |
+| `writing-for-agents` | 1 | 14 | 12 |
+| `triage` | 0 | 10 | 10 |
+| `resolving-merge-conflicts` | 3 | 8 | 9 |
+| `web-design-guidelines` | 5 | 1 | 4 |
+| `lean-build` | 0 | 4 | 4 |
+| `surgical-patch` | 0 | 7 | 4 |
+| `setup-ts-deep-modules` | 3 | 2 | 3 |
+| `migration` | 0 | 5 | 3 |
+| `writing-great-skills` | 3 | 0 | 2 |
+| `wizard` | 1 | 2 | 2 |
+| `caveman-compress` | 1 | 0 | 1 |
+| `caveman-help` | 1 | 1 | 1 |
+| `migrate-radix-to-base` | 1 | 1 | 1 |
+| `teach` | 1 | 0 | 1 |
+| `improve-codebase-architecture` | 0 | 1 | 1 |
+| `investigate-first` | 0 | 1 | 1 |
+
+No explicit signal was found for 23 globally listed Skills:
+
+- `cavecrew`;
+- `caveman-discover`;
+- `caveman-evidence-review`;
+- `caveman-explore`;
+- `caveman-learn`;
+- `caveman-manage`;
+- `caveman-optimize`;
+- `caveman-setup`;
+- `caveman-stats`;
+- `claude-handoff`;
+- `find-skills`;
+- `git-guardrails-claude-code`;
+- `loop-me`;
+- `migrate-to-shoehorn`;
+- `retro`;
+- `safe-refactor`;
+- `scaffold-exercises`;
+- `setup-pre-commit`;
+- `to-questionnaire`;
+- `verify-and-stop`;
+- `writing-beats`;
+- `writing-fragments`;
+- `writing-shape`.
 
 ## Migration ledger
 
@@ -102,7 +191,7 @@ No task-history or telemetry evidence was inspected for this snapshot.
 | Skill | Provisional disposition | Reason or candidate outcome |
 | --- | --- | --- |
 | `cavecrew` | Drop candidate | Native delegation plus Core should own selection; verify any compressed-agent requirement first. |
-| `caveman` | Review | Communication style belongs in steering unless repeated judgment proves a Skill useful. This repository currently invokes it. |
+| `caveman` | Replace | Strong usage evidence makes communication behavior a cutover blocker, but it should move to owned steering unless repeated judgment proves a Skill useful. |
 | `caveman-commit` | Replace | Commit-message judgment may become a small first-party capability or steering rule. Current Codex instructions invoke it. |
 | `caveman-compress` | Drop candidate | Deterministic compression and backup handling should be a tool unless judgment evidence says otherwise. |
 | `caveman-discover` | Drop candidate | Caveman Cloud product integration is outside the Prosto Core. |
@@ -131,7 +220,7 @@ No task-history or telemetry evidence was inspected for this snapshot.
 | `domain-modeling` | Replace | Establish shared domain language and durable decisions. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
 | `grilling` | Replace | Stress-test a user-selected plan or decision without taking ownership from the user. |
-| `handoff` | Core trial | Native task continuation may make a handoff Skill unnecessary. |
+| `handoff` | Review | Frequent explicit use blocks removal until native task continuation is compared against the owned outcome. |
 | `improve-codebase-architecture` | Drop candidate | Prefer composition of independent design, inspection, and discussion capabilities. |
 | `loop-me` | Drop candidate | Workspace-specific orchestration should not become a generic replacement. |
 | `migrate-to-shoehorn` | Retain | Narrow third-party migration knowledge. |
@@ -143,14 +232,14 @@ No task-history or telemetry evidence was inspected for this snapshot.
 | `setup-matt-pocock-skills` | Drop candidate | Source-suite bootstrap becomes obsolete after cutover. |
 | `setup-pre-commit` | Retain | Narrow ecosystem setup that can later move to a deterministic tool. |
 | `setup-ts-deep-modules` | Retain | TypeScript-specific architecture setup. |
-| `tdd` | Review | Test-first sequencing may be a user preference, a composition modifier, or a Skill; evidence must decide. |
+| `tdd` | Replace | Frequent use supports owning test-first sequencing while keeping it independent from feature or bug-fix Skills. |
 | `teach` | Review | Broad outcome and explicit invocation need evidence before first-party ownership. |
 | `to-questionnaire` | Core trial | Core can ask only material unresolved questions; external sharing needs usage evidence. |
-| `to-spec` | Review | Specification synthesis may deserve a first-party Skill if repeated product evidence exists. |
-| `to-tickets` | Review | Tracker mutation and work decomposition cross ownership boundaries; inspect actual use first. |
+| `to-spec` | Replace | Frequent explicit use supports owning specification synthesis without tracker mutation by default. |
+| `to-tickets` | Replace | Frequent explicit use supports owning work decomposition; tracker mutation remains an explicit boundary. |
 | `triage` | Retain | Tracker-specific state and external mutation require deliberate compatibility evidence. |
-| `wait-what` | Drop candidate | Conversational rephrasing needs no persistent Skill. |
-| `wayfinder` | Drop candidate | Large-work orchestration conflicts with native atomic composition unless repeated evidence proves a Flow. |
+| `wait-what` | Replace | Frequent explicit use supports a small user-invoked capability for re-pitching an explanation. |
+| `wayfinder` | Replace | Strong usage evidence blocks deletion, but replacement should extract atomic planning judgment instead of copying orchestration. |
 | `wizard` | Retain | Useful boundary for human-only infrastructure steps; consider first-party ownership after usage review. |
 | `writing-beats` | Review | Keep only if long-form writing is a recurring supported outcome. |
 | `writing-for-agents` | Replace | Write concise steering and agent-facing documents without duplicating Core. |
@@ -176,31 +265,42 @@ No task-history or telemetry evidence was inspected for this snapshot.
 
 | Skill | Provisional disposition | Reason or candidate outcome |
 | --- | --- | --- |
-| `frontend-design` | Review | Upstream provenance is unknown; identify ownership and observed use before deciding. |
+| `frontend-design` | Retain | Frequent use blocks removal; identify upstream provenance before deciding whether to own an equivalent. |
 
-## First replacement wave
+## Evidence-ranked first replacement wave
 
-Do not reproduce source Skills verbatim. Start only from completed-task evidence
-for these candidate outcomes:
+Do not reproduce source Skills verbatim. Reference frequency makes these the
+current cutover blockers:
 
-1. Diagnose an ambiguous bug before editing.
-2. Fix a known bug narrowly with regression proof.
-3. Build a bounded feature without speculative infrastructure.
-4. Refactor while preserving behavior.
-5. Execute a compatibility-safe migration with rollback.
-6. Review changes against repository standards and the originating request.
+1. Move concise response behavior from `caveman` into owned steering, not a
+   replacement Skill, unless behavior evaluation proves steering insufficient.
+2. Write a concise Conventional Commit message from change intent.
+3. Review changes against repository standards and the originating request.
+4. Plan work too large for one task using independent decisions rather than an
+   orchestration engine.
+5. Build or revise a domain model and its durable terminology.
+6. Apply test-first sequencing when explicitly requested.
+7. Stress-test a user-owned plan or decision.
+8. Synthesize an agreed specification and decompose it into bounded work while
+   keeping tracker mutation explicit.
+9. Re-pitch an explanation when the user says it did not land.
 
-Treat verification as a Core trial first. If agents repeatedly stop without
-adequate proof, that failure becomes evidence for a separate Skill.
+Retain `frontend-design`, `shadcn`, and other used specialist Skills through the
+first wave. Lower-frequency engineering outcomes such as bug diagnosis, narrow
+fixes, feature building, refactoring, and migration remain valid candidates but
+do not outrank the observed cutover blockers. Treat verification as a Core trial
+first. If agents repeatedly stop without adequate proof, that failure becomes
+evidence for a separate Skill.
 
 ## Registry repair plan
 
 1. Save the current CLI listing and `.agents/.skill-lock.json` outside the
-   repository as rollback evidence.
+   repository as rollback evidence. **Completed 2026-09-05.**
 2. Remove only the 11 stale registry records through the Skills CLI. Do not
-   delete directories manually.
+   delete directories manually. **Completed 2026-09-05.**
 3. Re-run global listing and compare registered names with installed
-   directories. Account explicitly for local Experimental copies.
+   directories. Account explicitly for local Experimental copies. **Completed
+   2026-09-05.**
 4. Repair the invalid Claude Skill separately.
 5. Keep installing Experimental Prosto Skills from the checkout only for local
    evaluation. After Promotion, install Stable Skills from one repository or
