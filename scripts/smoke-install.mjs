@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 import { spawnSync } from "node:child_process";
-import { mkdtemp, rm } from "node:fs/promises";
+import { access, mkdtemp, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
 const root = process.cwd();
 const command = path.join(root, "node_modules", ".bin", "skills");
-const experimental = ["prosto-write", "prosto-shape", "prosto-contract", "prosto-implement"];
+const experimental = ["write-skill", "evaluate-skill", "improve-skill"];
 
 const normal = run({}, { allowEmpty: true });
 for (const skill of experimental) {
@@ -34,23 +34,20 @@ try {
     fail(`Skills CLI install exited ${install.status}:\n${install.stderr || install.stdout}`);
   }
 
-  const installedScript = path.join(
-    installRoot,
-    ".agents/skills/prosto-implement/scripts/workctl.mjs",
-  );
-  const runtime = spawnSync(process.execPath, [installedScript, "--help"], {
-    cwd: installRoot,
-    encoding: "utf8",
-  });
-  if (runtime.status !== 0 || !runtime.stdout.includes("workctl manages")) {
-    fail(`Installed workctl failed without repository dependencies:\n${runtime.stderr || runtime.stdout}`);
+  for (const skill of experimental) {
+    const installedSkill = path.join(installRoot, ".agents/skills", skill, "SKILL.md");
+    try {
+      await access(installedSkill);
+    } catch {
+      fail(`Installed Skill is missing: ${installedSkill}`);
+    }
   }
 } finally {
   await rm(installRoot, { recursive: true, force: true });
 }
 
 console.log(
-  "Skills CLI hides Experimental Skills normally, exposes them internally, and installs a self-contained workctl.",
+  "Skills CLI hides Experimental Skills normally, exposes them internally, and installs each atomic Skill.",
 );
 
 function run(environment, options = {}) {

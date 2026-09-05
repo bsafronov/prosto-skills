@@ -11,10 +11,8 @@
   },
   "scripts": {
     "changeset": "changeset",
-    "check": "npm run generate:check && npm run validate && npm test && npm run smoke",
-    "generate": "node scripts/generate-catalog.mjs",
-    "generate:check": "node scripts/generate-catalog.mjs --check",
-    "install:codex": "INSTALL_INTERNAL_SKILLS=1 skills add . -g -a codex -s '*' -y",
+    "check": "npm run validate && npm test && npm run smoke",
+    "install:codex": "INSTALL_INTERNAL_SKILLS=1 skills add . -g -a codex -s '*'",
     "release:tag": "changeset tag",
     "smoke": "node scripts/smoke-install.mjs",
     "test": "node --test",

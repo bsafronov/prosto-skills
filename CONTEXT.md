@@ -1,161 +1,145 @@
 # Agent Skills Repository
 
-This repository curates a composable ecosystem of reusable capabilities for agents. Its language distinguishes independently useful Skills from the structures that invoke, combine, route, and improve them.
+This repository develops a small Core mindset and atomic Skills that agents select and compose from simple product language.
 
 ## Language
 
+**Core**:
+The always-applicable agent mindset: seek the outcome, use evidence, choose the smallest sufficient composition, delegate deterministic work to tools, prove proportionally to risk, and stop. Core is not a Skill, workflow, or runtime.
+_Avoid_: Core Skill, agent OS, universal workflow
+
 **Skill**:
-A reusable capability for an agent, expressed as instructions with optional supporting resources. A Skill remains useful when installed by itself.
-_Avoid_: Prompt, command, plugin
+An atomic reusable capability for agent judgment, expressed as instructions with optional supporting resources. It owns one independently useful outcome and a clear selection boundary.
+_Avoid_: Prompt, command, primitive, policy
+
+**Skill Name**:
+An unprefixed verb-object identifier that states the owned outcome and is unique in its installation target. A collision blocks installation instead of silently shadowing another Skill.
+_Avoid_: Vendor prefix, category path, silent overwrite
+
+**Skill Development Skill**:
+A Skill whose outcome is writing, evaluating, or improving another Skill.
+_Avoid_: Core Skill, meta-skill
 
 **Skill Suite**:
-The complete curated collection of Skills maintained in this repository.
+The curated collection of Skills maintained in this repository.
 _Avoid_: Skill pack, bundle
 
-**Experimental Skill**:
-A Skill still gathering Quality Gate evidence. It is hidden from normal installation until Promotion.
-_Avoid_: Draft skill, in-progress skill
-
-**Stable Skill**:
-A Skill admitted to the normal installable Skill Suite through Promotion.
-_Avoid_: Production skill, released skill
-
 **Skill Ecosystem**:
-The Skill Suite together with its Invocation Modes, compositions, Flows, Quality Gates, and improvement practices.
-_Avoid_: Skill library, command collection
+The Core, Skill Suite, Compositions, Quality Gates, and improvement practices together.
+_Avoid_: Agent runtime, workflow engine
 
-**Core Skill**:
-A Skill that helps agents write, compose, evaluate, or improve other Skills and agent-facing material.
-_Avoid_: Base skill, system skill
-
-**Orchestrator Skill**:
-A user-invoked Skill that calls model-invoked Peer Skills to perform a composed task. It stays thin by requiring its named Peer Skills instead of copying their behavior.
-_Avoid_: Meta-skill, wrapper skill
-
-**Peer Skill**:
-An independently useful, model-invoked Skill that an Orchestrator Skill can call. An Orchestrator Skill can require named Peer Skills.
-_Avoid_: Sub-skill
-
-**Peer Closure**:
-The complete set of direct and transitive Peer Skills required by an Orchestrator Skill.
-_Avoid_: Dependency bundle, install set
-
-**Invocation Mode**:
-The rule that determines whether a Skill is user-invoked or model-invoked.
-_Avoid_: Visibility, activation type
-
-**User-invoked Skill**:
-A Skill that only a human can start explicitly. It commonly acts as an Orchestrator Skill or Router Skill.
-_Avoid_: Command, manual skill
-
-**Model-invoked Skill**:
-A Skill that a human, model, or Orchestrator Skill can start. It commonly owns a reusable behavior, discipline, or vocabulary.
-_Avoid_: Automatic skill, implicit skill
-
-**Router Skill**:
-A user-invoked Skill that helps a human select another user-invoked Skill or Flow without starting it.
-_Avoid_: Orchestrator Skill, index skill
-
-**Skill Catalog**:
-A generated description of available Skills, their Invocation Modes, relationships, maturity, and applicable problems.
-_Avoid_: Skill list, registry
+**Composition**:
+The zero or more Skills and their ordering selected by an agent for one request. Composition is task-specific and creates no dependency between Skills.
+_Avoid_: Dependency graph, pipeline
 
 **Flow**:
-A recommended path through multiple Skills for a class of problems.
-_Avoid_: Pipeline, workflow
+A durable recommended Composition whose repeated use shows that the same Skills and ordering remain valuable.
+_Avoid_: Speculative workflow, mandatory pipeline
 
-**Context Pointer**:
-Short, available text that states what material exists and when an agent should load it.
-_Avoid_: Link, reference
+**Tool**:
+A deterministic mechanism used for search, transformation, validation, compilation, testing, or another mechanical operation. A Tool is not a Skill unless its use requires reusable agent judgment.
+_Avoid_: Primitive Skill, tool wrapper
 
-**Context Load**:
-The agent attention and context-window cost of material kept available whether or not it is used.
-_Avoid_: Token count, prompt size
+**Adapter**:
+A minimal host-specific binding added only when compatibility evidence shows native behavior is insufficient.
+_Avoid_: Core fork, speculative integration
 
-**Cognitive Load**:
-The human effort required to remember what Skills and material exist and when to use them.
-_Avoid_: Complexity, learning curve
+**Evidence**:
+An observation from a repository, tool, runtime, document, or user that can change an agent decision.
+_Avoid_: Raw log, assumption
 
-**Progressive Disclosure**:
-Placement of branch-specific material behind a Context Pointer so the agent loads it only when needed.
-_Avoid_: Lazy loading, file splitting
+**Proof**:
+Evidence sufficient to show that an outcome or boundary holds within its relevant scope.
+_Avoid_: Completed edit, best-effort absence
 
 **Completion Criterion**:
-A checkable condition that tells an agent when a step or task is genuinely complete.
-_Avoid_: Definition of done, acceptance criterion
+A checkable condition that tells an agent when a Skill or task is complete.
+_Avoid_: Step list, activity report
 
-**Single Source of Truth**:
-The one authoritative location for a behavior, rule, or fact; other material points to it instead of copying it.
-_Avoid_: Canonical copy, primary file
+**Invocation Mode**:
+Whether an agent may select a Skill or a human must invoke it explicitly.
+_Avoid_: Visibility, activation type
 
-**No-op Instruction**:
-An instruction that does not materially change agent behavior from its default.
-_Avoid_: Redundant instruction, filler
+**Model-invoked Skill**:
+A Skill whose description lets an agent select it from plain-language intent.
+_Avoid_: Automatic workflow
 
-**Steering File**:
-An always-available instruction file that controls agent behavior within a user or project scope.
-_Avoid_: Rules file, memory file
+**User-invoked Skill**:
+A Skill that only a human starts explicitly. Use this mode when automatic invocation would interrupt product work or cross an ownership boundary.
+_Avoid_: Command
 
-**Agent Reference**:
-Agent-facing material loaded through a Context Pointer only when its branch applies.
-_Avoid_: Documentation, knowledge file
+**Experimental Skill**:
+A Skill still gathering Quality Gate evidence and hidden from normal installation.
+_Avoid_: Draft Skill
 
-**Skill Lifecycle**:
-The progression through authoring, review, evaluation, and release of a Skill.
-_Avoid_: Skill pipeline, publishing flow
+**Stable Skill**:
+A Skill admitted to normal installation through Promotion.
+_Avoid_: Production Skill, released Skill
+
+**Maintainer-only Skill**:
+A Skill reserved for repository governance or release authority.
+_Avoid_: System command
+
+**Context Pointer**:
+Short available text that states what conditional material exists and when an agent should load it.
+_Avoid_: Bare link, duplicated reference
+
+**Context Load**:
+Agent attention and context-window cost paid whenever material is available.
+_Avoid_: File size, token count alone
+
+**Cognitive Load**:
+Human effort required to remember what Skills exist and when to invoke them.
+_Avoid_: Context Load
+
+**Trigger Case**:
+A scenario where an agent should select a model-invoked Skill.
+_Avoid_: Keyword test
+
+**Anti-trigger Case**:
+A scenario where an agent should reject a Skill, especially in favor of nearby behavior.
+_Avoid_: Negative wording test
+
+**Composition Case**:
+A scenario where multiple independently useful Skills should combine without hard dependencies.
+_Avoid_: Flow definition
+
+**Outcome Case**:
+A representative task whose observable result tests a Skill's Effectiveness.
+_Avoid_: Instruction snapshot
 
 **Quality Gate**:
-Required evidence that a Skill conforms to the format, installs correctly, activates appropriately, and produces acceptable outcomes.
-_Avoid_: Checklist, lint pass
+Required deterministic and behavioral evidence that a Skill is valid, selectable, bounded, effective, and installable.
+_Avoid_: Checklist alone
 
 **Effectiveness**:
 The degree to which a Skill changes agent behavior and achieves its intended outcome.
-_Avoid_: Usefulness, quality
+_Avoid_: Instruction length
 
 **Predictability**:
-The degree to which a Skill activates and follows its intended process consistently across comparable runs.
-_Avoid_: Determinism, repeatability
+The degree to which comparable runs select and follow a Skill consistently.
+_Avoid_: Tool determinism
 
 **Efficiency**:
-The reduction of context, cognition, tool use, and time that preserves Effectiveness.
-_Avoid_: Brevity, cheapness
-
-**Trigger Case**:
-A scenario where an agent should activate a Skill.
-_Avoid_: Positive test
-
-**Anti-trigger Case**:
-A scenario where an agent should not activate a Skill.
-_Avoid_: Negative test
-
-**Outcome Scenario**:
-A representative task and acceptance conditions used to evaluate a Skill's behavior.
-_Avoid_: Prompt test, example
+Reduced context, cognition, tool use, and time while preserving Effectiveness and Predictability.
+_Avoid_: Brevity alone
 
 **Evaluation Report**:
-Promotion evidence that identifies evaluated cases, source revision, harness, model, results, variance, and blocking findings.
-_Avoid_: Test output, scorecard
+Read-only evidence identifying cases, source revision, harness, model, results, variance, and blocking findings.
+_Avoid_: Raw session log
 
 **Retrospective Evidence**:
-Observations from a real agent run that support a proposed improvement to the Skill Ecosystem.
-_Avoid_: Feedback, session notes
-
-**Change Record**:
-A durable summary that connects selected Retrospective Evidence to one proposed change and its release impact.
-_Avoid_: Session log, change request
+A concrete recurring behavior gap observed in completed work and suitable for a separate improvement task.
+_Avoid_: Mandatory post-task introspection
 
 **Promotion**:
-Movement of a Skill or change into the stable Skill Suite after Quality Gate evidence and Maintainer approval.
-_Avoid_: Publication, deployment
+Maintainer-approved movement of an Experimental Skill into the Stable Skill Suite after its Quality Gate passes.
+_Avoid_: Improvement, publication
 
 **Release Checkpoint**:
-A suite-level semantic-version tag and changelog update that records accumulated Stable Skill changes without publishing an npm package.
-_Avoid_: Promotion, npm release
-
-**Adapter**:
-An optional Skill or resource that maps a portable capability to one agent's product-specific behavior.
-_Avoid_: Fork, vendor patch
+A suite-level semantic-version tag and changelog update recording accumulated Stable Skill changes.
+_Avoid_: Promotion, npm publication
 
 **Maintainer**:
-A human who accepts responsibility for approving changes and releases, including work authored by agents.
-_Avoid_: Approver, owner
+A human responsible for approving Skill mutations, Promotion, and releases.
+_Avoid_: Autonomous agent

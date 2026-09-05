@@ -1,5 +1,5 @@
 ---
-status: superseded by ADR-0005
+status: superseded by ADR-0015
 ---
 
 # Compose independent Skills with Orchestrator Skills

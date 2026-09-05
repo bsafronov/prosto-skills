@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Skill"
+  short_description: "Create one precise atomic agent Skill"
+  default_prompt: "Use $write-skill to create an atomic Skill for this recurring outcome."
+policy:
+  allow_implicit_invocation: true

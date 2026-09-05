@@ -1,10 +1,34 @@
 # Prosto Skills
 
-Composable Skills written for agents, by agents.
+Atomic Skills written for agents, by agents.
 
-Prosto Skills aims to become an ecosystem of focused capabilities that solve problems independently and combine without duplicating behavior. User-invoked Orchestrators and Routers coordinate model-invoked Peer Skills. Core Skills improve how the ecosystem writes, reviews, evaluates, reflects, and evolves.
+Prosto Skills lets a developer state a product outcome in ordinary language. The agent applies a small Core mindset, selects zero or more relevant Skills from their names and descriptions, uses deterministic tools for mechanical work, proves the result, and stops.
 
-The project is pre-release. `prosto-write`, `prosto-shape`, `prosto-contract`, and `prosto-implement` are Experimental; no Skill is Stable or included in a normal install yet.
+The project is pre-release. `write-skill`, `evaluate-skill`, and `improve-skill` are Experimental; no Skill is Stable or included in a normal install yet.
+
+## Model
+
+- **Core** is agent mindset, not an installable Skill or runtime.
+- **Skills** are atomic capabilities with one outcome and a precise selection boundary.
+- **Composition** is chosen dynamically for each request. Skills have no hard Skill dependencies.
+- **Tools** perform deterministic search, transformation, and proof work.
+- **Flows** are recorded only after repeated evidence proves a durable ordering useful.
+
+There is no resolver, orchestration engine, canonical Skill IR, capability registry, fact schema, or proof-ledger runtime. Native agent selection is the starting point. Adapters are added only when cross-agent evidence shows a concrete gap.
+
+[AGENTS.md](AGENTS.md) is this repository's Core source. Installed Skills assume a capable host agent and do not duplicate Core rules; compatibility evaluation determines whether any host needs a small adapter.
+
+## Skill development
+
+- `write-skill` creates or revises one atomic Skill.
+- `evaluate-skill` tests selection, rejection, composition, and outcome without editing.
+- `improve-skill` is explicitly invoked between product tasks and changes one Skill only after human approval.
+
+Every Skill uses an unprefixed verb-object name. Its description states what outcome it owns, when to use it, and when not to use it. Search, rewrite, typecheck, and similar phases remain tools rather than Skills.
+
+Unprefixed names share the installation target's namespace. Installation must surface collisions instead of silently replacing an existing Skill; the Maintainer chooses a clearer name when needed.
+
+See [CONTEXT.md](CONTEXT.md) for shared language and [the ADRs](docs/adr/) for accepted decisions.
 
 ## Install
 
@@ -20,21 +44,6 @@ Maintainers can install all Experimental Skills from the current checkout global
 npm run install:codex
 ```
 
-## Architecture
-
-- `skills/<name>/` contains Stable Skills.
-- `skills/.experimental/<name>/` contains Experimental Skills.
-- `skills/.system/<name>/` contains Maintainer-only Skills.
-- `flows/*.md` describes recommended paths through user-invoked Skills.
-- `tests/cases/<skill>/` contains agent behavior cases.
-- `metadata.prosto.requires` declares hard Peer dependencies.
-
-Every Skill is named `prosto-<verb>`. Orchestrators require Peers rather than copying them. The validator rejects missing Peers, non-model-invoked Peers, dependency cycles, cross-harness invocation conflicts, and Stable Skills whose Peer Closure is not Stable.
-
-The Experimental Core can write agent-facing material and run the internal Feature Delivery Flow: shape raw intent into one approved user outcome, compile it into an implementation contract without duplicate approval, and deliver the complete bounded change through durable task state and non-blocking process work. Planned additions include `prosto-review`, `prosto-evaluate`, `prosto-reflect`, `prosto-improve`, `prosto-promote`, and `prosto-find`. Only complete, independently useful slices are added.
-
-See [CONTEXT.md](CONTEXT.md) for the domain language and [the ADRs](docs/adr/) for accepted decisions.
-
 ## Develop
 
 Use Node 24:
@@ -45,19 +54,16 @@ npm install
 npm run check
 ```
 
-Useful commands:
-
-- `npm run validate` checks Skill, graph, Flow, and case contracts.
-- `npm run generate` refreshes the `prosto-find` catalog when that Router exists.
-- `npm test` runs deterministic tooling tests.
-- `npm run smoke` checks normal and internal discovery through Skills CLI.
+- `npm run validate` checks Skill, invocation, reference, and behavior-case contracts.
+- `npm test` tests deterministic repository tooling.
+- `npm run smoke` verifies normal and internal Skills CLI discovery and installation.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a Skill. Stable changes use Changesets; this private package is versioned and tagged but never published to npm.
+
+## Research
+
+Initial composition research drew from [Matt Pocock's Skills](docs/research/mattpocock-skills.md). Current native-composition decisions and differences are recorded in [ADR-0015](docs/adr/0015-use-core-mindset-and-native-skill-composition.md).
 
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE).
-
-## Acknowledgements
-
-The ecosystem design is influenced by [Matt Pocock's composable Skills work](https://github.com/mattpocock/skills), especially hard Skill composition, user/model invocation boundaries, and generated routing. See the [source-backed research note](docs/research/mattpocock-skills.md). Prosto instructions and terminology are original to this project.

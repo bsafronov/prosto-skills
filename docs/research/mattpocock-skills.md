@@ -1,5 +1,7 @@
 # Matt Pocock's Skills: lessons for `prosto-skills`
 
+Historical research input. [ADR-0015](../adr/0015-use-core-mindset-and-native-skill-composition.md) supersedes its hard-dependency and routing recommendations.
+
 Inspected 2026-08-31 at commit [`6654f6b`](https://github.com/mattpocock/skills/tree/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76).
 
 ## Main finding

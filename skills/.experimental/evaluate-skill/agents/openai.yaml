@@ -1,0 +1,6 @@
+interface:
+  display_name: "Evaluate Skill"
+  short_description: "Test Skill selection, boundaries, and outcome"
+  default_prompt: "Use $evaluate-skill to evaluate this Skill against realistic behavior cases."
+policy:
+  allow_implicit_invocation: true

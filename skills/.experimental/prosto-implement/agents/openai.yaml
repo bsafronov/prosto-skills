@@ -1,6 +1,0 @@
-interface:
-  display_name: "Prosto Implement"
-  short_description: "Deliver features from intent through proof"
-  default_prompt: "Use $prosto-implement to deliver this feature from product intent through proof."
-policy:
-  allow_implicit_invocation: false

@@ -1,14 +1,14 @@
-## Problem and ownership
+## Capability and boundary
 
-<!-- What agent behavior changes, and which Skill owns it? -->
+<!-- What recurring behavior gap changes, which Skill owns it, and what remains outside? -->
 
 ## Evidence
 
-<!-- Cases, deterministic checks, and agent evaluation results. -->
+<!-- Selection, rejection, composition, outcome, and deterministic checks. -->
 
 - [ ] `npm run check` passes
 - [ ] Required behavior cases changed or were added
-- [ ] Invocation and Peer Closure remain valid
+- [ ] Invocation metadata remains consistent
 - [ ] Agent Evaluation Report is attached when required
 - [ ] Executable scripts received Maintainer review, or none changed
 
