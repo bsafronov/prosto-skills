@@ -8,7 +8,7 @@ migration ledger, not authorization to remove installed Skills.
 
 Snapshot date: 2026-09-05.
 
-The Skills CLI reports 56 global Skills:
+The baseline Skills CLI listing reported 56 global Skills:
 
 - 32 from `mattpocock/skills`;
 - 19 from `JuliusBrussee/caveman`;
@@ -16,6 +16,9 @@ The Skills CLI reports 56 global Skills:
 - 1 from `vercel-labs/skills`;
 - 1 from `vercel-labs/agent-skills`;
 - 1 local Skill, `frontend-design`, with no recorded upstream source.
+
+After the first approved prune, 45 global Skills remain: 32 Matt Pocock, 8
+Caveman, 2 shadcn, 2 Vercel, and 1 local Skill.
 
 The shared installation directory also contains exact copies of the three
 current Prosto Experimental Skills: `write-skill`, `evaluate-skill`, and
@@ -77,17 +80,18 @@ Local Experimental installation may remain unregistered during development,
 but a Stable cutover must use one reproducible source and provenance path.
 
 The stale records were removed through the Skills CLI on 2026-09-05 after an
-exact registry backup. The repaired state is:
+exact registry backup. The first approved prune then removed 11 installed
+Caveman helper Skills after a second backup. The current state is:
 
-- 55 registry records;
-- 58 shared Skill directories;
+- 44 registry records;
+- 47 shared Skill directories;
 - no registry record without a directory;
 - exactly 3 documented directory-only exceptions: `write-skill`,
   `evaluate-skill`, and `improve-skill`.
 
-The Skills CLI still reports 56 global Skills because it also discovers the
-Codex-local `frontend-design` Skill. No installed Skill directory was removed
-during registry repair.
+The Skills CLI reports 45 global Skills because it also discovers the
+Codex-local `frontend-design` Skill. Registry repair removed no installed Skill
+directory; the later prune removed only its 11 approved targets.
 
 The agent-specific Claude Skill at `.claude/skills/codebase-memory` also has
 invalid YAML frontmatter and is skipped by the Skills CLI. Repair or remove it
@@ -104,6 +108,7 @@ as a separate host-maintenance task; it is outside the shared Skill cutover.
 - **Drop candidate**: no first-party replacement is expected. Confirm absence of
   real use before removal.
 - **Review**: usage or ownership evidence is insufficient for a decision.
+- **Removed**: approved removal completed with a recoverable backup.
 
 Every disposition is provisional until supported by completed-task evidence.
 
@@ -190,19 +195,19 @@ No explicit signal was found for 23 globally listed Skills:
 
 | Skill | Provisional disposition | Reason or candidate outcome |
 | --- | --- | --- |
-| `cavecrew` | Drop candidate | Native delegation plus Core should own selection; verify any compressed-agent requirement first. |
-| `caveman` | Replace | Strong usage evidence makes communication behavior a cutover blocker, but it should move to owned steering unless repeated judgment proves a Skill useful. |
+| `cavecrew` | Removed | Removed 2026-09-05 after no explicit usage signal and a recoverable backup. |
+| `caveman` | Core trial | Owned global steering replaced the external invocation on 2026-09-05. Keep the Skill installed until normal-task behavior proves the thin rule sufficient. |
 | `caveman-commit` | Replace | Commit-message judgment may become a small first-party capability or steering rule. Current Codex instructions invoke it. |
-| `caveman-compress` | Drop candidate | Deterministic compression and backup handling should be a tool unless judgment evidence says otherwise. |
-| `caveman-discover` | Drop candidate | Caveman Cloud product integration is outside the Prosto Core. |
-| `caveman-evidence-review` | Drop candidate | Caveman Cloud product integration is outside the Prosto Core. |
-| `caveman-explore` | Core trial | Core already prefers direct evidence and deterministic discovery tools. |
-| `caveman-help` | Drop candidate | Help for the removed Caveman suite needs no replacement. |
-| `caveman-learn` | Drop candidate | Overlaps explicit, evidence-backed `improve-skill`; product-specific parts remain out of scope. |
-| `caveman-manage` | Drop candidate | Caveman Cloud product integration is outside the Prosto Core. |
-| `caveman-optimize` | Drop candidate | Caveman Cloud product integration is outside the Prosto Core. |
-| `caveman-setup` | Drop candidate | Caveman Cloud product integration is outside the Prosto Core. |
-| `caveman-stats` | Drop candidate | Caveman session statistics need no replacement unless still used. |
+| `caveman-compress` | Removed | Removed 2026-09-05 after one explicit signal and a recoverable backup. |
+| `caveman-discover` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
+| `caveman-evidence-review` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
+| `caveman-explore` | Removed | Removed 2026-09-05; Core and deterministic discovery tools own the behavior. |
+| `caveman-help` | Removed | Removed 2026-09-05 after one explicit signal and a recoverable backup. |
+| `caveman-learn` | Removed | Removed 2026-09-05; overlaps evidence-backed `improve-skill`. |
+| `caveman-manage` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
+| `caveman-optimize` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
+| `caveman-setup` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
+| `caveman-stats` | Removed | Removed 2026-09-05; session statistics need no replacement. |
 | `investigate-first` | Replace | Diagnose an ambiguous failure and name a credible mechanism before editing. |
 | `lean-build` | Replace | Deliver a bounded feature without speculative infrastructure. |
 | `migration` | Replace | Preserve compatibility and rollback during a transition. |
@@ -274,6 +279,7 @@ current cutover blockers:
 
 1. Move concise response behavior from `caveman` into owned steering, not a
    replacement Skill, unless behavior evaluation proves steering insufficient.
+   **Completed 2026-09-05; behavior trial pending.**
 2. Write a concise Conventional Commit message from change intent.
 3. Review changes against repository standards and the originating request.
 4. Plan work too large for one task using independent decisions rather than an
