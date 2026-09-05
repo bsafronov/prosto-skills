@@ -59,6 +59,21 @@ New Skills and invocation or composition changes require compatibility evidence 
 
 Evaluation Reports belong in pull-request or CI artifacts. They identify cases, source revision, harness, model, results, variance, and blocking findings; raw agent sessions are not committed.
 
+Validate artificial scenario structure without a model call:
+
+```sh
+npm run evaluate:validate
+```
+
+Run a Skill's isolated scenarios five times on a declared Codex model:
+
+```sh
+npm run evaluate -- <skill> --model <model>
+```
+
+Hard behavior requires 5/5 runs. Presentation quality allows one variable run and
+requires 4/5. The runner deletes raw task output and prints only aggregate evidence.
+
 ## Versioning
 
 Stable user-visible changes require a Changeset:

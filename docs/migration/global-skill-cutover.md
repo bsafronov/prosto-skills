@@ -20,18 +20,18 @@ The baseline Skills CLI listing reported 56 global Skills:
 After the first approved prune, 45 global Skills remain: 32 Matt Pocock, 8
 Caveman, 2 shadcn, 2 Vercel, and 1 local Skill.
 
-The shared installation directory also contains exact copies of the three
-current Prosto Experimental Skills: `write-skill`, `evaluate-skill`, and
-`improve-skill`. They are intentionally hidden from normal suite installation
-and are not represented in the global CLI listing.
+The shared installation directory also contains exact copies of the four
+current Prosto Experimental Skills: `write-skill`, `evaluate-skill`,
+`improve-skill`, and `review-requirements`. They are intentionally hidden from
+normal suite installation and are not represented in the global CLI listing.
 
 Codex also provides six system Skills under `.codex/skills/.system` and several
 plugin-provided Skills. They are host capabilities, not part of this cutover.
 Never remove or replace them through this plan.
 
-The Prosto suite currently has no Stable Skills. Its three Experimental Skills
-develop and evaluate Skills; they do not replace day-to-day product-delivery
-capabilities.
+The Prosto suite currently has no Stable Skills. Three Experimental Skills
+develop and evaluate Skills. `review-requirements` is the first Experimental
+product-delivery capability.
 
 ## Core boundary
 
@@ -84,10 +84,10 @@ exact registry backup. The first approved prune then removed 11 installed
 Caveman helper Skills after a second backup. The current state is:
 
 - 44 registry records;
-- 47 shared Skill directories;
+- 48 shared Skill directories;
 - no registry record without a directory;
-- exactly 3 documented directory-only exceptions: `write-skill`,
-  `evaluate-skill`, and `improve-skill`.
+- exactly 4 documented directory-only exceptions: `write-skill`,
+  `evaluate-skill`, `improve-skill`, and `review-requirements`.
 
 The Skills CLI reports 45 global Skills because it also discovers the
 Codex-local `frontend-design` Skill. Registry repair removed no installed Skill
@@ -220,7 +220,7 @@ No explicit signal was found for 23 globally listed Skills:
 | Skill | Provisional disposition | Reason or candidate outcome |
 | --- | --- | --- |
 | `claude-handoff` | Review | Claude-specific continuation may be a host adapter, not a portable Skill. |
-| `code-review` | Replace | Review against repository standards and originating specification. |
+| `code-review` | Replace | Split into the host's defect review and Experimental `review-requirements`; keep installed until composition evidence passes. |
 | `codebase-design` | Replace | Decide module boundaries and deepen interfaces. |
 | `domain-modeling` | Replace | Establish shared domain language and durable decisions. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
@@ -281,7 +281,11 @@ current cutover blockers:
    replacement Skill, unless behavior evaluation proves steering insufficient.
    **Completed 2026-09-05; behavior trial pending.**
 2. Write a concise Conventional Commit message from change intent.
-3. Review changes against repository standards and the originating request.
+3. Review implementation against its originating requirements. **Experimental
+   `review-requirements` created and installed for trials 2026-09-05. Its four
+   isolated artificial scenarios each passed a five-run local gate: hard
+   behavior 5/5 and presentation quality at least 4/5. Clean-revision,
+   declared-model, and cross-harness Promotion evidence remains pending.**
 4. Plan work too large for one task using independent decisions rather than an
    orchestration engine.
 5. Build or revise a domain model and its durable terminology.

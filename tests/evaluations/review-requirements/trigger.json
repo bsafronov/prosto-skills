@@ -1,0 +1,22 @@
+{
+  "id": "trigger",
+  "case": "tests/cases/review-requirements/review-change-against-spec.md",
+  "workspace": "tests/evaluations/review-requirements/fixtures/trigger",
+  "request": "Review the proposed password reset change in change.diff against spec.md. Decide whether every requirement and non-goal is satisfied. Cite the updated files under src/.",
+  "expect": {
+    "capabilities": {
+      "include": ["review-requirements"],
+      "exclude": ["defect-review"],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true
+  },
+  "quality": {
+    "summaryMaxCharacters": 220,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

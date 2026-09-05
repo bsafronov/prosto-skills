@@ -1,0 +1,22 @@
+{
+  "id": "composition",
+  "case": "tests/cases/review-requirements/compose-with-defect-review.md",
+  "workspace": "tests/evaluations/review-requirements/fixtures/composition",
+  "request": "Choose the smallest sufficient capabilities for a full review of change.diff against spec.md and for independent bugs, security issues, and regressions. Do not perform either review yet.",
+  "expect": {
+    "capabilities": {
+      "include": ["review-requirements", "defect-review"],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true
+  },
+  "quality": {
+    "summaryMaxCharacters": 200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

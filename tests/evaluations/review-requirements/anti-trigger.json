@@ -1,0 +1,22 @@
+{
+  "id": "anti-trigger",
+  "case": "tests/cases/review-requirements/reject-defect-only-review.md",
+  "workspace": "tests/evaluations/review-requirements/fixtures/anti-trigger",
+  "request": "Choose the review capability for this request: review change.diff for bugs, security issues, and regressions. There is no originating requirement or specification. Do not perform the review yet.",
+  "expect": {
+    "capabilities": {
+      "include": ["defect-review"],
+      "exclude": ["review-requirements"],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true
+  },
+  "quality": {
+    "summaryMaxCharacters": 180,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

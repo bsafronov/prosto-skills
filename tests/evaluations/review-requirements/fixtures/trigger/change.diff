@@ -1,0 +1,13 @@
+diff --git a/src/reset.js b/src/reset.js
+new file mode 100644
+--- /dev/null
++++ b/src/reset.js
+@@ -0,0 +1,8 @@
++const RESET_WINDOW_MS = 15 * 60 * 1000;
++
++export function resetPassword({ userId, createdAt, now, password, store, audit }) {
++  if (now - createdAt > RESET_WINDOW_MS) return { ok: false, error: "expired" };
++  store.updatePassword(userId, password);
++  audit.emit("password_reset_completed", { userId });
++  return { ok: true };
++}

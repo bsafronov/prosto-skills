@@ -1,0 +1,35 @@
+{
+  "id": "outcome",
+  "case": "tests/cases/review-requirements/report-conformance-gaps.md",
+  "workspace": "tests/evaluations/review-requirements/fixtures/outcome",
+  "request": "Review the proposed password reset change in change.diff against spec.md. Report only requirement-conformance gaps. Cite the updated files under src/ and do not edit anything.",
+  "expect": {
+    "capabilities": {
+      "include": ["review-requirements"],
+      "exclude": ["defect-review"],
+      "allowAdditional": false
+    },
+    "outcome": "findings",
+    "findings": [
+      {
+        "kind": "requirement",
+        "label": "Missing",
+        "sourceId": "REQ-AUDIT",
+        "path": "src/reset.js"
+      },
+      {
+        "kind": "requirement",
+        "label": "Scope",
+        "sourceId": "NON-GOAL-PROFILE",
+        "path": "src/profile.js"
+      }
+    ],
+    "allowAdditionalFindings": false,
+    "readOnly": true
+  },
+  "quality": {
+    "summaryMaxCharacters": 220,
+    "findingSummaryMaxCharacters": 180,
+    "orderedFindingSourceIds": ["REQ-AUDIT", "NON-GOAL-PROFILE"]
+  }
+}

@@ -1,0 +1,10 @@
+diff --git a/src/session.js b/src/session.js
+index 2c5f010..7b97a42 100644
+--- a/src/session.js
++++ b/src/session.js
+@@ -1,3 +1,4 @@
+ export function isSessionActive(session, now) {
+-  return session.lastActiveAt + 1_800_000 > now;
++  if (!session.userId && !session.token) return false;
++  return session.lastActiveAt + 1_800_000 > now;
+ }
