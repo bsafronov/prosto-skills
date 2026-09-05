@@ -17,4 +17,4 @@ The agent reviews requirement conformance.
 
 The report contains an evidence-backed `Missing` finding for the audit event and
 a `Scope` finding for the unrelated field, excludes generic design advice, and
-makes no code changes.
+uses valid source paths and one-based lines. It makes no code changes.

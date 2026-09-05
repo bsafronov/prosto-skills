@@ -22,7 +22,8 @@ Keep the review read-only.
    added outside the agreed scope.
 5. Report actionable gaps first. For each gap, cite the requirement source and
    the smallest relevant changed location, then state expected behavior, actual
-   behavior, and impact.
+   behavior, and impact. Verify that every cited source path and one-based line
+   exists; do not substitute diff line numbers for source line numbers.
 6. If every requirement is satisfied, say so. Report material evidence gaps or
    unverifiable requirements separately.
 

@@ -71,6 +71,12 @@ Run a Skill's isolated scenarios five times on a declared Codex model:
 npm run evaluate -- <skill> --model <model>
 ```
 
+Use `--harness opencode --runs 1` for the required OpenCode compatibility run.
+Model runs use the selected CLI's existing sign-in and send artificial fixtures
+to its model provider. OpenCode requires a local `opencode/auth.json` in the
+XDG data directory; its sign-in is linked into temporary storage so OAuth refresh
+remains available. User configuration, external Skills, and session sharing are disabled.
+
 Hard behavior requires 5/5 runs. Presentation quality allows one variable run and
 requires 4/5. The runner deletes raw task output and prints only aggregate evidence.
 

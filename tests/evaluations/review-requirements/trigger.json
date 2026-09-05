@@ -15,7 +15,7 @@
     "readOnly": true
   },
   "quality": {
-    "summaryMaxCharacters": 220,
+    "summaryMaxCharacters": 320,
     "findingSummaryMaxCharacters": 160,
     "orderedFindingSourceIds": []
   }

@@ -58,6 +58,7 @@ npm run check
 - `npm run evaluate:validate` checks artificial scenario definitions without model calls.
 - `npm run evaluate -- <skill> --model <model>` runs each scenario five times in an isolated,
   read-only Codex task. Hard behavior must pass 5/5 runs; wording quality must pass 4/5.
+- Add `--harness opencode` and an OpenCode model name for an isolated, read-only compatibility run.
 - `npm test` tests deterministic repository tooling.
 - `npm run smoke` verifies normal and internal Skills CLI discovery and installation.
 

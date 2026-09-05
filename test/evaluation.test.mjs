@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { evaluateScenarioReport, summarizeRuns } from "../lib/evaluation.mjs";
+import {
+  evaluateScenarioReport,
+  openCodeEnvironment,
+  parseHarnessReport,
+  parseOpenCodeEvents,
+  summarizeRuns,
+} from "../lib/evaluation.mjs";
 
 const scenario = {
   expect: {
@@ -101,4 +107,49 @@ test("quality may vary once in five runs but hard behavior may not", () => {
   const rejected = summarizeRuns("outcome", [pass, pass, pass, pass, hardFailure]);
   assert.equal(rejected.passed, false);
   assert.equal(rejected.hardPasses, 4);
+});
+
+test("harness output accepts plain, fenced, and OpenCode event JSON", () => {
+  const report = {
+    selectedCapabilities: [],
+    outcome: "selection",
+    findings: [],
+    summary: "Use defect review.",
+  };
+  const json = JSON.stringify(report);
+
+  assert.deepEqual(parseHarnessReport(json), report);
+  assert.deepEqual(parseHarnessReport(`\`\`\`json\n${json}\n\`\`\``), report);
+  assert.deepEqual(
+    parseOpenCodeEvents(
+      `${JSON.stringify({ type: "step_start", part: { type: "step-start" } })}\n${JSON.stringify({ type: "text", part: { type: "text", text: json } })}\n`,
+    ),
+    report,
+  );
+});
+
+test("OpenCode evaluations discard ambient configuration and disable sharing", () => {
+  const env = openCodeEnvironment("/tmp/evaluation", {
+    PATH: "/usr/bin",
+    OPENCODE_CONFIG: "/user/config.json",
+    OPENCODE_CONFIG_DIR: "/user/agents",
+    OPENCODE_CONFIG_CONTENT: '{"share":"auto"}',
+    OPENCODE_PERMISSION: '{"*":"allow"}',
+    OPENCODE_AUTO_SHARE: "true",
+    XDG_CONFIG_HOME: "/user/config",
+  });
+  assert.equal(env.PATH, "/usr/bin");
+  for (const key of ["OPENCODE_CONFIG", "OPENCODE_CONFIG_DIR", "OPENCODE_PERMISSION", "OPENCODE_AUTO_SHARE"]) {
+    assert.equal(env[key], undefined);
+  }
+  assert.equal(env.XDG_CONFIG_HOME, "/tmp/evaluation/opencode-config");
+  assert.equal(env.OPENCODE_DISABLE_CLAUDE_CODE, "true");
+  assert.equal(env.OPENCODE_DISABLE_EXTERNAL_SKILLS, "true");
+  assert.equal(env.OPENCODE_DISABLE_PROJECT_CONFIG, "true");
+  assert.equal(env.OPENCODE_DISABLE_SHARE, "true");
+  const config = JSON.parse(env.OPENCODE_CONFIG_CONTENT);
+  assert.equal(config.share, "disabled");
+  assert.equal(config.permission["*"], "deny");
+  assert.equal(config.permission.read, "allow");
+  assert.equal(config.lsp, false);
 });

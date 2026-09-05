@@ -13,12 +13,17 @@ try {
     for (const skill of skills) scenarioCount += (await loadEvaluationSuite(root, skill)).scenarios.length;
     console.log(`Validated ${skills.length} evaluation suite(s) and ${scenarioCount} scenario(s).`);
   } else {
-    if (!options.skill) throw new Error("Usage: npm run evaluate -- <skill> [--model <model>]");
+    if (!options.skill) {
+      throw new Error(
+        "Usage: npm run evaluate -- <skill> [--harness codex|opencode] [--model <model>]",
+      );
+    }
     const result = await evaluateSkill({
       root,
       skillName: options.skill,
       runs: options.runs,
       model: options.model,
+      harness: options.harness,
       scenarioIds: options.scenarios,
       onProgress: options.json
         ? undefined
@@ -35,6 +40,7 @@ try {
 
 function parseArguments(arguments_) {
   const options = {
+    harness: "codex",
     json: false,
     model: undefined,
     runs: 5,
@@ -47,7 +53,9 @@ function parseArguments(arguments_) {
     const argument = arguments_[index];
     if (argument === "--json") options.json = true;
     else if (argument === "--validate-only") options.validateOnly = true;
-    else if (argument === "--model") options.model = requiredValue(arguments_, ++index, argument);
+    else if (argument === "--harness") {
+      options.harness = requiredValue(arguments_, ++index, argument);
+    } else if (argument === "--model") options.model = requiredValue(arguments_, ++index, argument);
     else if (argument === "--runs") options.runs = Number(requiredValue(arguments_, ++index, argument));
     else if (argument === "--scenario") {
       options.scenarios.push(requiredValue(arguments_, ++index, argument));

@@ -283,9 +283,11 @@ current cutover blockers:
 2. Write a concise Conventional Commit message from change intent.
 3. Review implementation against its originating requirements. **Experimental
    `review-requirements` created and installed for trials 2026-09-05. Its four
-   isolated artificial scenarios each passed a five-run local gate: hard
-   behavior 5/5 and presentation quality at least 4/5. Clean-revision,
-   declared-model, and cross-harness Promotion evidence remains pending.**
+   isolated artificial scenarios pass hard behavior and presentation quality
+   5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol`. A one-run OpenCode 1.18.21
+   compatibility check also passes with that model. These are pre-commit checks;
+   clean-revision reports are recorded separately. Claude Code and Cursor
+   Promotion evidence remains pending.**
 4. Plan work too large for one task using independent decisions rather than an
    orchestration engine.
 5. Build or revise a domain model and its durable terminology.
