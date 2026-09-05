@@ -64,6 +64,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a Skill. Stable changes 
 
 Initial composition research drew from [Matt Pocock's Skills](docs/research/mattpocock-skills.md). Current native-composition decisions and differences are recorded in [ADR-0015](docs/adr/0015-use-core-mindset-and-native-skill-composition.md).
 
+When replacing an existing global third-party installation, use the
+[global Skill cutover ledger](docs/migration/global-skill-cutover.md) to preserve
+capability coverage, registry provenance, and rollback evidence.
+
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE).
