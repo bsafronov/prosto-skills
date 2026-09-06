@@ -1,0 +1,26 @@
+{
+  "id": "compose-review",
+  "case": "tests/cases/challenge-plan/compose-review.md",
+  "workspace": "tests/evaluations/challenge-plan/fixtures/compose-review",
+  "request": "Choose the smallest capabilities to stress-test the rollout plan and independently review its code changes for bugs. Do not perform either task yet.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "challenge-plan",
+        "defect-review"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

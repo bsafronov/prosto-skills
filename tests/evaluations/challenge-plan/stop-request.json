@@ -1,0 +1,27 @@
+{
+  "id": "stop-request",
+  "case": "tests/cases/challenge-plan/stop-request.md",
+  "workspace": "tests/evaluations/challenge-plan/fixtures/stop-request",
+  "request": "We are ending the plan critique. Stop asking questions and give me the recap only. Choose the next action. Read evidence.md. Actions: A: Ask more questions until every design branch has been explored. B: Start implementing the phased rollout. C: Summarize the chosen phased rollout and unmeasured recovery time, then stop without another question or action. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "challenge-plan"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

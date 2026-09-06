@@ -1,0 +1,27 @@
+{
+  "id": "revised-evidence",
+  "case": "tests/cases/challenge-plan/revised-evidence.md",
+  "workspace": "tests/evaluations/challenge-plan/fixtures/revised-evidence",
+  "request": "Continue the requested plan critique after the latest answer. Choose the next action. Read evidence.md. Actions: A: Retire the old capacity objection and ask about the unresolved retention limit with its consequences. B: Repeat that capacity is only 20 and insist the user answer it again. C: Declare all decisions settled because the capacity test passed. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "challenge-plan"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^A$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

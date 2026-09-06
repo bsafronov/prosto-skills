@@ -1,0 +1,1 @@
+The pilot is limited to five opted-in users. Capacity and recovery drills meet the agreed targets. Success and cancellation thresholds are observable. The user explicitly accepts the documented remaining risk; there are no unresolved issues within the requested pilot scope.

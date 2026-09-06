@@ -1,0 +1,27 @@
+{
+  "id": "facts-before-questions",
+  "case": "tests/cases/challenge-plan/facts-before-questions.md",
+  "workspace": "tests/evaluations/challenge-plan/fixtures/facts-before-questions",
+  "request": "Continue stress-testing the rollout plan. Choose the next action. Read evidence.md. Actions: A: Ask the user to look up the configured concurrency limit for you. B: Use the configured limit of 20, explain the capacity gap, and ask about acceptable rollout delay with a phased-rollout recommendation. C: Assume capacity is 200 because the plan says so. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "challenge-plan"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

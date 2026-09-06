@@ -1,0 +1,1 @@
+Earlier objection: limit 20 cannot support demand 200. Latest verified evidence: capacity was raised to 240 and a representative sustained-load test passed at 200. The user accepts that capacity evidence. A maximum data-retention period remains undecided.

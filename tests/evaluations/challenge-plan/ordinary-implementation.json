@@ -1,0 +1,25 @@
+{
+  "id": "ordinary-implementation",
+  "case": "tests/cases/challenge-plan/ordinary-implementation.md",
+  "workspace": "tests/evaluations/challenge-plan/fixtures/ordinary-implementation",
+  "request": "Implement the approved import plan and run its checks. I am not requesting a critique. Report selection only.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "challenge-plan"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

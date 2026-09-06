@@ -1,0 +1,27 @@
+{
+  "id": "defect-only",
+  "case": "tests/cases/challenge-plan/defect-only.md",
+  "workspace": "tests/evaluations/challenge-plan/fixtures/defect-only",
+  "request": "Review the diff for bugs and regressions only. Report selection only.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "defect-review"
+      ],
+      "exclude": [
+        "challenge-plan"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

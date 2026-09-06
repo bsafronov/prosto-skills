@@ -225,7 +225,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `codebase-design` | Replace | Decide module boundaries and deepen interfaces. |
 | `domain-modeling` | Replace | Experimental `model-domain` establishes shared domain language and consequential domain decisions; keep the third-party Skill until cutover evidence passes. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
-| `grilling` | Replace | Stress-test a user-selected plan or decision without taking ownership from the user. |
+| `grilling` | Replace | Experimental `challenge-plan` tests consequential assumptions in a user-selected plan; keep the third-party Skill until cutover evidence passes. |
 | `handoff` | Review | Frequent explicit use blocks removal until native task continuation is compared against the owned outcome. |
 | `improve-codebase-architecture` | Drop candidate | Prefer composition of independent design, inspection, and discussion capabilities. |
 | `loop-me` | Drop candidate | Workspace-specific orchestration should not become a generic replacement. |
@@ -297,7 +297,8 @@ historical invocation counts, placing `wayfinder` last in the first wave:
    `model-domain` created 2026-09-06; see the domain modeling trial below.**
 5. Apply test-first sequencing when explicitly requested. **Experimental
    `implement-test-first` created 2026-09-06; see the test-first trial below.**
-6. Stress-test a user-owned plan or decision.
+6. Stress-test a user-owned plan or decision. **Experimental `challenge-plan`
+   created 2026-09-06; see the plan critique trial below.**
 7. Synthesize an agreed specification and decompose it into bounded work while
    keeping tracker mutation explicit.
 8. Re-pitch an explanation when the user says it did not land.
@@ -457,6 +458,47 @@ Stable release impact or Changeset. Existing third-party installations and
 global steering remain unchanged. Claude Code and Cursor compatibility work
 remains deferred under the existing user instruction; Promotion and cutover
 remain separate.
+
+## Plan critique trial
+
+On 2026-09-06, `challenge-plan` became the next Experimental replacement.
+The user confirmed frequent current use of `grilling`; historical evidence
+records five explicit invocations and 53 assistant declarations across 51
+sessions.
+
+It owns a requested critique of a user-selected plan, decision, or idea. Ordinary
+implementation and defect-only review do not select it. It checks available
+facts, prioritizes consequential assumptions, asks prerequisite decisions before
+dependent questions, and updates its critique when evidence changes. Supported
+choices need no invented objections. It stops at the requested scope or the
+user's stop request instead of requiring an exhaustive design tree. Critique
+alone authorizes no implementation; separately authorized follow-up work needs
+no extra confirmation to close the discussion.
+
+Nine artificial cases cover a question grounded in actual capacity files,
+implementation and defect-review rejection, retrieving facts, dependent
+decisions, revised evidence, respecting a stop request, a supported plan, and
+independent defect-review composition. The read-only runner checks one generated
+question and choices at supplied conversation states. These trials do not prove
+live multi-round adaptation or ordinary host discovery.
+
+All nine cases pass hard behavior and presentation 5/5 on Codex CLI 0.153.4
+with `gpt-5.6-sol` (45/45), and 1/1 on OpenCode 1.18.21 with
+`openai/gpt-5.6-sol` (9/9). The generated-question case additionally rejects
+multiple question marks to check the requested one-question budget; that case
+was rerun on both hosts after adding the assertion, with the other eight results
+reused. The Skill instructions needed no repairs. Node 24 checks pass, including
+16 deterministic tests and normal/internal installation smoke checks.
+These are pre-commit working-tree results at
+`d253c5a0f52c56d8b3941c51a578188a5954135b+dirty`, not clean-revision Promotion
+evidence. Aggregate reports remain outside the repository; raw sessions are
+not retained.
+
+No `challenge-plan` name collision was found in the shared, Codex, Claude,
+Cursor, or OpenCode Skill directories. It remains repository-only with no Stable
+release impact or Changeset. Third-party installations and global steering
+remain unchanged. Claude Code and Cursor compatibility work remains deferred
+under the existing user instruction; Promotion and cutover remain separate.
 
 ## Registry repair plan
 

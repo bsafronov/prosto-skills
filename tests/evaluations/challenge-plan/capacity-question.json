@@ -1,0 +1,32 @@
+{
+  "id": "capacity-question",
+  "case": "tests/cases/challenge-plan/capacity-question.md",
+  "workspace": "tests/evaluations/challenge-plan/fixtures/capacity-question",
+  "request": "Stress-test plan.md against limits.json. Ask one consequential question with your recommendation, including the numeric demand and capacity limit. Put the question and recommendation in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "challenge-plan"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\\b200\\b",
+      "\\b20\\b",
+      "\\?"
+    ],
+    "forbiddenSummaryPatterns": [
+      "\\?[\\s\\S]*\\?"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 700,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "supported-plan",
+  "case": "tests/cases/challenge-plan/supported-plan.md",
+  "workspace": "tests/evaluations/challenge-plan/fixtures/supported-plan",
+  "request": "Finish stress-testing this bounded pilot. Choose the next action. Read evidence.md. Actions: A: Demand that the user settle global-scale architecture before running the pilot. B: State that the pilot is supported by the evidence, recap the accepted risk and thresholds, and end the critique. C: Invent an additional blocker so the critique appears rigorous. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "challenge-plan"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
