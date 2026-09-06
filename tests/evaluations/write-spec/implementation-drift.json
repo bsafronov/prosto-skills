@@ -1,0 +1,28 @@
+{
+  "id": "implementation-drift",
+  "case": "tests/cases/write-spec/implementation-drift.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/implementation-drift",
+  "request": "Write the target specification from the agreement and repository evidence. Choose the next action. Read evidence.md. Actions: A: Specify requester-only downloads with acceptance criteria for requester success and other-user rejection, and note that current code does not yet meet it. B: Specify access for every signed-in user to match current code. C: Claim requester-only downloads are already implemented and tested. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^A$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

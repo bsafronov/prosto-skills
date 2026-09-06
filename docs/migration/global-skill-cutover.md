@@ -241,7 +241,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `tdd` | Replace | Experimental `implement-test-first` owns requested red–green sequencing; keep the third-party Skill until cutover evidence passes. |
 | `teach` | Review | Broad outcome and explicit invocation need evidence before first-party ownership. |
 | `to-questionnaire` | Core trial | Core can ask only material unresolved questions; external sharing needs usage evidence. |
-| `to-spec` | Replace | Frequent explicit use supports owning specification synthesis without tracker mutation by default. |
+| `to-spec` | Replace | Experimental `write-spec` owns grounded specification synthesis without tracker mutation by default; keep the third-party Skill until cutover evidence passes. |
 | `to-tickets` | Replace | Frequent explicit use supports owning work decomposition; tracker mutation remains an explicit boundary. |
 | `triage` | Retain | Tracker-specific state and external mutation require deliberate compatibility evidence. |
 | `wait-what` | Replace | Frequent explicit use supports a small user-invoked capability for re-pitching an explanation. |
@@ -300,7 +300,8 @@ historical invocation counts, placing `wayfinder` last in the first wave:
 6. Stress-test a user-owned plan or decision. **Experimental `challenge-plan`
    created 2026-09-06; see the plan critique trial below.**
 7. Synthesize an agreed specification and decompose it into bounded work while
-   keeping tracker mutation explicit.
+   keeping tracker mutation explicit. **Experimental `write-spec` created
+   2026-09-06; `to-tickets` remains the next replacement.**
 8. Re-pitch an explanation when the user says it did not land.
 9. Plan work too large for one task using independent decisions rather than an
    orchestration engine.
@@ -499,6 +500,57 @@ Cursor, or OpenCode Skill directories. It remains repository-only with no Stable
 release impact or Changeset. Third-party installations and global steering
 remain unchanged. Claude Code and Cursor compatibility work remains deferred
 under the existing user instruction; Promotion and cutover remain separate.
+
+## Specification trial
+
+On 2026-09-06, `write-spec` became the next Experimental replacement.
+The user confirmed frequent current use of `to-spec`; historical evidence
+records 48 explicit invocations and 25 assistant declarations across 45 sessions.
+
+It owns synthesis or revision of a feature specification from existing
+agreement and relevant evidence. The model-invoked description requires a
+request for specification work; ordinary discussion, ticket decomposition,
+publishing an unchanged document, and conformance review do not select it.
+This differs from the third-party Skill's explicit-only Invocation Mode and
+bundled tracker publication.
+
+The replacement preserves agreed scope, observable acceptance, explicit
+revisions, and unaffected requirements. It records contradictions as open
+decisions instead of inventing agreement or claiming readiness. It can preserve
+precise prototype contracts without treating them as production behavior.
+Existing test-boundary decisions need no repeated approval. Publication,
+labels, decomposition, and implementation remain separately authorized actions.
+
+Ten artificial cases cover a generated CSV-export specification, decomposition
+and conformance-review rejection, conflicting decisions, explicit revisions,
+implementation drift, draft-only scope, already-authorized publication,
+prototype contracts, and independent defect-review composition. The read-only
+runner checks the returned draft and decisions at supplied task states; it does
+not prove document editing, tracker integration, or normal host discovery.
+
+Initial trials exposed two evaluation-contract issues. Conformance review
+correctly rejected `write-spec` but selected an alternate review capability; the
+case now checks the candidate's rejection without judging the alternate review.
+The draft assertion now accepts equivalent wording for an absent selection and
+also checks the required visible message and absence of an output file. Both
+affected cases were rerun on both hosts; the other eight results were reused.
+The Skill instructions were unchanged during these repairs.
+
+Final local results on 2026-09-07: all ten cases pass hard behavior and
+presentation 5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol` (50/50), and 1/1 on
+OpenCode 1.18.21 with `openai/gpt-5.6-sol` (10/10). Node 24 checks pass,
+including 16 deterministic tests and normal/internal installation smoke checks.
+These are pre-commit working-tree results at
+`b8d2c3798e44f398ca81dfc91828065da6c7497c+dirty`, not clean-revision Promotion
+evidence. Aggregate reports remain outside the repository; raw sessions are
+not retained.
+
+No `write-spec` name collision was found in the shared, Codex, Claude, Cursor,
+or OpenCode Skill directories. It remains repository-only with no Stable
+release impact or Changeset. Existing third-party installations and global
+steering remain unchanged. Claude Code and Cursor compatibility work remains
+deferred under the existing user instruction; Promotion and cutover remain
+separate.
 
 ## Registry repair plan
 

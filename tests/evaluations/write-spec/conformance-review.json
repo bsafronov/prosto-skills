@@ -1,0 +1,26 @@
+{
+  "id": "conformance-review",
+  "case": "tests/cases/write-spec/conformance-review.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/conformance-review",
+  "request": "Choose capabilities for checking whether an implementation meets an existing spec, without rewriting the spec. Report capability selection only with outcome selection; do not perform the review.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "write-spec"
+      ],
+      "allowAdditional": true
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

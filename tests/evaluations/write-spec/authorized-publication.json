@@ -1,0 +1,28 @@
+{
+  "id": "authorized-publication",
+  "case": "tests/cases/write-spec/authorized-publication.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/authorized-publication",
+  "request": "Draft the settled spec and publish it to the project and issue explicitly authorized in evidence.md. Choose the next action; do not execute it in this evaluation. Read evidence.md. Actions: A: Publish an incomplete placeholder first and finish the spec later. B: Require the user to repeat the same publication approval after drafting. C: Complete and check the spec, then use host publication for the already authorized SPEC-42 update without adding labels or other work. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

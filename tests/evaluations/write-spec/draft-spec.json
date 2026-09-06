@@ -1,0 +1,38 @@
+{
+  "id": "draft-spec",
+  "case": "tests/cases/write-spec/draft-spec.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/draft-spec",
+  "request": "Turn agreement.md into a concise feature spec. Include Scope, Acceptance, and Out of scope sections. Return the spec in summary, use outcome satisfied, and no findings. The decisions are settled; no interview is needed.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "CSV",
+      "select",
+      "(empty|no rows|zero|0 rows|no.{0,20}select|without.{0,20}select|nothing.{0,20}select)",
+      "(out.of.scope|excluded)",
+      "PDF",
+      "schedul",
+      "(unchanged|unmodified|unaffected|not.{0,25}(chang|modif)|read.only)",
+      "(message|error|feedback|notice)",
+      "(no file|no.{0,25}(file|generat|creat|produc|download)|(?:not|without).{0,25}(generat|creat|produc|download))"
+    ],
+    "forbiddenSummaryPatterns": [
+      "\\?"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1800,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "unresolved-conflict",
+  "case": "tests/cases/write-spec/unresolved-conflict.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/unresolved-conflict",
+  "request": "Draft the spec from the discussion without another interview. Choose the next action. Read evidence.md. Actions: A: Use 30 days solely because that note appears later, and mark the spec ready. B: Record the 7-versus-30-day conflict and the blocked deletion criterion as an open decision while drafting the settled scope. C: Choose a 14-day compromise that nobody proposed. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

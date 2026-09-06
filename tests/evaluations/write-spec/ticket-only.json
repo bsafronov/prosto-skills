@@ -1,0 +1,26 @@
+{
+  "id": "ticket-only",
+  "case": "tests/cases/write-spec/ticket-only.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/ticket-only",
+  "request": "The feature spec is final. Split it into implementation tickets without rewriting it. Assess whether the candidate Skill applies; do not perform the task.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "write-spec"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

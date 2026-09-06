@@ -1,0 +1,28 @@
+{
+  "id": "explicit-revision",
+  "case": "tests/cases/write-spec/explicit-revision.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/explicit-revision",
+  "request": "Revise the feature spec from the latest agreed decision. Choose the next action. Read evidence.md. Actions: A: Rewrite retention as 14 days but drop access restrictions because they were not repeated. B: Keep both 7 and 14 days as equally accepted requirements. C: Change retention and its acceptance criterion to 14 days while preserving requester-only access and the email exclusion. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

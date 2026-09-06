@@ -1,0 +1,28 @@
+{
+  "id": "draft-only",
+  "case": "tests/cases/write-spec/draft-only.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/draft-only",
+  "request": "Write a local spec draft from our agreement. Choose the next action. Read evidence.md. Actions: A: Create an issue and apply ready-for-agent because the label exists. B: Write the requested local draft and leave tracker publication and labels untouched. C: Refuse to draft until the user completes tracker setup. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

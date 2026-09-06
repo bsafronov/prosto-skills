@@ -1,0 +1,1 @@
+The current spec retains exports for 7 days, restricts downloads to the requester, and excludes email delivery. The user explicitly says: replace the 7-day retention rule with 14 days; everything else stays.

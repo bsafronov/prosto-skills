@@ -1,0 +1,28 @@
+{
+  "id": "prototype-contract",
+  "case": "tests/cases/write-spec/prototype-contract.md",
+  "workspace": "tests/evaluations/write-spec/fixtures/prototype-contract",
+  "request": "Turn this agreed prototype decision into a spec. Choose the next action. Read evidence.md. Actions: A: Preserve the two transitions as an intended contract, use cancelExport for observable acceptance, and identify the prototype status. B: Discard the transition table because specs must never contain precise state notation. C: Demand a new test-boundary approval and require TDD before drafting the spec. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^A$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

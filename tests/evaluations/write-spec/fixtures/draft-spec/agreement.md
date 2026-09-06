@@ -1,0 +1,1 @@
+Problem: analysts need to take selected table rows into another analysis tool. Agreed behavior: export only selected rows as CSV. With no rows selected, reject the export with a visible message and produce no file. PDF export and scheduled exports are explicitly out of scope. Existing records must remain unchanged.

@@ -1,0 +1,1 @@
+The accepted intended transition is Pending + Cancel -> Cancelled; Completed + Cancel leaves Completed unchanged and reports too late. The public cancelExport interface is already the agreed observation boundary. This is a prototype decision, not implemented production behavior.
