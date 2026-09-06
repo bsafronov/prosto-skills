@@ -1,0 +1,34 @@
+{
+  "id": "correct-claim",
+  "case": "tests/cases/reframe-explanation/correct-claim.md",
+  "workspace": "tests/evaluations/reframe-explanation/fixtures/correct-claim",
+  "request": "Read evidence.md and re-explain the latest question. Put the actual explanation in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "reframe-explanation"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "(wrong|incorrect|overstat|too strong|not (accurate|correct|true)|correction|correct my|should not have|shouldn.t have|misleading)",
+      "\\b24\\b",
+      "\\b25\\b",
+      "(lost|never (arrived|received)|did not (arrive|receive))",
+      "(may|might|could|can).{0,100}(again|second|duplicate|twice)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "will (always )?(charge|process).*again"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

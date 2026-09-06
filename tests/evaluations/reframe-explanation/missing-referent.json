@@ -1,0 +1,28 @@
+{
+  "id": "missing-referent",
+  "case": "tests/cases/reframe-explanation/missing-referent.md",
+  "workspace": "tests/evaluations/reframe-explanation/fixtures/missing-referent",
+  "request": "Read evidence.md. Choose the next response: A: Explain database transactions because that is probably the topic. B: Ask which explanation or topic the user means. C: Claim understanding is now confirmed. Return only the action ID in summary, outcome satisfied, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "reframe-explanation"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

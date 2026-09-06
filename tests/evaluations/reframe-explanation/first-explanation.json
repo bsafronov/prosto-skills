@@ -1,0 +1,26 @@
+{
+  "id": "first-explanation",
+  "case": "tests/cases/reframe-explanation/first-explanation.md",
+  "workspace": "tests/evaluations/reframe-explanation/fixtures/first-explanation",
+  "request": "Read evidence.md. Assess only whether reframe-explanation applies; do not answer the product question. Return outcome not_applicable if it does not, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "reframe-explanation"
+      ],
+      "allowAdditional": true
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

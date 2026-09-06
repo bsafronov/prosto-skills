@@ -1,0 +1,1 @@
+User: Your explanation of Account did not land. Explain the current meaning again, then help us decide whether billing accounts and login identities should be separate concepts and update the glossary with what we agree.

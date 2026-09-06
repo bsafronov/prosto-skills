@@ -1,0 +1,38 @@
+{
+  "id": "reservation-example",
+  "case": "tests/cases/reframe-explanation/reservation-example.md",
+  "workspace": "tests/evaluations/reframe-explanation/fixtures/reservation-example",
+  "request": "Read evidence.md and the relevant local domain definitions; answer the latest user message. Put the actual explanation in summary, use outcome satisfied, and no findings. End the explanation with New-order limit: N, replacing N with the computed maximum number of new one-item orders.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "reframe-explanation"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\\b(?:7|seven)\\b",
+      "\\b(?:3|three)\\b",
+      "\\b(?:4|four)\\b",
+      "\\b(?:5|five)\\b",
+      "On-hand",
+      "Reserved",
+      "Available",
+      "(only|just|left|remaining|remain|7\\s*[-\u2212]\\s*3|7 minus 3|subtract)",
+      "New-order limit:\\s*(?:4|four)\\.?\\s*$"
+    ],
+    "forbiddenSummaryPatterns": [
+      "allocatable projection"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

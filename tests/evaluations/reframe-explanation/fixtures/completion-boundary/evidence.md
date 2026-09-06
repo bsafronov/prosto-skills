@@ -1,0 +1,1 @@
+The user requested one short re-explanation of available stock. The agent gave the relevant definition, 7 minus 3 equals 4, and why 5 new orders exceed it. There is no unresolved factual ambiguity and no user response yet.

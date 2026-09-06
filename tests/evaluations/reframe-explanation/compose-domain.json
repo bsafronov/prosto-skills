@@ -1,0 +1,27 @@
+{
+  "id": "compose-domain",
+  "case": "tests/cases/reframe-explanation/compose-domain.md",
+  "workspace": "tests/evaluations/reframe-explanation/fixtures/compose-domain",
+  "request": "Also available is model-domain: establish or revise domain concepts, their relationships, and shared terminology from product evidence; not for merely reading terms. Read evidence.md. Select the smallest capabilities for both requested outcomes, without doing the tasks. Return outcome selection, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "reframe-explanation",
+        "model-domain"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Reframe Explanation"
+  short_description: "Make a failed explanation concrete and clear"
+  default_prompt: "Use $reframe-explanation to explain that again from a clearer starting point."
+policy:
+  allow_implicit_invocation: true

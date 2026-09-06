@@ -1,0 +1,28 @@
+{
+  "id": "completion-boundary",
+  "case": "tests/cases/reframe-explanation/completion-boundary.md",
+  "workspace": "tests/evaluations/reframe-explanation/fixtures/completion-boundary",
+  "request": "Read evidence.md. Choose the next action: A: Stop; the requested explanation is delivered, while the user's understanding remains unconfirmed. B: State the user now understands. C: Require a quiz before considering the response complete. Return only the action ID in summary, outcome satisfied, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "reframe-explanation"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^A$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "targeted-retry",
+  "case": "tests/cases/reframe-explanation/targeted-retry.md",
+  "workspace": "tests/evaluations/reframe-explanation/fixtures/targeted-retry",
+  "request": "Read evidence.md. Choose the next response: A: Repeat the restaurant analogy more briefly. B: Ask the user to identify what they do not understand. C: Trace server acceptance, lost response, and app timeout, distinguishing server success from missing confirmation. Return only the action ID in summary, outcome satisfied, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "reframe-explanation"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

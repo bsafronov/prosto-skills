@@ -1,0 +1,32 @@
+{
+  "id": "proposal-boundary",
+  "case": "tests/cases/reframe-explanation/proposal-boundary.md",
+  "workspace": "tests/evaluations/reframe-explanation/fixtures/proposal-boundary",
+  "request": "Read evidence.md and answer the user. Put the actual explanation in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "reframe-explanation"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "(manual|staff)",
+      "15",
+      "(propos|suggest|would|not yet|not (implemented|live)|does not|doesn.t)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "(I have|I.ve|we have|we.ve) (implemented|added|enabled)"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
