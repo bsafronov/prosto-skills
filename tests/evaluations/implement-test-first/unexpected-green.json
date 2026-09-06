@@ -1,0 +1,27 @@
+{
+  "id": "unexpected-green",
+  "case": "tests/cases/implement-test-first/unexpected-green.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/unexpected-green",
+  "request": "Continue the requested test-first change from the evidence. Choose the next action. Read evidence.md. Actions: A: Temporarily break shippingFee to obtain a red run. B: Report the requirement implemented because the test passes. C: Strengthen the assertion to the required zero fee and run it before deciding whether a production change is needed. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "implement-test-first"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

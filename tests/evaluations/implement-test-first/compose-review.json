@@ -1,0 +1,26 @@
+{
+  "id": "compose-review",
+  "case": "tests/cases/implement-test-first/compose-review.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/compose-review",
+  "request": "Choose the smallest capabilities for implementing an approved shipping rule with TDD and then independently reviewing it for bugs and regressions. Do not execute either task yet.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "implement-test-first",
+        "defect-review"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

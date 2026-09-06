@@ -1,0 +1,27 @@
+{
+  "id": "first-slice",
+  "case": "tests/cases/implement-test-first/first-slice.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/first-slice",
+  "request": "Use TDD to make shippingFee return 0 at 5000 cents. The existing shippingFee API is the agreed test boundary. Choose the next action. Read evidence.md. Actions: A: Change shippingFee first, then write tests. B: Add one test asserting shippingFee(5000) equals 0 and run it before changing production code. C: Ask the user to approve the same public boundary again. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "implement-test-first"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

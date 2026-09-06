@@ -1,0 +1,25 @@
+{
+  "id": "integration-only",
+  "case": "tests/cases/implement-test-first/integration-only.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/integration-only",
+  "request": "Add integration tests for the existing checkout behavior. No behavior change or test-first development is requested. Report selection only.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "implement-test-first"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

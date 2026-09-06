@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implement Test First"
+  short_description: "Prove behavior through a red–green test cycle"
+  default_prompt: "Use $implement-test-first to implement this behavior through a failing test and a minimal verified change."
+policy:
+  allow_implicit_invocation: true

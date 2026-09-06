@@ -1,0 +1,25 @@
+{
+  "id": "ordinary-feature",
+  "case": "tests/cases/implement-test-first/ordinary-feature.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/ordinary-feature",
+  "request": "Add pagination and verify it with appropriate tests. I have no preference about implementation order. Report selection only.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "implement-test-first"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

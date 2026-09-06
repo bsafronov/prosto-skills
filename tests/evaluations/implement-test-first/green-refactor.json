@@ -1,0 +1,27 @@
+{
+  "id": "green-refactor",
+  "case": "tests/cases/implement-test-first/green-refactor.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/green-refactor",
+  "request": "The requested red-green-refactor task has reached green. Choose the next action. Read evidence.md. Actions: A: Make the small extraction and rerun the behavioral tests before calling the slice complete. B: Refactor while ignoring test results because green has already been seen. C: Require a separate review Skill and another user approval before any local cleanup. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "implement-test-first"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^A$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "red-to-green",
+  "case": "tests/cases/implement-test-first/red-to-green.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/red-to-green",
+  "request": "Continue this TDD task from the evidence. Choose the next action. Read evidence.md. Actions: A: Add all imagined future shipping tests before touching production. B: Implement the threshold rule, rerun the new and existing tests, and keep the required assertion. C: Change the expected fee to 500 so the suite passes. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "implement-test-first"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

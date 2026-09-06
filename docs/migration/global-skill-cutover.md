@@ -238,7 +238,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `setup-matt-pocock-skills` | Drop candidate | Source-suite bootstrap becomes obsolete after cutover. |
 | `setup-pre-commit` | Retain | Narrow ecosystem setup that can later move to a deterministic tool. |
 | `setup-ts-deep-modules` | Retain | TypeScript-specific architecture setup. |
-| `tdd` | Replace | Frequent use supports owning test-first sequencing while keeping it independent from feature or bug-fix Skills. |
+| `tdd` | Replace | Experimental `implement-test-first` owns requested red–green sequencing; keep the third-party Skill until cutover evidence passes. |
 | `teach` | Review | Broad outcome and explicit invocation need evidence before first-party ownership. |
 | `to-questionnaire` | Core trial | Core can ask only material unresolved questions; external sharing needs usage evidence. |
 | `to-spec` | Replace | Frequent explicit use supports owning specification synthesis without tracker mutation by default. |
@@ -295,7 +295,8 @@ historical invocation counts, placing `wayfinder` last in the first wave:
    Promotion evidence remains pending.**
 4. Build or revise a domain model and its durable terminology. **Experimental
    `model-domain` created 2026-09-06; see the domain modeling trial below.**
-5. Apply test-first sequencing when explicitly requested.
+5. Apply test-first sequencing when explicitly requested. **Experimental
+   `implement-test-first` created 2026-09-06; see the test-first trial below.**
 6. Stress-test a user-owned plan or decision.
 7. Synthesize an agreed specification and decompose it into bounded work while
    keeping tracker mutation explicit.
@@ -409,6 +410,53 @@ OpenCode Skill directories. The candidate remains repository-only. Third-party
 installations and global steering are unchanged. There is no Stable release
 impact or Changeset. Claude Code and Cursor trials remain deferred under the
 existing user instruction; Promotion and global cutover remain separate.
+
+## Test-first trial
+
+On 2026-09-06, `implement-test-first` became the next Experimental replacement.
+The user confirmed frequent current use; historical evidence records 13 explicit
+invocations and 45 assistant declarations across 52 sessions.
+
+The Skill owns explicitly requested test-first implementation. Integration-test
+requests, ordinary feature work, and final verification alone do not select it.
+It reuses an evidenced public test boundary without repeated approval, checks
+that red comes from the intended behavior, and completes one minimal green
+slice before adding another. It permits useful local refactoring from green
+without requiring a review Skill. Independent expectations and controlled
+external boundaries keep tests sensitive to the actual contract.
+
+Nine read-only artificial cases cover selection, two rejection boundaries,
+runner failure, unexpected green, minimal implementation after meaningful red,
+an independent test oracle, refactoring from green, and independent review
+composition. Action-choice cases check the next decision, not the model's
+ability to execute it. A separate instrumented local exercise checks an actual
+shipping-fee red–green cycle and verifies the final tests against both the
+original and updated implementation.
+
+The writable Codex CLI 0.153.4 exercise with `gpt-5.6-sol` passed once: an
+existing below-threshold shipping test passed; the new free-shipping test failed
+with production unchanged; a one-line threshold implementation passed the same
+tests. Instrumentation was unchanged. Independent checks confirmed that the
+final tests reject the original implementation and that six values below, at,
+and above the threshold return the required fee. Only the two requested source
+and test files changed. This single execution trial supplements decision cases;
+it does not establish repeated execution or cross-host editing compatibility.
+
+All nine decision and selection cases pass hard behavior and presentation 5/5
+on Codex CLI 0.153.4 with `gpt-5.6-sol` (45/45), and 1/1 on OpenCode 1.18.21
+with `openai/gpt-5.6-sol` (9/9). No case or Skill repairs were needed. Node 24
+checks pass, including 16 deterministic tests and normal/internal installation
+smoke checks. These are pre-commit working-tree results at
+`52687cb95db3c9ae8cf75860e7138d07d8b822b5+dirty`, not clean-revision Promotion
+evidence. Aggregate reports remain outside the repository; the temporary
+execution fixture and raw output were deleted after verification.
+
+No `implement-test-first` name collision was found in the shared, Codex, Claude,
+Cursor, or OpenCode Skill directories. It remains repository-only, with no
+Stable release impact or Changeset. Existing third-party installations and
+global steering remain unchanged. Claude Code and Cursor compatibility work
+remains deferred under the existing user instruction; Promotion and cutover
+remain separate.
 
 ## Registry repair plan
 

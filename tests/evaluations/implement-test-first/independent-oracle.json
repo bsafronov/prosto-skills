@@ -1,0 +1,27 @@
+{
+  "id": "independent-oracle",
+  "case": "tests/cases/implement-test-first/independent-oracle.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/independent-oracle",
+  "request": "We are implementing retry timing with TDD. Choose the best next behavioral test from the evidence. Read evidence.md. Actions: A: Assert the private delay helper is called, with every internal collaborator mocked. B: Compute the expected delay by calling the same production delay helper. C: Use a controlled clock and fake external transport; assert no retry at 99 ms and a successful retry at 100 ms through the public API. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "implement-test-first"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "runner-failure",
+  "case": "tests/cases/implement-test-first/runner-failure.md",
+  "workspace": "tests/evaluations/implement-test-first/fixtures/runner-failure",
+  "request": "Continue this TDD task from the evidence. Choose the next action. Read evidence.md. Actions: A: Repair the import and rerun to check that the intended behavioral assertion fails. B: Treat any nonzero test exit as red and implement the new production rule. C: Delete the new test and report success. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "implement-test-first"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^A$"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
