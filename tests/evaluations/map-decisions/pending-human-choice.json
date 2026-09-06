@@ -1,0 +1,28 @@
+{
+  "id": "pending-human-choice",
+  "case": "tests/cases/map-decisions/pending-human-choice.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/pending-human-choice",
+  "request": "Read evidence.md. Update the map and choose the next useful work. A: Mark D1 accepted using the recommendation. B: Keep D1 open with the recommendation proposed; take D2 and preserve D3 as in progress. C: Duplicate D3 because it seems more important. D: Block the entire effort until the owner answers D1. Return only the action ID in summary, outcome satisfied, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "map-decisions"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 100,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "unresolved-area",
+  "case": "tests/cases/map-decisions/unresolved-area.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/unresolved-area",
+  "request": "Read evidence.md. A: Declare the route clear because all precise questions are closed. B: Keep the route incomplete and investigate enough to frame the overnight-response decision. C: Create dashboard redesign tickets. Return only the action ID in summary, outcome satisfied, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "map-decisions"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 100,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

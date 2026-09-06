@@ -1,0 +1,28 @@
+{
+  "id": "spec-only",
+  "case": "tests/cases/map-decisions/spec-only.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/spec-only",
+  "request": "The peer Skill write-spec is available: Synthesize a specification from agreed behavior and acceptance criteria. Read evidence.md. Request: Write that agreement as a feature specification; no planning map is requested. Choose capabilities only; do not perform the work. Use outcome selection and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [
+        "map-decisions"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

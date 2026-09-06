@@ -1,0 +1,28 @@
+{
+  "id": "retire-branch",
+  "case": "tests/cases/map-decisions/retire-branch.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/retire-branch",
+  "request": "Read evidence.md. A: Resolve Q1 and Q2 as successful decisions and leave Q3 blocked by Q1. B: Keep all questions active to preserve history. C: Retire Q1 and Q2 with the abandoned-route reason, keep rebranding excluded, and make Q3 the unblocked next investigation. Return only the action ID in summary, outcome satisfied, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "map-decisions"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 100,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "route-complete",
+  "case": "tests/cases/map-decisions/route-complete.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/route-complete",
+  "request": "Read evidence.md. A: Reopen downtime until zero uncertainty remains. B: Start implementation now. C: Record the accepted risk, mark the route clear, and finish the map update. Return only the action ID in summary, outcome satisfied, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "map-decisions"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 100,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

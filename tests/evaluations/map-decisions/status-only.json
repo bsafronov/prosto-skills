@@ -1,0 +1,26 @@
+{
+  "id": "status-only",
+  "case": "tests/cases/map-decisions/status-only.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/status-only",
+  "request": "Read evidence.md. Request: Create a task for the next approved work item in a worktree and show the current task status. Assess only whether the candidate Skill applies; do not perform the request or list other capabilities. Use outcome not_applicable, empty selectedCapabilities, and no findings if it does not apply.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "map-decisions"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "compose-critique",
+  "case": "tests/cases/map-decisions/compose-critique.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/compose-critique",
+  "request": "The peer Skill challenge-plan is available: stress-test a user-selected plan, decision, or idea when critique is requested. The peer write-spec captures agreed behavior as a specification. The peer split-work decomposes settled scope into implementable tasks. Read evidence.md. Choose capabilities to maintain the resumable decision map and critique the night-support assumption. No spec or implementation breakdown is requested. Select only; outcome selection and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "map-decisions",
+        "challenge-plan"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

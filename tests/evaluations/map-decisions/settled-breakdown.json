@@ -1,0 +1,28 @@
+{
+  "id": "settled-breakdown",
+  "case": "tests/cases/map-decisions/settled-breakdown.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/settled-breakdown",
+  "request": "The peer Skill split-work is available: Decompose agreed scope into bounded, verifiable work items with genuine prerequisites. Read evidence.md. Request: Break the signed migration spec into implementable tickets. Choose capabilities only; do not perform the work. Use outcome selection and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "split-work"
+      ],
+      "exclude": [
+        "map-decisions"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

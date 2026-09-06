@@ -1,0 +1,28 @@
+{
+  "id": "sharpen-uncertainty",
+  "case": "tests/cases/map-decisions/sharpen-uncertainty.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/sharpen-uncertainty",
+  "request": "Read evidence.md and choose the update. A: Leave support only as a vague area because the answer is unknown. B: Mark NightDesk accepted because Berlin is accepted. C: Replace the broad placeholder with the overnight-coverage question and the schedule evidence needed to resolve it. Return only the action ID in summary, outcome satisfied, no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "map-decisions"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 100,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

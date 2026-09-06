@@ -1,0 +1,40 @@
+{
+  "id": "draft-map",
+  "case": "tests/cases/map-decisions/draft-map.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/draft-map",
+  "request": "Read evidence.md and draft the decision map in summary. Use these plain-text labels for review: Destination:, E1 question:, E1 resolution evidence:, E1 blocked by:, R1 question:, R1 blocked by:, Unspecified:, Excluded:, Next:. Use None for no blocker and the existing IDs for links. Include a brief reason for the R1 prerequisite. For Next:, return only the next question ID. Use outcome satisfied and no findings. Draft only.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "map-decisions"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Destination:[^\\n]*(region|hosting)",
+      "E1 resolution evidence:[^\\n]*(benchmark|measur|latency)",
+      "(E1 question|E1 resolution evidence):[^\\n]*\\b80\\s*ms\\b",
+      "(E1 question|E1 resolution evidence):[^\\n]*p95",
+      "E1 blocked by:\\s*None",
+      "R1 question:[^\\n]*(region|eligible)",
+      "R1 blocked by:\\s*E1",
+      "Unspecified:[^\\n]*(handover|support)",
+      "Excluded:[^\\n]*rebrand",
+      "Next:\\s*E1"
+    ],
+    "forbiddenSummaryPatterns": [
+      "R1 blocked by:\\s*None",
+      "Next:\\s*R1"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

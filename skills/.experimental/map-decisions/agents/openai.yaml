@@ -1,0 +1,6 @@
+interface:
+  display_name: "Map Decisions"
+  short_description: "Keep uncertain work resumable through decision maps"
+  default_prompt: "Use $map-decisions to map the unresolved decisions, evidence, and prerequisites for this effort."
+policy:
+  allow_implicit_invocation: true

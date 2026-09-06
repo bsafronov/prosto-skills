@@ -1,0 +1,26 @@
+{
+  "id": "bounded-decision",
+  "case": "tests/cases/map-decisions/bounded-decision.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/bounded-decision",
+  "request": "Read evidence.md. Request: Help choose one of these labels from the supplied context. Assess only whether the candidate Skill applies; do not perform the request or list other capabilities. Use outcome not_applicable, empty selectedCapabilities, and no findings if it does not apply.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "map-decisions"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

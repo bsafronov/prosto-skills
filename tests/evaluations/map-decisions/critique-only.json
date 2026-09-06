@@ -1,0 +1,28 @@
+{
+  "id": "critique-only",
+  "case": "tests/cases/map-decisions/critique-only.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/critique-only",
+  "request": "The peer Skill challenge-plan is available: Stress-test a user-selected plan or decision when critical questioning is requested. Read evidence.md. Request: Critique the retention proposal and ask the most consequential question. Choose capabilities only; do not perform the work. Use outcome selection and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "challenge-plan"
+      ],
+      "exclude": [
+        "map-decisions"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

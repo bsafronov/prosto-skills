@@ -1,0 +1,37 @@
+{
+  "id": "revised-evidence",
+  "case": "tests/cases/map-decisions/revised-evidence.md",
+  "workspace": "tests/evaluations/map-decisions/fixtures/revised-evidence",
+  "request": "Read evidence.md and return the revised map excerpt in summary. Use plain-text lines D1 status:, D1 basis:, D2 status:, D3 status:, Next:, and Route:. Include source paths where they support the update; use the existing decision IDs. Choose statuses from accepted, reopen, reassess. For Next:, name the existing decision ID to revisit before dependent decisions, then describe the evidence to gather. Route must say clear or not clear. Use outcome satisfied and no findings. Do not alter the source files.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "map-decisions"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "D1 status:\\s*reopen",
+      "D1 basis:[^\\n]*115",
+      "measurements/latency\\.md",
+      "D2 status:\\s*reassess",
+      "D3 status:\\s*accepted",
+      "Next:[^\\n]*D1",
+      "Route:\\s*not clear"
+    ],
+    "forbiddenSummaryPatterns": [
+      "D2 status:\\s*accepted",
+      "Route:\\s*clear"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

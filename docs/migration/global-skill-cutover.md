@@ -245,7 +245,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `to-tickets` | Replace | Experimental `split-work` owns bounded work decomposition and genuine blockers; keep the third-party Skill until cutover evidence passes. |
 | `triage` | Retain | Tracker-specific state and external mutation require deliberate compatibility evidence. |
 | `wait-what` | Replace | Experimental `reframe-explanation` repairs a previous explanation after expressed confusion; keep the third-party Skill until cutover evidence passes. |
-| `wayfinder` | Replace | Strong usage evidence blocks deletion, but replacement should extract atomic planning judgment instead of copying orchestration. |
+| `wayfinder` | Replace | Experimental `map-decisions` owns resumable uncertainty and decision dependencies; Core, existing Skills, and native tools cover the remaining outcomes. Keep the third-party Skill until cutover evidence passes. |
 | `wizard` | Retain | Useful boundary for human-only infrastructure steps; consider first-party ownership after usage review. |
 | `writing-beats` | Review | Keep only if long-form writing is a recurring supported outcome. |
 | `writing-for-agents` | Replace | Write concise steering and agent-facing documents without duplicating Core. |
@@ -305,7 +305,8 @@ historical invocation counts, placing `wayfinder` last in the first wave:
 8. Re-pitch an explanation when the user says it did not land. **Experimental
    `reframe-explanation` created 2026-09-07; see the re-explanation trial below.**
 9. Plan work too large for one task using independent decisions rather than an
-   orchestration engine.
+   orchestration engine. **Experimental `map-decisions` created 2026-09-07; see
+   the decision mapping trial below.**
 
 Retain `frontend-design`, `shadcn`, and other used specialist Skills through the
 first wave. Lower-frequency engineering outcomes such as bug diagnosis, narrow
@@ -675,6 +676,120 @@ The worktree and original checkout both started at
 ledger, README, and count changes. No prior work was copied or redone. This
 candidate increases the actual baseline from ten Skills and 66 behavior cases
 to eleven Skills and 75 cases.
+
+## Decision mapping trial
+
+On 2026-09-07, `map-decisions` became the final Experimental candidate in the
+first replacement wave. The user reports less recent use of `wayfinder`;
+historical evidence records 105 explicit invocations and 18 assistant declarations
+across 94 sessions. This supports recurring demand for the source capability,
+not Effectiveness or a demonstrated advantage over capable-agent defaults.
+
+The clean worktree baseline was
+`19039b8eb6ee20500b416f7b15ed62ad2196ae5c`, already including all preceding
+replacements. The installed source at `.agents/skills/wayfinder/SKILL.md` was
+inspected directly (SHA-256
+`fee6e1d0c50f0e736b4ef8a599060c959afae904c9a97d82c97f049fcc3aa0f1`).
+No completed replacement was copied or redone.
+
+An independent evaluator, without access to the expected behavior cases,
+identified the same atomic gap: distinguish supported decisions, precise but
+possibly blocked questions, uncertainty too indistinct to specify, and exclusions;
+revise that structure when new evidence changes the route. `write-spec` captures
+agreement and its unresolved requirements. `split-work` decomposes agreed scope
+into implementable units. `challenge-plan` critiques requested assumptions.
+None owns the evolving decision map. Core supplies general judgment, while
+native task, delegation, worktree, tracker, and status tools perform operations
+without deciding how uncertainty changes the plan.
+
+The owned outcome is a resumable map with justified prerequisites, evidence or
+human choices needed to resolve each question, and a useful next decision or
+explicit blocker. Scale alone does not select it. Specification synthesis,
+settled implementation breakdowns, standalone critique, bounded decisions, and
+unchanged task/status operations reject it. This model-invoked boundary differs
+from the third-party Skill's explicit-only Invocation Mode. Mapping is selected
+from the requested planning outcome, not an upstream Skill name.
+
+The candidate reopens contradicted decisions and identifies affected downstream
+answers, preserves unrelated agreement, turns newly precise uncertainty into
+questions, and retires abandoned branches with reasons. It keeps recommendations
+separate from human acceptance and does not duplicate work already in progress.
+An empty question list cannot clear the route while consequential in-scope
+uncertainty remains; an explicitly accepted risk need not be investigated forever.
+Completing an accurate map update and reaching a clear route are distinct states.
+
+The smallest sufficient Composition is `map-decisions` for this map, with
+`challenge-plan` only for separately requested critique, `write-spec` for a spec,
+and `split-work` for implementation decomposition after agreement. No durable
+Flow is asserted. Wayfinder's tracker schema, labels, fixed ticket taxonomy,
+mandatory peer invocations, automatic research agents, research branches, and
+one-decision-per-session rule are not retained. Native tools handle authorized
+persistence and coordination. A local draft requires no tracker setup.
+
+Thirteen artificial scenarios cover a generated initial map, five rejection
+boundaries, a generated update after contradictory evidence, newly precise
+uncertainty, a pending human choice alongside independent work, unresolved areas
+behind a closed question list, completion with an accepted risk, retired branches,
+and independent critique composition. Peer descriptions are supplied explicitly
+in selection cases. The runner checks generated excerpts and action choices;
+pattern assertions test selected fixture facts and statuses, while the presentation
+gate checks length. These are read-only, supplied-state trials. They do not prove
+live tracker integration, concurrent editing, multi-task adaptation, normal host
+discovery, or improved outcomes relative to a no-Skill baseline.
+
+Independent read-only probes also revised an event-delivery map after a provider
+guarantee changed and checked a continuation with implementation already
+authorized. The first reopened affected decisions, preserved independent
+agreement, and retained broad uncertainty without claiming the route clear.
+The second would continue into the already-authorized implementation without
+another confirmation. No blocking defect was observed in these two probes;
+they are qualitative supplied-state evidence, not live execution or reference
+harness repetition.
+
+Initial generated-map trials exposed a mismatch between the free-text Next:
+field and its assertion: Codex passed 0/5 and OpenCode 0/1 on the required ID
+position. An OpenCode diagnostic correctly wrote “Resolve E1 by benchmarking
+candidate regions” and put the 80 ms p95 threshold in the question rather than
+repeating it in the evidence line. The evaluation now asks for just the next ID
+and accepts the threshold within either part of the same question record. It
+also checks p95 explicitly. Controlled answers with the wrong next question,
+800 ms threshold, or missing prerequisite remain rejected. The Skill instructions
+are unchanged; the affected case was rerun completely on both hosts.
+
+The revised-map case also passed 0/5 on its initial Codex batch because the
+Next: line did not match the required decision reference. Two separate diagnostic
+runs returned the correct reassessment order and passed; the failed batch's raw
+outputs were deleted by the runner, so their semantic correctness is unknown.
+The request now explicitly asks for the existing decision ID to revisit before
+dependent decisions, followed by its evidence action. Its assertions are unchanged.
+Controlled drafts still reject a stale primary or dependent decision, false
+completion, and the wrong next decision. This output-contract clarification
+was retested in fresh affected-case runs on both hosts; it is not evidence of
+a Skill repair.
+
+Final local results: all thirteen cases pass hard behavior and presentation 5/5
+on Codex CLI 0.153.4 with `gpt-5.6-sol` (65/65), and 1/1 on OpenCode 1.18.21
+with `openai/gpt-5.6-sol` (13/13). Both generated-map cases were rerun on both
+hosts after their output-contract repairs; the other eleven cases reuse their
+unchanged results. The Skill instructions needed no repair.
+
+Node 24.20.0 checks pass, including 16 deterministic tests and normal/internal
+installation smoke checks. These are pre-commit working-tree trials at
+`19039b8eb6ee20500b416f7b15ed62ad2196ae5c+dirty`, not clean-revision Promotion
+evidence. Aggregate reports, initial failures, assertion controls, independent
+assessment, and final input hashes remain outside the repository. Raw sessions
+are not retained.
+
+No `map-decisions` name collision was found in the shared, Codex, Claude,
+Cursor, or OpenCode Skill directories. The candidate remains repository-only
+and Experimental, with no Stable release impact or Changeset. Existing global
+Skills and steering are unchanged. Claude Code and Cursor compatibility work
+remains explicitly deferred; clean-revision Promotion evidence, Maintainer
+approval, isolated installation trials, representative live tasks, and approved
+global cutover remain separate work.
+
+Actual files increase the baseline from eleven Skills and 75 behavior cases to
+twelve Skills and 88 cases.
 
 ## Registry repair plan
 
