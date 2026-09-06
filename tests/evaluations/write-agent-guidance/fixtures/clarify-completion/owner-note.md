@@ -1,0 +1,1 @@
+All input rows must be accounted for: each is imported or rejected with a recorded reason. An unexplained row means verification is incomplete. Rejections with reasons are allowed. Completion of verification does not itself approve publication; the owner must approve publishing separately.

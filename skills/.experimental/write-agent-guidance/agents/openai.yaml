@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Agent Guidance"
+  short_description: "Make repository instructions reachable and checkable"
+  default_prompt: "Use $write-agent-guidance to make this repository guidance reachable at the right task boundary with clear completion."
+policy:
+  allow_implicit_invocation: true

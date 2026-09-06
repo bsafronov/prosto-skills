@@ -1,0 +1,26 @@
+{
+  "id": "follow-guidance",
+  "case": "tests/cases/write-agent-guidance/follow-guidance.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/follow-guidance",
+  "request": "Read evidence.md. Select capabilities only; outcome selection and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "write-agent-guidance"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

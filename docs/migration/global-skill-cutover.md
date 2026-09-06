@@ -248,7 +248,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `wayfinder` | Replace | Experimental `map-decisions` owns resumable uncertainty and decision dependencies; Core, existing Skills, and native tools cover the remaining outcomes. Keep the third-party Skill until cutover evidence passes. |
 | `wizard` | Retain | Useful boundary for human-only infrastructure steps; consider first-party ownership after usage review. |
 | `writing-beats` | Review | Keep only if long-form writing is a recurring supported outcome. |
-| `writing-for-agents` | Replace | Write concise steering and agent-facing documents without duplicating Core. |
+| `writing-for-agents` | Replace | Experimental `write-agent-guidance` owns repository instruction delivery; `write-skill` owns Skill authoring and Core keeps general mindset. Keep the third-party Skill until cutover evidence passes. |
 | `writing-fragments` | Review | Keep only if long-form writing is a recurring supported outcome. |
 | `writing-great-skills` | Drop candidate | `write-skill` should own Skill-writing judgment after behavior comparison. |
 | `writing-shape` | Review | Keep only if long-form writing is a recurring supported outcome. |
@@ -314,6 +314,22 @@ fixes, feature building, refactoring, and migration remain valid candidates but
 do not outrank the observed cutover blockers. Treat verification as a Core trial
 first. If agents repeatedly stop without adequate proof, that failure becomes
 evidence for a separate Skill.
+
+## Working queue after the first wave
+
+This is the coordinating task's recommended development order, not a new
+user-reported usage ranking. Real-case testing of the first wave runs separately.
+
+1. `writing-for-agents`: Experimental `write-agent-guidance` created 2026-09-07.
+   It comes first because it supports current Skill authoring work; Skill authoring
+   itself stays in `write-skill`. See the agent guidance trial below.
+2. `codebase-design`: decide module boundaries and deepen interfaces.
+3. `research`: gather authoritative evidence and preserve concise findings.
+4. `prototype`: build a disposable artifact that answers one design question.
+
+Only the first candidate is implemented in this task. The documented engineering
+candidates—bug diagnosis, narrow fixes, feature building, refactoring, and
+migration—remain for later consideration; verification remains a Core trial.
 
 ## Commit wording trial
 
@@ -790,6 +806,156 @@ global cutover remain separate work.
 
 Actual files increase the baseline from eleven Skills and 75 behavior cases to
 twelve Skills and 88 cases.
+
+## Agent guidance trial
+
+On 2026-09-07, `write-agent-guidance` became the first repository-only
+Experimental candidate in the working queue after the first wave. Historical
+usage records one explicit user invocation and 14 assistant declarations across
+12 sessions for `writing-for-agents`. These are demand signals, not proof of
+Effectiveness or an advantage over a capable agent without the Skill.
+
+The worktree started clean at
+`f06c9b43accc727fae70e5f25339fb0dc1516885`, including all twelve preceding
+Experimental Skills. The installed source was inspected directly at
+`.agents/skills/writing-for-agents/SKILL.md` (SHA-256
+`551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a`), along with
+its Skill mechanics reference, owned neighbors, Core, and relevant ADRs. No
+completed replacement was copied or redone.
+
+An independent read-only assessor, without access to the candidate draft or
+expected cases, identified the same remaining outcome: repository instructions
+whose obligations are reachable on the right task branch and whose completion
+is checkable. Core supplies general evidence, composition, and stopping judgment.
+`write-skill` already owns Skill selection contracts, bodies, and their references.
+`model-domain` owns the meaning of terms. Neither owns the placement and delivery
+of repository instructions through steering and referenced task guidance.
+
+The new Skill preserves policy scope, exceptions, prerequisites, and approval
+boundaries while editing guidance. It repairs weak Context Pointers before
+copying conditional detail into always-loaded steering, keeps rules at one owner,
+uses existing command/configuration sources, and sharpens vague completion bounds.
+Conflicting policies remain explicit questions for their owner. Already coherent
+guidance needs no manufactured split. Filename or agent readership alone does not
+select it: Skill-only authoring, editorial edits, domain definitions, and ordinary
+product work following guidance reject it. Composition with `write-skill` is useful
+only when a separate repository-guidance outcome is also requested; no dependency
+or durable Flow is introduced.
+
+The source's broad agent-document boundary, router model, invocation claims,
+blanket advice against negation, and claims about special leading words are not
+retained. The owned Skill changes instruction delivery decisions without copying
+source prose or adding universal Core behavior.
+
+Ten artificial scenarios cover three generated-document outcomes (conditional
+routing, preservation of release obligations and exceptions, and row-accounting
+completion), unresolved policy conflict, already coherent guidance, four rejection
+boundaries, and independent Skill-authoring composition. Neighbor descriptions
+are supplied in selection cases. Generated-text assertions check selected source
+facts, conditions, paths, and statuses; the quality gate checks length. Positive
+and deliberately corrupted drafts exercise the assertions separately. These
+read-only supplied-state trials do not prove normal host discovery, live global
+steering behavior, or better outcomes than a no-Skill baseline.
+
+Initial Codex trials passed the completion, obligation-preservation, and pointer
+cases 0/5; Skill-only selection passed 1/5, domain selection 2/5, and composition
+4/5. OpenCode initially failed those three document assertions and domain
+selection (0/1 each). Other initial cases passed. Diagnostics produced a valid
+“unexplained row means verification is incomplete” criterion, valid plain-path
+references, and an external `skill-creator` selection in place of the supplied
+`write-skill`. Failed batches discarded their raw output, so their semantic
+correctness cannot be inferred from these separate diagnostics.
+
+The requests now explicitly require Markdown links and the relevant trace paths;
+the peer comparisons declare the supplied catalog and allow none, either, or both.
+Expected selections are unchanged. The completion assertion accepts the observed
+equivalent incomplete condition while still rejecting unexplained rows declared
+complete. An intermediate pointer rerun passed only 3/5 on Codex and 0/1 on
+OpenCode because the schema trace lacked its required exact path; a separate
+diagnostic passed. The request now makes the one-line path contract explicit,
+with the assertion preserved. These are supplied-catalog selection and generated
+text trials, not ordinary host discovery.
+
+Independent review also found two deterministic false positives: a draft could
+make approval optional and discard rollout/rollback proof, or omit staging
+execution from the full import runbook. The checks now require release-specific
+owner approval before publication, metrics within the approved budget, verified
+rollback readiness, and staging execution. Seven positive controls pass; twenty-one
+semantic corruptions and five workspace mutations are rejected. This strengthens
+the sampled invariants without claiming general semantic proof from regexes.
+No candidate-body repair was supported by these observations; its instructions
+remain unchanged throughout the trials.
+
+The stronger release check initially passed 0/5 on Codex because it required
+“rehearsal” again after the `Rehearsal:` label. A later form passed 2/5 on Codex
+and 0/1 on OpenCode by requiring particular obligation words. An observed
+OpenCode draft instead used the valid imperative “Rehearse rollback before
+publishing” with the emergency waiver and record. The final request explicitly
+asks for a source-supported Required, Optional, or Not required status followed
+by the action and exception; the gate requires the correct mandatory status,
+rollback action, and waiver record. Optional and not-required controls fail.
+This clarifies the generated document's review format without changing policy.
+
+A permanent deterministic regression test now covers weakened release policy,
+missing staging, missing rejection reasons, false completion, and publication
+without approval. Its first run exposed another false positive: the word
+“reason” alone accepted “without a reason.” The completion gate now requires a
+recorded or documented reason and rejects that negation; the regression passes.
+
+After the catalog clarification, Skill-only selection still passed only 3/5 on
+Codex, substituting `skill-creator` in the other runs. The final request explicitly
+classifies a hypothetical task against the supplied catalog without performing
+authoring. It retains the expected `write-skill` selection and candidate rejection.
+This is boundary classification evidence, separate from generated-document
+outcome evidence; it does not prove native discovery, invocation, or preference
+over installed Skills. A read-only CLI catalog probe found 64 visible Skills,
+57 enabled, including `skill-creator`, even from an empty temporary workspace.
+An under-development discovery flag produced one successful model diagnostic
+but did not change the catalog listing, so no isolation guarantee was inferred
+and no harness change was made. Temporary files are isolated; the Codex host Skill
+catalog is not. Promotion needs separately controlled discovery evidence.
+
+An independent artificial-file probe also rewrote a temporary repository's
+steering, repaired a data-migration pointer, and extracted a release-only guide.
+Parent verification resolved all three entry links and confirmed exact
+preservation of the release policy, data guidance, contribution rules, and
+package scripts. A fresh independent reader then handled a persisted-field
+rename from the generated entry document: it read contribution and data guidance,
+identified reader inventory and rollback prerequisites, required compatibility
+verification for every supported reader, and bypassed the release guide. This is
+one temporary-file authoring execution and one read-only following probe; the
+author's additional branch walkthrough was simulated. It is qualitative evidence,
+not normal discovery, repeated reference-harness behavior, or live global use.
+
+Final local results on 2026-09-07: all ten scenarios pass hard behavior and
+presentation 5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol` (50/50), and 1/1 on
+OpenCode 1.18.21 with `openai/gpt-5.6-sol` (10/10). Within those totals, the three
+generated-document cases pass 15/15 Codex runs, the two guidance-decision cases
+pass 10/10, and the five supplied-catalog classifications pass 25/25. Each affected
+case was rerun fully after its final request or assertion repair; unchanged
+results are reused. The final completion runs used the same Codex executor flags
+with an observer of generated summaries; raw CLI sessions were discarded.
+
+Node 24.20.0 checks pass, including 17 deterministic tests and normal/internal
+installation smoke checks. These are pre-commit working-tree trials at
+`f06c9b43accc727fae70e5f25339fb0dc1516885+dirty`, not clean-revision Promotion
+evidence. Aggregate reports, initial failures, final input hashes, assertion
+controls, and independent probe evidence remain outside the repository. Raw
+sessions are not committed. The visible Codex host catalog, artificial output
+contracts, and supplied-state scope remain limitations despite passing scores.
+
+No `write-agent-guidance` collision was found in the shared, Codex, Claude,
+Cursor, or default OpenCode Skill directories checked; absent directories were
+recorded, not treated as installed targets. Alternate installation roots remain
+outside this local screen. The candidate has no Stable release impact and needs
+no Changeset. Existing global Skills and steering are unchanged. Claude Code and
+Cursor compatibility work remains deferred. Clean-revision Promotion evidence,
+Maintainer approval, installation trials, representative real tasks, and approved
+cutover remain separate work.
+
+Actual files increase the baseline from twelve Skills and 88 behavior cases to
+thirteen Skills and 98 cases. The other queued and engineering candidates remain
+unimplemented in this task.
 
 ## Registry repair plan
 

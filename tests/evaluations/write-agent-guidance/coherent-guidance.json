@@ -1,0 +1,28 @@
+{
+  "id": "coherent-guidance",
+  "case": "tests/cases/write-agent-guidance/coherent-guidance.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/coherent-guidance",
+  "request": "Read entry.md and its targets. Assess whether restructuring is needed. Return Decision: keep or Decision: revise, followed by a short reason in summary. No edits; outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-agent-guidance"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Decision:\\s*keep"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

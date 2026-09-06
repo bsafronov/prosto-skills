@@ -1,0 +1,1 @@
+Resolve whether Account in billing and identity denotes the same concept, and record the agreed definitions in CONTEXT.md, which agents also read. We are not reorganizing instructions or Context Pointers.

@@ -1,0 +1,34 @@
+{
+  "id": "repair-pointer",
+  "case": "tests/cases/write-agent-guidance/repair-pointer.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/repair-pointer",
+  "request": "Read entry.md, docs/migrations.md, and CONTRIBUTING.md. Draft the replacement AGENTS.md text in summary, then show one schema-change trace and one copy-edit trace using labels Schema trace: and Copy trace:. Do not change the migration rules. Draft only; outcome satisfied and no findings. Use Markdown links for document references in the generated guidance. Write each trace on one line and identify reached documents by their relative paths.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-agent-guidance"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "(before[^\\n]*schema[^\\n]*(stored.data|data)|schema[^\\n]*(stored.data|data)[^\\n]*before)",
+      "\\]\\(docs/migrations\\.md\\)",
+      "CONTRIBUTING\\.md",
+      "Schema trace:[^\\n]*docs/migrations\\.md",
+      "Copy trace:[^\\n]*(bypass|skip|no |only|without|not required)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "Copy trace:[^\\n]*(must|always) (read|load)[^\\n]*migrations"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

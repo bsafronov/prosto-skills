@@ -157,6 +157,48 @@ test("invalid wording assertions fail scenario validation before model execution
   }
 });
 
+test("agent guidance gates reject weakened policy and lost prerequisites", async () => {
+  const directory = "tests/evaluations/write-agent-guidance";
+  const policy = JSON.parse(await readFile(`${directory}/preserve-obligations.json`, "utf8"));
+  const completion = JSON.parse(await readFile(`${directory}/clarify-completion.json`, "utf8"));
+  const release = `AGENTS.md:
+Follow [checks](CONTRIBUTING.md).
+Before publishing a release, read [release rules](docs/release.md).
+docs/release.md:
+Approval: Obtain release-owner approval before publishing each release.
+Rehearsal: Required. Rehearse rollback except during a declared emergency; record the emergency owner and reason when waived.
+Completion: Rollout metrics remain within the approved error budget for 30 minutes and rollback readiness is verified.`;
+  const runbook = `Run the import in staging.
+Completion: Every input row is imported or rejected with a recorded reason; any unexplained row means verification is incomplete.
+Publication: Publish only after separate owner approval.`;
+  const errors = (candidate, summary) => evaluateScenarioReport(candidate, {
+    selectedCapabilities: ["write-agent-guidance"],
+    outcome: "satisfied",
+    findings: [],
+    summary,
+  }, workspace).hardErrors;
+
+  assert.deepEqual(errors(policy, release), []);
+  assert.deepEqual(errors(completion, runbook), []);
+  for (const corrupted of [
+    release.replace("Obtain release-owner approval", "Release-owner approval is optional"),
+    release.replace("Rehearsal: Required", "Rehearsal: Optional"),
+    release.replace("Rehearsal: Required", "Rehearsal: Not required"),
+    release.replace("within the approved error budget", "regardless of the approved error budget"),
+    release.replace("rollback readiness is verified", "rollback readiness need not be verified"),
+  ]) {
+    assert(errors(policy, corrupted).length > 0, "weakened release policy must fail");
+  }
+  for (const corrupted of [
+    runbook.replace("Run the import in staging.\n", ""),
+    runbook.replace("with a recorded reason", "without a reason"),
+    runbook.replace("verification is incomplete", "verification is complete"),
+    runbook.replace("Publish only after separate owner approval", "Publish automatically"),
+  ]) {
+    assert(errors(completion, corrupted).length > 0, "lost import prerequisite must fail");
+  }
+});
+
 test("harness output accepts plain, fenced, and OpenCode event JSON", () => {
   const report = {
     selectedCapabilities: [],

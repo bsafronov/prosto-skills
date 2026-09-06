@@ -1,0 +1,43 @@
+{
+  "id": "preserve-obligations",
+  "case": "tests/cases/write-agent-guidance/preserve-obligations.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/preserve-obligations",
+  "request": "Read the supplied documents. Return a multi-document draft in summary with AGENTS.md: and docs/release.md: sections. Preserve the policy and its exceptions. Remove duplicate ownership and discoverable command caches. Use Approval:, Rehearsal:, and Completion: lines in the release guide, with each requirement on its corresponding line. On Rehearsal:, begin with the policy status Required, Optional, or Not required as supported by the source, then name the action, any exception, and its waiver record on the same line. No execution is requested; outcome satisfied and no findings. Use Markdown links for document references in the generated guidance.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-agent-guidance"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "AGENTS\\.md:[\\s\\S]*\\]\\(CONTRIBUTING\\.md\\)",
+      "(release|publish)[^\\n]*\\]\\(docs/release\\.md\\)",
+      "Approval:[^\\n]*((obtain|require|must)[^\\n]*owner[^\\n]*approval|owner[^\\n]*approval[^\\n]*(require|must))",
+      "Approval:[^\\n]*before[^\\n]*publish",
+      "Approval:[^\\n]*(each|that|this|every|the) release",
+      "Rehearsal:[^\\n]*emergency[^\\n]*(owner[^\\n]*reason|reason[^\\n]*owner)",
+      "Rehearsal:\\s*Required\\b[^\\n]*(except|unless|waiv)",
+      "Completion:[^\\n]*30\\s*minutes",
+      "Completion:[^\\n]*metrics[^\\n]*within (?:the )?approved error budget",
+      "Completion:[^\\n]*rollback (readiness (is |has been )?verified|(is )?ready|readiness[^\\n]*(confirm|verif))",
+      "Rehearsal:[^\\n]*rollback"
+    ],
+    "forbiddenSummaryPatterns": [
+      "npm run test:old",
+      "Be helpful and thorough",
+      "Approval:[^\\n]*(approval[^.\\n]*(optional|not required|unnecessary)|(?:skip|waive)[^.\\n]*approval)",
+      "Completion:[^\\n]*(regardless|need not|not (?:be )?(?:verified|required))"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1900,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

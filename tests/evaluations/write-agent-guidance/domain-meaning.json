@@ -1,0 +1,28 @@
+{
+  "id": "domain-meaning",
+  "case": "tests/cases/write-agent-guidance/domain-meaning.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/domain-meaning",
+  "request": "The following peer Skill is available for selection: model-domain establishes or revises domain concepts, relationships, and shared terminology from product evidence. Read evidence.md. Select capabilities only; outcome selection and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "model-domain"
+      ],
+      "exclude": [
+        "write-agent-guidance"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

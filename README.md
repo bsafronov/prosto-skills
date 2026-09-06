@@ -4,7 +4,7 @@ Atomic Skills written for agents, by agents.
 
 Prosto Skills lets a developer state a product outcome in ordinary language. The agent applies a small Core mindset, selects zero or more relevant Skills from their names and descriptions, uses deterministic tools for mechanical work, proves the result, and stops.
 
-The project is pre-release. All twelve Skills are Experimental; no Skill is Stable or included in a normal install yet.
+The project is pre-release. All thirteen Skills are Experimental; no Skill is Stable or included in a normal install yet.
 
 ## Model
 
@@ -35,6 +35,7 @@ Experimental product capabilities:
 - `split-work` decomposes agreed scope into verifiable tasks with genuine blockers.
 - `reframe-explanation` makes a previous explanation concrete when it did not land.
 - `map-decisions` keeps uncertain multi-task planning resumable as evidence changes.
+- `write-agent-guidance` makes repository instructions reachable at the right task boundary with checkable completion.
 
 Every Skill uses an unprefixed verb-object name. Its description states what outcome it owns, when to use it, and when not to use it. Search, rewrite, typecheck, and similar phases remain tools rather than Skills.
 

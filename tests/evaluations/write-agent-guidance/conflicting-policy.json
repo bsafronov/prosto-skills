@@ -1,0 +1,32 @@
+{
+  "id": "conflicting-policy",
+  "case": "tests/cases/write-agent-guidance/conflicting-policy.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/conflicting-policy",
+  "request": "Read evidence.md and draft the unresolved-policy note for the consolidated guidance in summary. Include Status:, Conflict:, and Owner question: lines. Do not decide the policy. Outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-agent-guidance"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Status:[^\\n]*(unresolved|blocked|pending)",
+      "Conflict:[^\\n]*30[^\\n]*90",
+      "Owner question:[^\\n]*\\?"
+    ],
+    "forbiddenSummaryPatterns": [
+      "Status:\\s*(accepted|resolved)\\b"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
