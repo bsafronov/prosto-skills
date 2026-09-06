@@ -1,0 +1,26 @@
+{
+  "id": "compose-defect-review",
+  "case": "tests/cases/model-domain/compose-defect-review.md",
+  "workspace": "tests/evaluations/model-domain/fixtures/compose-defect-review",
+  "request": "Choose capabilities for clarifying the meaning of Cancellation and independently reviewing the cancellation code for bugs. Do not perform either task yet.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "model-domain",
+        "defect-review"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1400,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,1 @@
+One person can belong to two paying organizations. An organization survives removal of its last current member. User denotes a person; Organization denotes the payer. Membership links them. These definitions are agreed.

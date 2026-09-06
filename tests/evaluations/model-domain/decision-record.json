@@ -1,0 +1,32 @@
+{
+  "id": "decision-record",
+  "case": "tests/cases/model-domain/decision-record.md",
+  "workspace": "tests/evaluations/model-domain/fixtures/decision-record",
+  "request": "Draft the domain decision record in summary from evidence.md, including its actual status, chosen ownership, rejected alternative and reason, and consequence. No code changes.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "model-domain"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "accepted",
+      "Billing",
+      "InvoiceId",
+      "(joint|shared)",
+      "(audit|migrat)",
+      "correction"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1400,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

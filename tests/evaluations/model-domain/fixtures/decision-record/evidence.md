@@ -1,0 +1,1 @@
+Accepted decision: Billing owns Invoice identity and lifecycle. Ordering references InvoiceId only. We rejected joint ownership because competing updates made reconciliation ambiguous. Moving ownership later requires migrating durable invoice identifiers and audit history. Ordering must request corrections through Billing.

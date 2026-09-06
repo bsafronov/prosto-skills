@@ -1,0 +1,29 @@
+{
+  "id": "conflicting-cancellation",
+  "case": "tests/cases/model-domain/conflicting-cancellation.md",
+  "workspace": "tests/evaluations/model-domain/fixtures/conflicting-cancellation",
+  "request": "Clarify cancellation from evidence.md. I say customers can cancel a single line, but I have not decided whether that is a new feature or the existing meaning. Return the material question and a concrete distinguishing scenario in summary; use outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "model-domain"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "(whole|entire|all)",
+      "(line|item)",
+      "\\?"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1400,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

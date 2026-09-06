@@ -1,0 +1,1 @@
+Ordering Customer means the party placing an order. Billing Customer means the party responsible for payment. They share PartyId, but a purchaser can name a different payer. Neither context owns the other lifecycle.

@@ -223,7 +223,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `claude-handoff` | Review | Claude-specific continuation may be a host adapter, not a portable Skill. |
 | `code-review` | Replace | Split into the host's defect review and Experimental `review-requirements`; keep installed until composition evidence passes. |
 | `codebase-design` | Replace | Decide module boundaries and deepen interfaces. |
-| `domain-modeling` | Replace | Establish shared domain language and durable decisions. |
+| `domain-modeling` | Replace | Experimental `model-domain` establishes shared domain language and consequential domain decisions; keep the third-party Skill until cutover evidence passes. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
 | `grilling` | Replace | Stress-test a user-selected plan or decision without taking ownership from the user. |
 | `handoff` | Review | Frequent explicit use blocks removal until native task continuation is compared against the owned outcome. |
@@ -275,8 +275,11 @@ No explicit signal was found for 23 globally listed Skills:
 
 ## Evidence-ranked first replacement wave
 
-Do not reproduce source Skills verbatim. Reference frequency makes these the
-current cutover blockers:
+Do not reproduce source Skills verbatim. Reference frequency and the user's
+current usage set this order. On 2026-09-06, the user confirmed frequent use of
+`domain-modeling`, `tdd`, `grilling`, `to-spec`, `to-tickets`, and `wait-what`,
+and less recent use of `wayfinder`. This current usage takes precedence over
+historical invocation counts, placing `wayfinder` last in the first wave:
 
 1. Move concise response behavior from `caveman` into owned steering, not a
    replacement Skill, unless behavior evaluation proves steering insufficient.
@@ -290,14 +293,15 @@ current cutover blockers:
    compatibility check also passes with that model. These are pre-commit checks;
    clean-revision reports are recorded separately. Claude Code and Cursor
    Promotion evidence remains pending.**
-4. Plan work too large for one task using independent decisions rather than an
-   orchestration engine.
-5. Build or revise a domain model and its durable terminology.
-6. Apply test-first sequencing when explicitly requested.
-7. Stress-test a user-owned plan or decision.
-8. Synthesize an agreed specification and decompose it into bounded work while
+4. Build or revise a domain model and its durable terminology. **Experimental
+   `model-domain` created 2026-09-06; see the domain modeling trial below.**
+5. Apply test-first sequencing when explicitly requested.
+6. Stress-test a user-owned plan or decision.
+7. Synthesize an agreed specification and decompose it into bounded work while
    keeping tracker mutation explicit.
-9. Re-pitch an explanation when the user says it did not land.
+8. Re-pitch an explanation when the user says it did not land.
+9. Plan work too large for one task using independent decisions rather than an
+   orchestration engine.
 
 Retain `frontend-design`, `shadcn`, and other used specialist Skills through the
 first wave. Lower-frequency engineering outcomes such as bug diagnosis, narrow
@@ -356,6 +360,55 @@ This applies to the cutover work; do not restart sign-in flows. The prior
 `review-requirements` clean-revision handoff records Codex 20/20, OpenCode 4/4,
 and deterministic tests 13/13 at `4d8708da3139f90ac197fa8f60e1b9e1e7d2fc55`.
 Both product Skills remain Experimental under the unchanged Promotion policy.
+
+## Domain modeling trial
+
+On 2026-09-06, `model-domain` became the next Experimental replacement, following
+the user's current usage priority. Historical evidence includes four explicit
+invocations and 66 assistant declarations across 57 sessions; this establishes
+demand, not Effectiveness.
+
+It owns resolving domain concepts, relationships, and shared terminology.
+Reading a glossary, proofreading CONTEXT.md, or editing an implementation-only
+ADR does not select it. Consequential domain decisions may be recorded in an
+ADR; general architecture decisions remain outside its boundary. It preserves
+context-specific meanings and distinguishes current code from intended rules.
+
+Seven artificial cases cover identity distinctions, glossary-reading rejection,
+technical-ADR rejection, unresolved product/implementation conflicts, separate
+contexts, an accepted ownership decision, and independent defect-review
+composition. The existing read-only runner evaluates returned drafts and
+selection; it does not prove document editing or normal host discovery.
+
+Initial OpenCode trials passed five cases. A diagnostic draft preserved context
+boundaries using “independently”; the assertion now accepts that equivalent
+wording. The ADR request now explicitly asks for the rejected alternative and
+reason, aligning it with the case's required content. Both affected cases then
+passed on OpenCode 1.18.21 with `openai/gpt-5.6-sol` (1/1 each); the other five
+results were reused. The Skill instructions were unchanged during these repairs.
+
+Codex repetition exposed further assertion limits: the identity case now accepts
+either evidenced distinguishing scenario, and the context case checks roles and
+lifecycle language rather than requiring a particular adjective. One ADR run
+reported the third-party name instead of the candidate name. The evaluation
+prompt now requests exact declared capability names; unknown names still fail.
+Fresh full Codex and OpenCode trials cover this final evaluation contract.
+
+Final local evidence: all seven cases pass hard behavior and presentation 5/5
+on Codex CLI 0.153.4 with `gpt-5.6-sol` (35/35), and 1/1 on OpenCode 1.18.21
+with `openai/gpt-5.6-sol` (7/7). Codex cases ran in separate scenario invocations
+against the same final Skill and evaluation contract. Node 24 checks pass,
+including 16 deterministic tests and normal/internal installation smoke checks.
+These are pre-commit working-tree results at
+`31f5ed1761fae1786f69f1caec9dd9db7bf308ac+dirty`, not clean-revision Promotion
+evidence. Aggregate reports remain outside the repository; raw sessions are
+not retained.
+
+No `model-domain` collision was found in the shared, Codex, Claude, Cursor, or
+OpenCode Skill directories. The candidate remains repository-only. Third-party
+installations and global steering are unchanged. There is no Stable release
+impact or Changeset. Claude Code and Cursor trials remain deferred under the
+existing user instruction; Promotion and global cutover remain separate.
 
 ## Registry repair plan
 

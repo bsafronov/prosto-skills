@@ -1,0 +1,25 @@
+{
+  "id": "read-glossary",
+  "case": "tests/cases/model-domain/read-glossary.md",
+  "workspace": "tests/evaluations/model-domain/fixtures/read-glossary",
+  "request": "Read evidence.md and explain what Membership means. No model or terminology changes are requested. Report selection only.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "model-domain"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1400,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

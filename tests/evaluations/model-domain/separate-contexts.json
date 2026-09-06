@@ -1,0 +1,32 @@
+{
+  "id": "separate-contexts",
+  "case": "tests/cases/model-domain/separate-contexts.md",
+  "workspace": "tests/evaluations/model-domain/fixtures/separate-contexts",
+  "request": "Draft concise glossary text from evidence.md. Preserve the agreed context boundaries and include a scenario checking them. Return text in summary.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "model-domain"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Ordering",
+      "Billing",
+      "PartyId",
+      "(plac|purchas|order)",
+      "pay",
+      "(lifecycle|role|ownership)"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1400,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

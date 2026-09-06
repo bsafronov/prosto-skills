@@ -1,0 +1,25 @@
+{
+  "id": "technical-adr",
+  "case": "tests/cases/model-domain/technical-adr.md",
+  "workspace": "tests/evaluations/model-domain/fixtures/technical-adr",
+  "request": "Proofread docs/adr/0001-storage.md for spelling only. No domain meaning changes. Report selection only.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "model-domain"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1400,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "split-account",
+  "case": "tests/cases/model-domain/split-account.md",
+  "workspace": "tests/evaluations/model-domain/fixtures/split-account",
+  "request": "We call both people and paying organizations accounts. Clarify the model from evidence.md; return draft glossary entries and a distinguishing scenario in summary.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "model-domain"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "User",
+      "Organization",
+      "Membership",
+      "(two|2|multiple|last|remov|surviv)"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1400,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

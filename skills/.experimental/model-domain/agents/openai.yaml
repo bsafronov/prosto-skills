@@ -1,0 +1,6 @@
+interface:
+  display_name: "Model Domain"
+  short_description: "Resolve domain meaning and shared terminology"
+  default_prompt: "Use $model-domain to clarify this domain model and record its resolved terminology."
+policy:
+  allow_implicit_invocation: true
