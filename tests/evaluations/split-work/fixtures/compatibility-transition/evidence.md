@@ -1,0 +1,1 @@
+A shared public field must move from oldName to newName. Removing oldName now breaks callers across many packages. Both forms can coexist while packages migrate independently; checks can stay green throughout.

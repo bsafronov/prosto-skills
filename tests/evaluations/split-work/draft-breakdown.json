@@ -1,0 +1,38 @@
+{
+  "id": "draft-breakdown",
+  "case": "tests/cases/split-work/draft-breakdown.md",
+  "workspace": "tests/evaluations/split-work/fixtures/draft-breakdown",
+  "request": "Draft exactly two tickets for R1 and R2 from agreement.md, in that order. Return plain text in summary, with no Markdown markup. For each ticket use Title:, Requirement:, Delivery:, Acceptance:, and Blocked by: labels. State None when there are no blockers. Use outcome satisfied and no findings. Draft only; no interview is needed.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "split-work"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "R1",
+      "R2",
+      "CSV",
+      "timezone",
+      "(reload|refresh|reopen)",
+      "Acceptance:[\\s\\S]*Acceptance:",
+      "Blocked by:\\s*None[\\s\\S]*Blocked by:\\s*None",
+      "Title:[\\s\\S]*Title:"
+    ],
+    "forbiddenSummaryPatterns": [
+      "\\?",
+      "Title:[\\s\\S]*Title:[\\s\\S]*Title:"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1800,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

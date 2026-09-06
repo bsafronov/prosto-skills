@@ -1,0 +1,1 @@
+T1 adds the ImportPreview contract. T2 consumes that contract and cannot start or verify without it. T3 changes an unrelated existing preference control in the same UI file; it needs neither T1 nor T2.

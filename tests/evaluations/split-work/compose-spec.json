@@ -1,0 +1,27 @@
+{
+  "id": "compose-spec",
+  "case": "tests/cases/split-work/compose-spec.md",
+  "workspace": "tests/evaluations/split-work/fixtures/compose-spec",
+  "request": "Also available is the peer Skill write-spec: it synthesizes or revises a feature specification from agreed discussion and requirements, but does not own ticket decomposition. Choose the smallest capabilities to produce both the feature spec and its implementable task breakdown from an agreed discussion. Do not perform either task yet; use outcome selection.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "split-work",
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

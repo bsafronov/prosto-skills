@@ -1,0 +1,1 @@
+Export format and access rules are settled. Export retention is undecided between 7 and 30 days; that decision changes cleanup behavior and its acceptance criteria. The export task can be completed without cleanup.

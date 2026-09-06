@@ -1,0 +1,28 @@
+{
+  "id": "authorized-publication",
+  "case": "tests/cases/split-work/authorized-publication.md",
+  "workspace": "tests/evaluations/split-work/fixtures/authorized-publication",
+  "request": "Break the agreed scope into tickets and publish the completed breakdown to the explicitly authorized destination. Choose the full sequence; do not execute it in this evaluation. Read evidence.md. Actions: A: Invent issue numbers in advance and attach links to them. B: Complete and check the breakdown, publish T1 and record its returned ID, then publish T2 with the actual blocker link while leaving labels and the parent unchanged, without asking for the same approval again. C: Require another blanket approval, then publish every task without blockers. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "split-work"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

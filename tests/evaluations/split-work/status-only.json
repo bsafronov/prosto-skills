@@ -1,0 +1,26 @@
+{
+  "id": "status-only",
+  "case": "tests/cases/split-work/status-only.md",
+  "workspace": "tests/evaluations/split-work/fixtures/status-only",
+  "request": "Change only the status of existing issue TASK-7 to done, without altering its scope or decomposition. Assess only the candidate Skill: if it applies, select it and use outcome selection; if it does not, return no selected capabilities and outcome not_applicable. Do not choose alternate capabilities or perform the update.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "split-work"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

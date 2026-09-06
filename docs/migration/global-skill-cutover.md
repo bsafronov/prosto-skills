@@ -242,7 +242,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `teach` | Review | Broad outcome and explicit invocation need evidence before first-party ownership. |
 | `to-questionnaire` | Core trial | Core can ask only material unresolved questions; external sharing needs usage evidence. |
 | `to-spec` | Replace | Experimental `write-spec` owns grounded specification synthesis without tracker mutation by default; keep the third-party Skill until cutover evidence passes. |
-| `to-tickets` | Replace | Frequent explicit use supports owning work decomposition; tracker mutation remains an explicit boundary. |
+| `to-tickets` | Replace | Experimental `split-work` owns bounded work decomposition and genuine blockers; keep the third-party Skill until cutover evidence passes. |
 | `triage` | Retain | Tracker-specific state and external mutation require deliberate compatibility evidence. |
 | `wait-what` | Replace | Frequent explicit use supports a small user-invoked capability for re-pitching an explanation. |
 | `wayfinder` | Replace | Strong usage evidence blocks deletion, but replacement should extract atomic planning judgment instead of copying orchestration. |
@@ -301,7 +301,7 @@ historical invocation counts, placing `wayfinder` last in the first wave:
    created 2026-09-06; see the plan critique trial below.**
 7. Synthesize an agreed specification and decompose it into bounded work while
    keeping tracker mutation explicit. **Experimental `write-spec` created
-   2026-09-06; `to-tickets` remains the next replacement.**
+   2026-09-06 and `split-work` created 2026-09-07; see their trials below.**
 8. Re-pitch an explanation when the user says it did not land.
 9. Plan work too large for one task using independent decisions rather than an
    orchestration engine.
@@ -546,6 +546,60 @@ evidence. Aggregate reports remain outside the repository; raw sessions are
 not retained.
 
 No `write-spec` name collision was found in the shared, Codex, Claude, Cursor,
+or OpenCode Skill directories. It remains repository-only with no Stable
+release impact or Changeset. Existing third-party installations and global
+steering remain unchanged. Claude Code and Cursor compatibility work remains
+deferred under the existing user instruction; Promotion and cutover remain
+separate.
+
+## Work decomposition trial
+
+On 2026-09-07, `split-work` became the next Experimental replacement.
+The user confirmed frequent current use of `to-tickets`; historical evidence
+records 44 explicit invocations and 22 assistant declarations across 40 sessions.
+
+It owns bounded, verifiable work decomposition from agreed scope. The
+model-invoked description requires a breakdown request; specification writing
+alone, implementation, and tracker operations on an unchanged breakdown remain
+outside its boundary. This differs from the third-party Skill's explicit-only
+Invocation Mode and bundled publication.
+
+The replacement prefers narrow complete behaviors, genuine prerequisites, and
+source-linked acceptance. It avoids arbitrary layer tickets, invented blockers,
+mandatory refactoring, and automatic readiness labels. Compatibility transitions
+can use additive changes, bounded migrations, and evidence-gated removal; a
+shared integration boundary must be explicit when pieces cannot land safely
+alone. Small work can remain one task. Drafts need no tracker setup, fixed local
+file layout, or blanket approval round. Publication uses existing authorization
+and actual returned IDs without implying labels or parent-issue changes.
+
+Eleven artificial cases cover a generated independent two-ticket breakdown,
+specification and status-operation rejection, vertical slices, a blocker graph,
+a bounded change, a compatibility transition, unresolved requirements,
+draft-only scope, authorized publication, and composition with `write-spec`.
+The composition case supplies the peer Skill's description explicitly. The
+read-only runner checks a returned breakdown and choices at supplied task states;
+it does not prove local file creation, tracker integration, or normal host
+discovery.
+
+Initial rejection trials exposed a result-format mismatch: models correctly
+declined specification-only and status-only requests but reported
+`not_applicable` where the cases expected `selection`. Those cases now assess
+only the candidate and explicitly define the rejection result. The generated
+breakdown also checks that exactly two ticket titles are returned. All three
+affected cases were rerun on both hosts; the other eight results were reused.
+The Skill instructions needed no repairs.
+
+Final local results on 2026-09-07: all eleven cases pass hard behavior and
+presentation 5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol` (55/55), and 1/1 on
+OpenCode 1.18.21 with `openai/gpt-5.6-sol` (11/11). Node 24 checks pass,
+including 16 deterministic tests and normal/internal installation smoke checks.
+These are pre-commit working-tree results at
+`e7eb89eddbf2eebbef622692e0918e39651f18e3+dirty`, not clean-revision Promotion
+evidence. Aggregate reports remain outside the repository; raw sessions are
+not retained.
+
+No `split-work` name collision was found in the shared, Codex, Claude, Cursor,
 or OpenCode Skill directories. It remains repository-only with no Stable
 release impact or Changeset. Existing third-party installations and global
 steering remain unchanged. Claude Code and Cursor compatibility work remains

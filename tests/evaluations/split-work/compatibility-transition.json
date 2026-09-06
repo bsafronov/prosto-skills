@@ -1,0 +1,28 @@
+{
+  "id": "compatibility-transition",
+  "case": "tests/cases/split-work/compatibility-transition.md",
+  "workspace": "tests/evaluations/split-work/fixtures/compatibility-transition",
+  "request": "Split this broad compatibility change into safe work units. Choose the next action. Read evidence.md. Actions: A: Remove oldName first, then fix all broken callers in arbitrary order. B: Add compatible newName support, migrate callers in bounded batches blocked by that support, then remove oldName only after all batches and proof that no caller remains. C: Force every migration batch to include an unrelated UI feature so it looks vertical. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "split-work"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

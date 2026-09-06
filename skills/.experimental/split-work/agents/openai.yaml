@@ -1,0 +1,6 @@
+interface:
+  display_name: "Split Work"
+  short_description: "Create bounded tasks with meaningful blockers"
+  default_prompt: "Use $split-work to break this agreed scope into verifiable tasks with genuine dependencies."
+policy:
+  allow_implicit_invocation: true

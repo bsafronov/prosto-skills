@@ -1,0 +1,28 @@
+{
+  "id": "unresolved-requirement",
+  "case": "tests/cases/split-work/unresolved-requirement.md",
+  "workspace": "tests/evaluations/split-work/fixtures/unresolved-requirement",
+  "request": "Draft the work breakdown from the current agreement. Choose the next action. Read evidence.md. Actions: A: Invent a 14-day compromise and mark every ticket ready-for-agent. B: Refuse to draft any work until every topic is decided. C: Draft the independent export task and mark cleanup blocked by the retention decision, without inventing its final acceptance value. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "split-work"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^C$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

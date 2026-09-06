@@ -1,0 +1,28 @@
+{
+  "id": "vertical-slices",
+  "case": "tests/cases/split-work/vertical-slices.md",
+  "workspace": "tests/evaluations/split-work/fixtures/vertical-slices",
+  "request": "Break the agreed notification feature into verifiable work. Choose the next action. Read evidence.md. Actions: A: Create separate database, API, UI, and testing tickets even though none delivers observable behavior alone. B: Create a narrow enable-and-receive slice with its needed layers and acceptance, then a separate scheduling-edit slice. C: Build every future notification option in one ticket. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "split-work"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^B$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

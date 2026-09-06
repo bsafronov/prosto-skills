@@ -1,0 +1,28 @@
+{
+  "id": "blocking-edges",
+  "case": "tests/cases/split-work/blocking-edges.md",
+  "workspace": "tests/evaluations/split-work/fixtures/blocking-edges",
+  "request": "Assign blockers to this proposed breakdown. Choose the correct graph. Read evidence.md. Actions: A: T2 is blocked by T1; T1 and T3 have no blockers. B: T1 is blocked by T2 and T2 by T1. C: T2 is blocked by T1, and T3 is blocked by T2 solely because they share a file. Return only the chosen action ID in summary, use outcome satisfied, and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "split-work"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^A$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

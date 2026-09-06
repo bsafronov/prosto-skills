@@ -1,0 +1,1 @@
+The user authorized drafting and publishing tickets in the Sandbox tracker. The agreed scope needs T1 to introduce a contract and T2 to consume it; T2 genuinely depends on T1. The breakdown still needs to be written and checked. The parent must remain unchanged and no labels were authorized. Real issue IDs are not yet known.

@@ -1,0 +1,26 @@
+{
+  "id": "spec-only",
+  "case": "tests/cases/split-work/spec-only.md",
+  "workspace": "tests/evaluations/split-work/fixtures/spec-only",
+  "request": "Turn the agreed discussion into a feature spec, without creating tasks or a breakdown. Assess only the candidate Skill: if it applies, select it and use outcome selection; if it does not, return no selected capabilities and outcome not_applicable. Do not choose alternate capabilities or perform the task.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "split-work"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 300,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
