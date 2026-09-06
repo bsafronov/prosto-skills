@@ -1,0 +1,5 @@
+--- a/dashboard.css
++++ b/dashboard.css
+@@ -1 +1 @@
+-background: white;
++background: black;

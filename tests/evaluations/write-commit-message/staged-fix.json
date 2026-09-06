@@ -1,0 +1,33 @@
+{
+  "id": "staged-fix",
+  "case": "tests/cases/write-commit-message/staged-fix.md",
+  "workspace": "tests/evaluations/write-commit-message/fixtures/staged-fix",
+  "request": "Write a commit message for staged.diff only. unstaged.diff is unrelated work. Put the exact message, without Markdown fences or explanation, in summary; use outcome satisfied.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-commit-message"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^fix(?:\\([^\\n)]+\\))?: ",
+      "(duplicat|repeat|twice|double|already.charg|recharg|more than once)",
+      "charg"
+    ],
+    "forbiddenSummaryPatterns": [
+      "(theme|dashboard|black|white)",
+      "\\n"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 72,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

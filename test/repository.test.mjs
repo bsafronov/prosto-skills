@@ -8,8 +8,8 @@ import { inspectRepository } from "../lib/repository.mjs";
 test("the repository satisfies its own contract", async () => {
   const repository = await inspectRepository(process.cwd());
   assert.deepEqual(repository.errors, []);
-  assert.equal(repository.skills.length, 4);
-  assert.equal(repository.cases.length, 13);
+  assert.equal(repository.skills.length, 5);
+  assert.equal(repository.cases.length, 20);
 });
 
 test("Skill names are unprefixed verb-object names and cannot collide", async () => {

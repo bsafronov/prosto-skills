@@ -1,0 +1,32 @@
+{
+  "id": "refactor-intent",
+  "case": "tests/cases/write-commit-message/refactor-intent.md",
+  "workspace": "tests/evaluations/write-commit-message/fixtures/refactor-intent",
+  "request": "Write the commit message for change.md. Put the exact message, without Markdown fences or explanation, in summary; use outcome satisfied.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-commit-message"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^refactor(?:\\([^\\n)]+\\))?: ",
+      "(pars|config)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "\\n",
+      "(speed|faster|performance|fix bug)"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 72,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

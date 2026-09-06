@@ -1,0 +1,35 @@
+{
+  "id": "breaking-migration",
+  "case": "tests/cases/write-commit-message/breaking-migration.md",
+  "workspace": "tests/evaluations/write-commit-message/fixtures/breaking-migration",
+  "request": "Write the commit message for change.md. Put the exact message, without Markdown fences or explanation, in summary; use outcome satisfied.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-commit-message"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^feat(?:\\([^\\n)]+\\))?!: ",
+      "\\n\\n",
+      "BREAKING CHANGE:.*page",
+      "cursor",
+      "nextCursor"
+    ],
+    "forbiddenSummaryPatterns": [
+      "\\b20\\d{2}-\\d{2}-\\d{2}\\b",
+      "backward.compatible"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 450,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

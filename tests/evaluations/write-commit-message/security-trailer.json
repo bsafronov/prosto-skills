@@ -1,0 +1,35 @@
+{
+  "id": "security-trailer",
+  "case": "tests/cases/write-commit-message/security-trailer.md",
+  "workspace": "tests/evaluations/write-commit-message/fixtures/security-trailer",
+  "request": "Write the commit message from change.md. Put the exact message, without Markdown fences or explanation, in summary; use outcome satisfied.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-commit-message"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^fix(?:\\([^\\n)]+\\))?: ",
+      "\\n\\n",
+      "(unauthori[sz]ed|other users|another user|ownership|owner|private document)",
+      "#42",
+      "(?:^|\\n)Reviewed-by: Alex Example <alex@example\\.test>(?=\\n|$)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "(close[sd]?|fixe[sd]?|resolve[sd]?) #42",
+      "tests? pass"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 450,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,5 @@
+--- a/charge.js
++++ b/charge.js
+@@ -1 +1,2 @@
++if (await alreadyCharged(order.id)) return;
+ await charge(order);

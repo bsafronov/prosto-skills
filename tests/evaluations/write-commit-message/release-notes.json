@@ -1,0 +1,26 @@
+{
+  "id": "release-notes",
+  "case": "tests/cases/write-commit-message/release-notes.md",
+  "workspace": "tests/evaluations/write-commit-message/fixtures/release-notes",
+  "request": "Decide whether the candidate applies to writing customer-facing release notes from changes.md. Do not write the notes. If it does not apply, use outcome not_applicable and an empty capability list.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "write-commit-message"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 180,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

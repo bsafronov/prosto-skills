@@ -4,7 +4,7 @@ Atomic Skills written for agents, by agents.
 
 Prosto Skills lets a developer state a product outcome in ordinary language. The agent applies a small Core mindset, selects zero or more relevant Skills from their names and descriptions, uses deterministic tools for mechanical work, proves the result, and stops.
 
-The project is pre-release. `write-skill`, `evaluate-skill`, and `improve-skill` are Experimental; no Skill is Stable or included in a normal install yet.
+The project is pre-release. All five Skills are Experimental; no Skill is Stable or included in a normal install yet.
 
 ## Model
 
@@ -23,6 +23,11 @@ There is no resolver, orchestration engine, canonical Skill IR, capability regis
 - `write-skill` creates or revises one atomic Skill.
 - `evaluate-skill` tests selection, rejection, composition, and outcome without editing.
 - `improve-skill` is explicitly invoked between product tasks and changes one Skill only after human approval.
+
+Experimental product capabilities:
+
+- `review-requirements` checks a concrete change against its originating requirements.
+- `write-commit-message` expresses change intent as a concise Conventional Commit message.
 
 Every Skill uses an unprefixed verb-object name. Its description states what outcome it owns, when to use it, and when not to use it. Search, rewrite, typecheck, and similar phases remain tools rather than Skills.
 

@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
+import { cp, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import test from "node:test";
 import {
   evaluateScenarioReport,
+  loadEvaluationSuite,
   openCodeEnvironment,
   parseHarnessReport,
   parseOpenCodeEvents,
@@ -109,6 +113,50 @@ test("quality may vary once in five runs but hard behavior may not", () => {
   assert.equal(rejected.hardPasses, 4);
 });
 
+test("commit wording gates reject lost compatibility context and invented claims", () => {
+  const commitScenario = structuredClone(scenario);
+  commitScenario.expect.findings = [];
+  commitScenario.quality.orderedFindingSourceIds = [];
+  commitScenario.expect.outcome = "satisfied";
+  commitScenario.expect.requiredSummaryPatterns = ["^feat!:", "BREAKING CHANGE:.*page"];
+  commitScenario.expect.forbiddenSummaryPatterns = ["tests pass"];
+  const report = {
+    selectedCapabilities: ["review-requirements"],
+    outcome: "satisfied",
+    findings: [],
+    summary: "feat!: use cursors\n\nBREAKING CHANGE: replace page with cursor",
+  };
+  assert.deepEqual(evaluateScenarioReport(commitScenario, report, workspace), {
+    hardErrors: [], qualityErrors: [],
+  });
+  report.summary = "feat!: use cursors\n\nTests pass";
+  const result = evaluateScenarioReport(commitScenario, report, workspace);
+  assert.deepEqual(result.hardErrors, [
+    "summary must match BREAKING CHANGE:.*page",
+    "summary must not match tests pass",
+  ]);
+});
+
+test("invalid wording assertions fail scenario validation before model execution", async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "prosto-wording-test-"));
+  try {
+    await cp("skills", path.join(root, "skills"), { recursive: true });
+    await cp("tests", path.join(root, "tests"), { recursive: true });
+    const file = path.join(root, "tests/evaluations/write-commit-message/staged-fix.json");
+    const candidate = JSON.parse(await readFile(file, "utf8"));
+    candidate.expect.requiredSummaryPatterns = ["["];
+    candidate.expect.forbiddenSummaryPatterns = "not-an-array";
+    await writeFile(file, JSON.stringify(candidate));
+    await assert.rejects(loadEvaluationSuite(root, "write-commit-message"), (error) => {
+      assert.match(error.message, /requiredSummaryPatterns must contain valid regular expressions/);
+      assert.match(error.message, /forbiddenSummaryPatterns must be a string array/);
+      return true;
+    });
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
 test("harness output accepts plain, fenced, and OpenCode event JSON", () => {
   const report = {
     selectedCapabilities: [],
@@ -126,6 +174,19 @@ test("harness output accepts plain, fenced, and OpenCode event JSON", () => {
     ),
     report,
   );
+});
+
+test("OpenCode separates progress from a complete final report without accepting stale reports", () => {
+  const report = { selectedCapabilities: [], outcome: "selection", findings: [], summary: "Use the host." };
+  const json = JSON.stringify(report);
+  const events = (...texts) => texts.map((text) => JSON.stringify({
+    type: "text", part: { type: "text", text },
+  })).join("\n");
+
+  assert.deepEqual(parseOpenCodeEvents(events("Inspecting the diff.", json)), report);
+  assert.deepEqual(parseOpenCodeEvents(events("Inspecting.", json.slice(0, 30), json.slice(30))), report);
+  assert.throws(() => parseOpenCodeEvents(events(json, "Final report failed.")), /no valid final report/);
+  assert.throws(() => parseOpenCodeEvents(events('{"summary":"Incomplete"}')), /no valid final report/);
 });
 
 test("OpenCode evaluations discard ambient configuration and disable sharing", () => {

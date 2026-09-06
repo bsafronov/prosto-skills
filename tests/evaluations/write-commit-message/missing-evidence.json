@@ -1,0 +1,30 @@
+{
+  "id": "missing-evidence",
+  "case": "tests/cases/write-commit-message/missing-evidence.md",
+  "workspace": "tests/evaluations/write-commit-message/fixtures/missing-evidence",
+  "request": "Write a commit message for my change. status.txt is the only available evidence. If the evidence is insufficient, use outcome not_applicable and put the needed clarification in summary.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-commit-message"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "not_applicable",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "(diff|change|description)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "(?:^|\\n)(feat|fix|chore|docs|refactor)(\\([^\\n)]+\\))?:"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

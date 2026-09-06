@@ -1,0 +1,5 @@
+--- a/parse.js
++++ b/parse.js
+@@ -1 +1 @@
+-return parse(value);
++return value === null ? null : parse(value);

@@ -1,0 +1,1 @@
+Change: check document.ownerId against the requesting user before returning a private document; previously any signed-in user could read it by ID. Issue #42 also requires an audit event, which this patch does not implement. Tests were not run. Required repository trailer: Reviewed-by: Alex Example <alex@example.test>

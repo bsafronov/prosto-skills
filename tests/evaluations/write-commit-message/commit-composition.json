@@ -1,0 +1,27 @@
+{
+  "id": "commit-composition",
+  "case": "tests/cases/write-commit-message/commit-composition.md",
+  "workspace": "tests/evaluations/write-commit-message/fixtures/commit-composition",
+  "request": "Choose capabilities for: commit the staged fix with a concise Conventional Commit message. The host capability git-operations handles authorized Git mutations. Do not execute either capability yet. Use outcome selection.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-commit-message",
+        "git-operations"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

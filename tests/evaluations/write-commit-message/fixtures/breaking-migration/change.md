@@ -1,0 +1,1 @@
+Public list endpoint replaces the page query parameter with cursor. page is rejected. Consumers must use the nextCursor value from the previous response. This introduces cursor pagination. No adapter or migration deadline exists.

@@ -30,8 +30,9 @@ plugin-provided Skills. They are host capabilities, not part of this cutover.
 Never remove or replace them through this plan.
 
 The Prosto suite currently has no Stable Skills. Three Experimental Skills
-develop and evaluate Skills. `review-requirements` is the first Experimental
-product-delivery capability.
+develop and evaluate Skills. `review-requirements` and `write-commit-message`
+are Experimental product-delivery capabilities. The latter is repository-only;
+the four global Experimental copies listed above are unchanged.
 
 ## Core boundary
 
@@ -197,7 +198,7 @@ No explicit signal was found for 23 globally listed Skills:
 | --- | --- | --- |
 | `cavecrew` | Removed | Removed 2026-09-05 after no explicit usage signal and a recoverable backup. |
 | `caveman` | Core trial | Owned global steering replaced the external invocation on 2026-09-05. Keep the Skill installed until normal-task behavior proves the thin rule sufficient. |
-| `caveman-commit` | Replace | Commit-message judgment may become a small first-party capability or steering rule. Current Codex instructions invoke it. |
+| `caveman-commit` | Replace | Experimental `write-commit-message` owns commit wording; Core keeps general brevity. The third-party Skill and current Codex invocation remain until approved cutover. |
 | `caveman-compress` | Removed | Removed 2026-09-05 after one explicit signal and a recoverable backup. |
 | `caveman-discover` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
 | `caveman-evidence-review` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
@@ -280,7 +281,8 @@ current cutover blockers:
 1. Move concise response behavior from `caveman` into owned steering, not a
    replacement Skill, unless behavior evaluation proves steering insufficient.
    **Completed 2026-09-05; behavior trial pending.**
-2. Write a concise Conventional Commit message from change intent.
+2. Write a concise Conventional Commit message from change intent. **Experimental
+   `write-commit-message` created 2026-09-06; see the bounded trial below.**
 3. Review implementation against its originating requirements. **Experimental
    `review-requirements` created and installed for trials 2026-09-05. Its four
    isolated artificial scenarios pass hard behavior and presentation quality
@@ -303,6 +305,57 @@ fixes, feature building, refactoring, and migration remain valid candidates but
 do not outrank the observed cutover blockers. Treat verification as a Core trial
 first. If agents repeatedly stop without adequate proof, that failure becomes
 evidence for a separate Skill.
+
+## Commit wording trial
+
+On 2026-09-06, `write-commit-message` became the next bounded Experimental
+candidate. The 61 user invocations across 140 sessions support recurring demand;
+they do not prove the replacement's Effectiveness.
+
+General brevity stays in steering. Selecting a Conventional Commit type from
+behavior, respecting the intended diff, preserving compatibility and security
+context, and deciding whether an issue is resolved are conditional commit
+judgments. Loading them for every task would thicken Core. Git commands remain
+host operations and do not need another Skill.
+
+The owned outcome is one accurate, concise message. Its nearest boundaries are
+release notes, PR descriptions, and Git operations without message drafting.
+The seven artificial cases cover staged scope, release-note rejection, composition
+with authorized Git operations, breaking migration, security context and required
+trailers, missing change evidence, and behavior-preserving refactoring.
+
+No `write-commit-message` name collision was found in the shared, Codex, Claude,
+Cursor, or OpenCode installation directories. It remains repository-only;
+neither global steering nor third-party installations changed. Experimental
+additions have no Stable release impact and require no Changeset.
+
+The existing runner now checks required and forbidden wording patterns in the
+reported message, in addition to selection and workspace immutability. These
+assertions check specific fixture facts, not general semantic correctness.
+The isolated runs receive the candidate text directly; normal host discovery
+and ordinary-task usefulness remain trial obligations.
+
+Initial trials exposed overly narrow checks for rejection status, duplicate-charge
+wording, and issue-reference format. The cases now accept equivalent behavior
+without permitting issue closure. OpenCode also emitted progress text before its
+JSON report; the parser now accepts a valid final report while rejecting stale
+or incomplete reports. A later OpenCode run omitted the supplied issue ID; the
+Skill now explicitly retains IDs even for partially addressed issues.
+
+Local acceptance evidence covers all seven cases: Codex CLI 0.153.4 with
+`gpt-5.6-sol` has hard behavior and presentation 5/5 per case; OpenCode 1.18.21
+with `openai/gpt-5.6-sol` has 1/1 per case. After each repair, affected cases
+were rerun; unaffected evidence was reused. The final issue-ID clarification
+was retested on the security case (Codex 5/5, OpenCode 1/1), not a fresh full-suite
+sweep. All runs were pre-commit. Node 24 checks pass, including 16 deterministic
+tests and normal/internal installation smoke checks. These local results do not
+constitute Promotion evidence from all required harnesses.
+
+Claude Code and Cursor compatibility work was explicitly deferred by the user.
+This applies to the cutover work; do not restart sign-in flows. The prior
+`review-requirements` clean-revision handoff records Codex 20/20, OpenCode 4/4,
+and deterministic tests 13/13 at `4d8708da3139f90ac197fa8f60e1b9e1e7d2fc55`.
+Both product Skills remain Experimental under the unchanged Promotion policy.
 
 ## Registry repair plan
 

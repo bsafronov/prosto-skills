@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Commit Message"
+  short_description: "Express change intent as a concise commit message"
+  default_prompt: "Use $write-commit-message to draft a concise Conventional Commit message for this change."
+policy:
+  allow_implicit_invocation: true

@@ -7,7 +7,9 @@ import path from "node:path";
 
 const root = process.cwd();
 const command = path.join(root, "node_modules", ".bin", "skills");
-const experimental = ["write-skill", "evaluate-skill", "improve-skill"];
+const experimental = [
+  "write-skill", "evaluate-skill", "improve-skill", "review-requirements", "write-commit-message",
+];
 
 const normal = run({}, { allowEmpty: true });
 for (const skill of experimental) {
