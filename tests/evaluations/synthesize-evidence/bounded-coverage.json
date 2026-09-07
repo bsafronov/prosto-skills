@@ -1,0 +1,43 @@
+{
+  "id": "bounded-coverage",
+  "case": "tests/cases/synthesize-evidence/bounded-coverage.md",
+  "workspace": "tests/evaluations/synthesize-evidence/fixtures/bounded-coverage",
+  "request": "Use only these artificial source snapshots; live browsing is outside this trial. Return your actual synthesized answer in summary, outcome satisfied, and no findings. Cite local source paths using Markdown links on the same line as each supported claim or unresolved conflict. From this source set, what does Loom Queue 2.4 establish about peak memory and production p99 latency? Use Measured:, Independence:, Latency:, Coverage:, and Conclusion: single-line paragraphs. Start Latency with Supported, Contradicted, or Unresolved. On Coverage give digit counts for requested documents, retrieved documents, and unavailable documents. Limit this answer to the supplied sources; no new experiment or implementation.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "synthesize-evidence"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Measured:[^\\n]*40\\s*%[^\\n]*\\]\\(sources/benchmark\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Measured:[^\\n]*warm",
+      "Measured:[^\\n]*(20,?000|20k)[^\\n]*event",
+      "Independence:[^\\n]*(\\b(one|1|single)\\b[^\\n]*(experiment|run|observation|measurement|evidence chain)|repeats?[^\\n]*(LQ-17|same|benchmark)|not (an? )?independent)",
+      "Independence:[^\\n]*\\]\\(sources/announcement\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Latency:\\s*Unresolved\\b[^\\n]*\\]\\(sources/access\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Coverage:[^\\n]*3[^\\n]*2[^\\n]*1",
+      "Conclusion:[^\\n]*(limited|bounded|only|unresolved|cannot|insufficient|narrow|specific|no production|does not establish)",
+      "Measured:[^\\n]*(lower|less|reduc|decreas)[^\\n]*memory|Measured:[^\\n]*memory[^\\n]*(lower|less|reduc|decreas)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "Latency:\\s*(Supported|Contradicted)",
+      "Independence:\\s*(two|2|multiple) independent",
+      "(implement|launch|build|run|create) (a |the |new |our )?(production|benchmark|experiment|pipeline)",
+      "Measured:[^\\n]*(guarantees? (?:this |the |a |lower |reduced |40% |production )*(?:memory|performance|reduction)|applies to (?:all|every) workload|across (?:all|every) workload)",
+      "Measured:[^\\n]*(not|never|no) (40% |any )?(lower|reduc)",
+      "Latency:[^\\n]*(guaranteed|certainly|definitely) (lower|improved|faster)"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 2600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

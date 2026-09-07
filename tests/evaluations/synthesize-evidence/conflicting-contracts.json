@@ -1,0 +1,35 @@
+{
+  "id": "conflicting-contracts",
+  "case": "tests/cases/synthesize-evidence/conflicting-contracts.md",
+  "workspace": "tests/evaluations/synthesize-evidence/fixtures/conflicting-contracts",
+  "request": "Use only these artificial source snapshots; live browsing is outside this trial. Return your actual synthesized answer in summary, outcome satisfied, and no findings. Cite local source paths using Markdown links on the same line as each supported claim or unresolved conflict. For Delta Archive hosted EU Pro API 5.0, establish export retention and at-rest encryption from the two documents. Use Retention:, Encryption:, and Resolution: lines. Start Retention with Supported, Contradicted, or Unresolved, then explain. For this answer format, Supported means the requested answer is established; Contradicted means an explicit proposed answer is refuted; Unresolved means the requested answer cannot be determined from the evidence, including conflicting sources without precedence. Resolution should name evidence that could settle any remaining uncertainty; do not invent it.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "synthesize-evidence"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Retention:\\s*Unresolved\\b[^\\n]*7[^\\n]*30|Retention:\\s*Unresolved\\b[^\\n]*30[^\\n]*7",
+      "Retention:[^\\n]*\\]\\((?:[^)\\n]*/workspace/)?sources/api\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Retention:[^\\n]*\\]\\((?:[^)\\n]*/workspace/)?sources/operations\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Encryption:[^\\n]*AES.256[^\\n]*\\]\\((?:[^)\\n]*/workspace/)?sources/api\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Resolution:[^\\n]*(owner|deployed|measurement|precedence|authoritative clarification|confirmed contract)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "Retention:\\s*(Supported|Contradicted)",
+      "Resolution:[^\\n]*(already (confirmed|measured)|verified (7|30))"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 2600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
