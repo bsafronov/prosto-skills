@@ -1,0 +1,1 @@
+Resolve whether a Renewal and a Subscription are the same identity in our business glossary. Use the supplied product policies and record resolved terms. We are discussing meaning, not trying an interface or runnable model.

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Synthesize Evidence"
+  short_description: "Resolve research questions with attributable findings"
+  default_prompt: "Use $synthesize-evidence to answer this bounded research question with supported findings and explicit evidence limits."
+policy:
+  allow_implicit_invocation: true

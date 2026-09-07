@@ -1,0 +1,32 @@
+{
+  "id": "ledger-probe",
+  "case": "tests/cases/build-prototype/ledger-probe.md",
+  "workspace": "tests/evaluations/build-prototype/fixtures/ledger-probe",
+  "request": "Read evidence.md. Build the smallest runnable JavaScript comparison to answer the design question. This read-only task asks for the artifact inline, not written to the workspace. Return summary as a JSON-encoded object with keys source, verdict, basis, limit, run. source must declare function simulate(mode, events) returning {free, held, sold}; modes are proposal and guarded and events are confirm and expire. Use plain JavaScript with no imports or I/O. verdict must be supported, rejected, or unresolved for the proposal's conservation claim. basis must be the literal JSON string \"analysis\", not a prose explanation; reason about the supplied rules without claiming you executed the generated artifact. limit should identify what this experiment cannot establish. run should explain how to call the artifact with a distinguishing event order. Return no findings and outcome satisfied. Produce executable source, not pseudocode or a plan.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "build-prototype"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\"source\"\\s*:",
+      "\"verdict\"\\s*:\\s*\"rejected\"",
+      "\"basis\"\\s*:\\s*\"analysis\"",
+      "\"limit\"\\s*:\\s*\"[^\"\\n]*(production|timer|network|storage|service)",
+      "\"run\"\\s*:\\s*\"[^\"\\n]*simulate"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 5000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

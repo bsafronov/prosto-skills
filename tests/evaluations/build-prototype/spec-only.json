@@ -1,0 +1,28 @@
+{
+  "id": "spec-only",
+  "case": "tests/cases/build-prototype/spec-only.md",
+  "workspace": "tests/evaluations/build-prototype/fixtures/spec-only",
+  "request": "This is supplied-catalog classification, not task execution or native Skill discovery. Read catalog.md and evidence.md. Classify the hypothetical task using only the exact catalog IDs build-prototype, write-spec, model-domain, frontend-design, synthesize-evidence, design-interface. Select none, one, or multiple as needed; return them in selectedCapabilities. Do not perform the hypothetical task. Return outcome selection, no findings, and a concise boundary reason in summary.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [
+        "build-prototype"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 650,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

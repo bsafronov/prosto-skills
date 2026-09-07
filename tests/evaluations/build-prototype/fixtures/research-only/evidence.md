@@ -1,0 +1,1 @@
+Compare the official v2 and v3 queue contracts and supplied failure-test report to reconcile their conflicting duplicate-delivery claims, accounting for version and configuration limits. Do not simulate a queue or build a demo.

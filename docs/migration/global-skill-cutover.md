@@ -222,7 +222,7 @@ No explicit signal was found for 23 globally listed Skills:
 | --- | --- | --- |
 | `claude-handoff` | Review | Claude-specific continuation may be a host adapter, not a portable Skill. |
 | `code-review` | Replace | Split into the host's defect review and Experimental `review-requirements`; keep installed until composition evidence passes. |
-| `codebase-design` | Replace | Experimental `design-interface` designs caller contracts and responsibility boundaries; retain the third-party Skill until compatibility, representative-task, and cutover evidence passes. |
+| `codebase-design` | 6 | 23 | 25 |
 | `domain-modeling` | Replace | Experimental `model-domain` establishes shared domain language and consequential domain decisions; keep the third-party Skill until cutover evidence passes. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
 | `grilling` | Replace | Experimental `challenge-plan` tests consequential assumptions in a user-selected plan; keep the third-party Skill until cutover evidence passes. |
@@ -230,8 +230,8 @@ No explicit signal was found for 23 globally listed Skills:
 | `improve-codebase-architecture` | Drop candidate | Prefer composition of independent design, inspection, and discussion capabilities. |
 | `loop-me` | Drop candidate | Workspace-specific orchestration should not become a generic replacement. |
 | `migrate-to-shoehorn` | Retain | Narrow third-party migration knowledge. |
-| `prototype` | Replace | Build a disposable artifact that answers one design question. |
-| `research` | Replace | Gather authoritative evidence and preserve concise findings. |
+| `prototype` | 23 | 13 | 14 |
+| `research` | Replace | Experimental `synthesize-evidence` reconciles bounded source evidence into attributable findings; keep the third-party Skill until cutover evidence passes. |
 | `resolving-merge-conflicts` | Retain | Specialist Git procedure; revisit after observing repeated gaps. |
 | `retro` | Review | Retrospection should remain outside product delivery and requires concrete recurring value. |
 | `scaffold-exercises` | Retain | Domain-specific course tooling. |
@@ -325,10 +325,12 @@ user-reported usage ranking. Real-case testing of the first wave runs separately
    itself stays in `write-skill`. See the agent guidance trial below.
 2. `codebase-design`: Experimental `design-interface` created 2026-09-07.
    It owns code contracts and responsibility boundaries; see the interface design trial below.
-3. `research`: gather authoritative evidence and preserve concise findings.
-4. `prototype`: build a disposable artifact that answers one design question.
+3. `research`: Experimental `synthesize-evidence` created 2026-09-07; see the
+   evidence synthesis trial below.
+4. `prototype`: Experimental `build-prototype` created 2026-09-07; see the prototype trial below.
 
-The first two candidates have repository-only implementations. The documented engineering
+All four queued replacements have repository-only Experimental candidates;
+their trial evidence is recorded below. The documented engineering
 candidates—bug diagnosis, narrow fixes, feature building, refactoring, and
 migration—remain for later consideration; verification remains a Core trial.
 
@@ -1077,6 +1079,244 @@ absent. Alternate roots remain outside this screen. Existing global Skills and
 steering are unchanged. Claude Code, Cursor, clean-revision Promotion evidence,
 Maintainer approval, installation/removal, and representative live cutover work
 remain deferred.
+
+## Evidence synthesis trial
+
+On 2026-09-07, the user authorized an owned replacement for `research` alongside
+independent module-design and prototype work. This work started from
+`6242feb845bb04439443795932dc607f4de108e7`, with thirteen Experimental Skills and
+98 behavior cases. The installed source, Core, contribution contract, relevant
+ADRs, and owned neighbors were inspected before writing.
+
+Experimental `synthesize-evidence` owns an answer that reconciles a bounded
+source set into attributable findings, applicability limits, and unresolved
+conflicts. The source's 21 explicit user invocations are recurring-use evidence,
+not proof of effectiveness. Core supplies general evidence and stopping judgment;
+search tools locate or retrieve material. Neither determines whether different
+contracts apply to the same version, whether repeated reports represent independent
+observations, or whether inaccessible evidence leaves a conclusion unresolved.
+Single factual lookup and literal file search need no replacement Skill.
+`model-domain` owns meaning and domain choices; `write-spec` owns a specification
+from settled facts. Evidence synthesis and specification writing compose only
+when both outcomes are requested. No dependency or durable Flow is introduced.
+
+The candidate follows primary evidence to its proper authority: contracts,
+implementation, and empirical measurements answer different kinds of claim.
+It compares scope before resolving disagreement, preserves measurement limits,
+and keeps same-scope conflicts open when recency provides no authority. It
+returns the requested answer or artifact and stops at the bounded question.
+The source's mandatory background agent and Markdown file are not retained.
+No source prose, universal workflow, browser wrapper, or new evaluation runtime
+was introduced.
+
+Eight artificial cases cover three generated research answers, four rejection
+classifications, and one composition classification. The generated answers
+reconcile a current contract with an archived version and an overstated article;
+leave a same-scope conflict between two current first-party documents unresolved;
+and separate a narrow memory benchmark from inaccessible production latency
+evidence and a repeated announcement. The supplied classification catalog names
+exactly `synthesize-evidence`, `model-domain`, `write-spec`, and `map-decisions`.
+These catalog classifications do not prove native host discovery: Codex's
+installed Skill catalog remains visible despite temporary file isolation.
+
+The outcome assertions check selected factual values, attribution to the source
+that owns each claim, applicable conditions, uncertainty, evidence independence,
+coverage counts, and scope boundaries. Nine positive controls pass; nineteen
+semantic corruptions and three workspace mutations fail. Corruptions include
+unsupported delivery, an outdated retry window, wrong primary sources, a reversed
+measurement, invented certainty, false independent corroboration, hidden access
+failure, and unsolicited implementation. These checks cover sampled invariants;
+regular expressions do not prove arbitrary source support, locator accuracy, or
+semantic equivalence. Expected assertions stay outside the temporary workspaces
+and model prompts.
+
+Observed generated answers exposed assertion false negatives for valid `#`,
+colon, and absolute workspace source locators, equivalent measurement and limitation wording, and
+negated independent-corroboration claims. Cross-stream ordering wording and an
+explicitly historical retry limit are also accepted without confusing them with
+a global guarantee or the current window. The assertions now accept those
+forms while retaining source identity and the corresponding semantic corruption
+controls. Empty literal-search and factual-lookup classifications sometimes correctly
+selected no Skill but returned the wrong evaluation outcome on Codex or OpenCode;
+their requests now explicitly identify an empty selection as a completed
+classification. A later conflict answer used
+“Contradicted” while explicitly retaining both values and missing precedence;
+the request now defines its status vocabulary so an undetermined answer is
+Unresolved. Candidate instructions and
+expected Skill choices remain unchanged. Detailed trial totals are recorded
+below after the final repeated runs.
+
+A separate parent execution received only a raw Harbor Sync question, candidate
+instructions, and four new source snapshots. It created a temporary findings
+note. Independent assessment verified all four source links, the conditional
+36-hour retry answer within a non-sliding 48-hour window from first acceptance,
+the managed-versus-self-hosted scope distinction, and the absence of a supported
+60-second completion guarantee. The note preserved the original benchmark's
+sample, payload, warm-cache, p95, and failure-exclusion limits and treated the
+newsletter as the same evidence chain. This is one actual temporary-file artifact
+execution and source-based assessment, supplementary to the repeated read-only
+trials. It does not establish live retrieval or comparative effectiveness.
+
+Final local results on 2026-09-07: all eight scenarios pass hard behavior and
+presentation 5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol` (40/40), and 1/1 on
+OpenCode 1.18.21 with `openai/gpt-5.6-sol` (8/8). The three generated answers
+account for 15/15 Codex runs and the five catalog classifications for 25/25.
+Affected cases were rerun fully after their final request or assertion repair;
+unchanged case results are reused. The candidate body remained unchanged.
+
+Node 24.20.0 checks pass, including twenty deterministic tests and normal/internal
+installation smoke checks. These are pre-commit working-tree trials at
+`6242feb845bb04439443795932dc607f4de108e7+dirty`, not clean-revision Promotion
+evidence. Final per-scenario manifests, earlier aggregate failures, exact input
+hashes, assertion controls, runner flags, and independent probe assessment are
+retained outside the repository under
+`/Users/bogdan/.codex/artifacts/2026-09-07-parallel-skills-3539/research/`.
+The observer uses the existing harness executor flags and prints selected failed
+summaries for assessment; raw CLI sessions are discarded. Artificial output
+contracts, supplied-source coverage, regex limits, and visible native Codex
+Skills remain material limitations despite passing scores.
+
+No `synthesize-evidence` name or path collision was found in the shared, Codex,
+or Claude installation roots; the checked Cursor and default OpenCode roots
+were absent. Alternate roots remain outside this local screen. The candidate
+stays Experimental and has no Stable release impact or Changeset. Existing global
+Skills and steering remain unchanged. Claude Code and Cursor compatibility,
+clean-revision Promotion evidence, Maintainer approval, installation/removal,
+representative real tasks, and cutover remain separate work. This isolated change
+adds one Skill and eight behavior cases; parallel work is reconciled at merge.
+
+## Prototype trial
+
+On 2026-09-07, `build-prototype` became a repository-only Experimental candidate
+for the installed `prototype` Skill. Historical usage records 23 user invocations
+and 13 assistant declarations across 14 sessions. This supports recurring demand,
+not successful outcomes or superiority over Core with a capable host.
+
+The isolated worktree started at
+`6242feb845bb04439443795932dc607f4de108e7`, including thirteen Experimental Skills
+and 98 behavior cases. The installed `prototype/SKILL.md` (SHA-256
+`714de632d116bb73f65cdb5a882db15b9369a6713b9a47c0fad827848f0bfbe3`), `LOGIC.md`,
+and `UI.md` were inspected directly alongside owned neighbors, Core, contribution rules, and
+relevant ADRs. The candidate owns one disposable experiment that discriminates a
+design question and reports a supported answer or the specific missing evidence.
+Core supplies general scope and proportional proof. An interface decision,
+domain definition, source synthesis, specification, or visual polish can finish
+without a disposable artifact; those outcomes remain independent.
+
+The candidate preserves the proposal under test, exposes relevant state and
+awkward event orders, and picks artifact fidelity from the actual uncertainty.
+It isolates disposable work, uses synthetic in-memory state by default, and allows
+explicitly scoped scratch persistence when persistence is the question. Read-only
+or draft-only delivery remains within that scope. Observations, simulated inputs,
+analysis, and human preference remain distinct. The source's mandatory HTML,
+framework restrictions, fixed variation counts, routing/switcher conventions,
+blanket prohibition on tests, automatic production adoption, and branch/tracker
+capture requirements are not retained. No hard dependency or Flow is added.
+
+Twelve artificial cases cover two generated executable artifact slices, a supplied
+UI handover with unresolved preference and reliability, a materially ambiguous
+question, seven rejection boundaries, and composition with specification writing.
+The seven rejections distinguish production implementation, visual polish, source
+synthesis, specification capture, domain modeling, interface design, and direct
+arithmetic. Peer cases explicitly name `write-spec`, `model-domain`,
+`frontend-design`, `synthesize-evidence`, and `design-interface` alongside the
+candidate. They are supplied-catalog classifications: temporary workspaces do
+not hide Codex's native Skills. They do not prove ordinary discovery or preference
+over installed Skills.
+
+The artifact cases return executable source in the read-only report. A narrow
+candidate-specific observer executes each generated source without host APIs and
+with a per-execution time bound. It checks the seat-ledger proposal and guarded
+alternative over 31 event sequences each, including duplicated expiry, both
+confirm/expiry orders, and reset. Serialization runs across fresh instances and
+checks empty, quoted, Unicode, and duplicate IDs. These checks validate the
+returned artifact slices; the model's stated basis remains analysis, and no disk
+restart, service integration, or production behavior is inferred. The shared
+harness is unchanged. Aggregate reports include every supplementary source result
+and its hash; minimal artificial deliverables are retained outside the repository.
+
+The first deterministic control run exposed a missing duplicate ID in the
+serialization oracle: a deduplicating implementation was incorrectly accepted.
+Adding a repeated ID repaired the oracle without changing the expected behavior.
+Three valid controls now pass; sixteen corruptions reject repaired-away proposals,
+broken guards, inert or non-executable artifacts, fake execution, memory-only
+reloads, lost IDs, unauthorized persistence/reset scope, and unjustified
+preference, reliability, or adoption. A workspace mutation is also rejected.
+
+An independent parent probe received only the candidate, raw invoice-comparison
+task, and four synthetic invoices, without expected assertions. It produced a
+local HTML artifact with record selection, adjacent and switched comparisons,
+changed-field cues, and a run/reset handover. Source inspection confirmed all
+four records and their differences; Node syntax checking passed. The browser tool
+rejected the local file URL, and no alternate browser route was attempted.
+Rendering, control behavior, keyboard operation, and small-screen usability
+remain unverified. The handover explicitly leaves reviewer preference and
+production reliability unresolved. This is one supplementary artifact-generation
+probe, not a successful browser run or repeated reference-harness evidence. It
+used the body before the branch-wording repair and does not test that repair.
+
+Independent boundary review also found that the original final paragraph could
+require separate authorization for a reversible scratch branch. It now says
+branches and tracker setup are unnecessary and keeps ordinary isolation within
+existing authorization. Initial model work was interrupted and retained as
+superseded evidence; final trials use the revised body.
+
+Actual generated reports exposed three artificial review-format ambiguities.
+Ledger outputs supplied an analysis paragraph where the checker expected the
+literal basis status `analysis`. Persistence outputs correctly left disk/restart
+untested but used a nested verdict object or put `Unresolved` after an explanation.
+A UI handover marked reliability testing `Not performed`, while the gate expected
+the reliability conclusion `Unresolved`. The requests now specify the scalar
+status formats and distinguish conclusions from activities. The ambiguity case
+also returned appropriate focused questions under mixed report enums. Its final
+contract uses `selection`, because the material answer still blocks starting the
+experiment. Two UI reports used Core alone to hand over an already built artifact;
+the final outcome case explicitly continues an earlier `build-prototype`
+invocation and makes no fresh-selection claim. Semantic outcome requirements and
+rejection controls are unchanged. These are evaluation-contract and attribution
+repairs, not evidence of candidate-body failure. Affected cases receive full new
+runs.
+Provider calls exceeding the ten-minute bound are retained as failed runs and
+rerun separately; incomplete calls establish no behavioral result.
+
+The first complete batches on the revised body scored 42/60 hard passes on Codex
+and 8/12 on OpenCode, including the format/status failures and three Codex and
+two OpenCode timeouts above. After the scalar-format repair, both artifact cases
+passed 5/5 Codex runs; the UI handover passed 4/5 until its continuation scope was
+made explicit. All failed and superseded results remain distinguishable from
+final evidence.
+
+Final results on 2026-09-07: all twelve scenarios pass hard behavior and quality
+5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol` (60/60), and 1/1 on OpenCode 1.18.21
+with `openai/gpt-5.6-sol` (12/12). Both executable-source cases additionally pass
+all runtime checks for every final generated artifact: ten Codex and two OpenCode
+slices. Each changed request received a full new 5+1 run; unaffected successful
+results are retained, with exact report provenance in the final aggregate.
+The continuation case tests handover and stopping after explicit invocation, not
+fresh selection. The other catalog cases remain supplied-catalog classification.
+
+Node 24.20.0 `npm run check` passes, including 19 deterministic tests and normal
+and internal installation smoke checks. Trial input hashes cover the candidate,
+metadata, cases, fixtures, artifact checker, deterministic tests, and unchanged
+shared evaluator. A full-task diff check then removed only extra EOF blank lines
+from seven catalog fixtures; separate final repository hashes record that change.
+Candidate source, scenario requests, and catalog content are unchanged; the
+whitespace-only equivalence is recorded without repeating model calls. Aggregate reports, failures, source results, controls, hashes,
+and selected independent evidence remain outside the repository under the dated
+`build-prototype` artifact directory. No raw sessions are committed. These are
+working-tree trials at `6242feb845bb04439443795932dc607f4de108e7+dirty`, not
+clean-revision Promotion evidence; artificial output contracts, supplied state,
+and the visible native Codex catalog remain explicit limitations.
+
+No `build-prototype` collision was found in the shared, Codex, Claude, Cursor, or
+default OpenCode Skill roots checked; absent directories are recorded as absent,
+and alternate installation roots remain outside the screen. This Experimental
+candidate has no Stable release impact and needs no Changeset. Global Skills,
+steering, installs, removals, and production behavior remain unchanged. Claude
+Code and Cursor compatibility, clean-revision Promotion evidence, Maintainer
+approval, first-wave real-task testing, and approved cutover remain separate work.
+This branch adds one Skill and twelve cases to its baseline: fourteen Skills and
+110 behavior cases. Other parallel candidate dispositions are preserved.
 
 ## Registry repair plan
 

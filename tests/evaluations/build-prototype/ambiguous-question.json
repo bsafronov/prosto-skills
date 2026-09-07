@@ -1,0 +1,32 @@
+{
+  "id": "ambiguous-question",
+  "case": "tests/cases/build-prototype/ambiguous-question.md",
+  "workspace": "tests/evaluations/build-prototype/fixtures/ambiguous-question",
+  "request": "Read evidence.md. Respond to the actual request in summary; no files may change. Use outcome selection because the material question blocks starting the experiment, and return no findings. Use one concise question if material intent is missing; do not invent the design goal.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "build-prototype"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\\?",
+      "(decision|question|learn|test|find out|explore|uncertain)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "(?<!not )(I built|created the prototype|prototype is ready)",
+      "(will|I.ll) (default|assume|build).*(layout|state machine)"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
