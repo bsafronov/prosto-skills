@@ -1,0 +1,26 @@
+{
+  "id": "missing-timing",
+  "case": "tests/cases/investigate-bug/missing-timing.md",
+  "workspace": "tests/evaluations/investigate-bug/fixtures/missing-timing",
+  "request": "Read evidence.md. Give the supported diagnostic conclusion in summary as a JSON object with status (supported or unresolved), mechanism (string or null), liveHypotheses (array), nextObservation (object with measurements as an array of event timings, queuePrediction as a string, and dnsPrediction as a string), and repair (string or null). Return outcome satisfied and no findings. Do not infer unavailable observations or implement a proposed workaround.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "investigate-bug"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1700,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

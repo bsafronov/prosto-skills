@@ -1,0 +1,29 @@
+{
+  "id": "authorized-contraction",
+  "case": "tests/cases/migrate-system/authorized-contraction.md",
+  "workspace": "tests/evaluations/migrate-system/fixtures/authorized-contraction",
+  "request": "Read evidence.md and source.js. Implement the already authorized contraction and recovery as inline source for this read-only trial. Return summary as a JSON-encoded object with source and verification strings. source declares contract(rows) and rollback(rows) in plain JavaScript without imports or I/O, operating in place. verification states what supports this phase and what remains unproved; distinguish supplied evidence from executed checks. Use outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "migrate-system"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\"source\"\\s*:",
+      "\"verification\"\\s*:"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 12000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

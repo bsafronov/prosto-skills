@@ -1,0 +1,26 @@
+{
+  "id": "remove-missing",
+  "case": "tests/cases/fix-bug/remove-missing.md",
+  "workspace": "tests/evaluations/fix-bug/fixtures/remove-missing",
+  "request": "Read evidence.md and src/cart.js. Provide the repair and a focused executable regression. Put a JSON object in summary with source (self-contained JavaScript declaring function removeLine), regressionSource (self-contained JavaScript declaring function regression(removeLine), which throws when its assertions fail), proofStatus (not_run or executed), and explanation (string). Use no imports, exports, host APIs, or external test library in these source slices. Return outcome satisfied and no findings. Provide source for independent execution; do not execute it in this read-only task, and set proofStatus to not_run.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "fix-bug"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 6500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

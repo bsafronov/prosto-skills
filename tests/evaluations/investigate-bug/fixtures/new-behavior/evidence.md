@@ -1,0 +1,1 @@
+Hypothetical task: Add the agreed includeArchived option to the existing list endpoint. The default remains false; true includes archived records. This is new behavior, there is no failing contract or unexplained symptom, and no independent interface decision, specification, or test-first sequence is requested.

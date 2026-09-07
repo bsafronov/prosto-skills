@@ -1,0 +1,48 @@
+{
+  "purpose": "Local reference-only compatibility patches for retained upstream specialists; recheck after upstream updates.",
+  "patches": [
+    {
+      "path": "setup-ts-deep-modules/SKILL.md",
+      "source": {
+        "source": "mattpocock/skills",
+        "sourceType": "github",
+        "sourceUrl": "https://github.com/mattpocock/skills.git",
+        "skillPath": "skills/in-progress/setup-ts-deep-modules/SKILL.md",
+        "skillFolderHash": "b32508a8a7d62c07d32d7c5cff84d357719def7f",
+        "installedAt": "2026-08-23T21:49:56.235Z",
+        "updatedAt": "2026-08-30T07:09:25.936Z"
+      },
+      "beforeSha256": "29acca66ac99d4532e2a6f0370d8125d7cba1e87c9ac66573203c75189d3e6c7",
+      "afterSha256": "69aeb036803d4dcd769d8419f2746611c1954670579f5f3df91010710394ed63"
+    },
+    {
+      "path": "triage/SKILL.md",
+      "source": {
+        "source": "mattpocock/skills",
+        "sourceType": "github",
+        "sourceUrl": "https://github.com/mattpocock/skills.git",
+        "skillPath": "skills/engineering/triage/SKILL.md",
+        "skillFolderHash": "95fa21bf236993cd9af25bd3670476c17fdb95a4",
+        "pluginName": "mattpocock-skills",
+        "installedAt": "2026-07-20T16:16:07.720Z",
+        "updatedAt": "2026-08-30T07:09:25.931Z"
+      },
+      "beforeSha256": "623a2ed692bdc77d2090e2a3dea3b627dd722ad3bbaca0be83aada75292c8fc4",
+      "afterSha256": "4df614465975e61edb0b8a5931512e85de34865f57b7d23f38bf06032901b369"
+    },
+    {
+      "path": "retro/SKILL.md",
+      "source": {
+        "source": "mattpocock/skills",
+        "sourceType": "github",
+        "sourceUrl": "https://github.com/mattpocock/skills.git",
+        "skillPath": "skills/in-progress/retro/SKILL.md",
+        "skillFolderHash": "5831252c5e3692fa01645b0279ea5c444facec9d",
+        "installedAt": "2026-08-30T07:09:25.935Z",
+        "updatedAt": "2026-08-30T07:09:25.935Z"
+      },
+      "beforeSha256": "264f3330f1e2382af89610ed048ba0ed6d08883eb69f596a8f1df3f1e1a4c6a1",
+      "afterSha256": "4f7847deec5d4d2d7bc7f9453812421c06af3b5e954276735ba48f99eeb159dc"
+    }
+  ]
+}

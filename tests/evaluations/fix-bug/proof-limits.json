@@ -1,0 +1,26 @@
+{
+  "id": "proof-limits",
+  "case": "tests/cases/fix-bug/proof-limits.md",
+  "workspace": "tests/evaluations/fix-bug/fixtures/proof-limits",
+  "request": "Continue the selected fix-bug task from evidence.md. Put a JSON object in summary with localCorrection (verified or unverified), regressionEvidence (array of supplied IDs), affectedBehaviorEvidence (array of IDs), broadGate (passed, pre_existing_failure, or new_failure), remoteIntegration (verified or unverified), and limitation (string). Return outcome satisfied and no findings. Report what the supplied observations establish without claiming new execution.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "fix-bug"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

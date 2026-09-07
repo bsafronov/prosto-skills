@@ -1,0 +1,21 @@
+--- a/setup-ts-deep-modules/SKILL.md
++++ b/setup-ts-deep-modules/SKILL.md
+@@ -11 +11 @@
+-For the vocabulary (deep module, interface, seam, depth), call the Skill tool with "codebase-design" and use its language throughout.
++Use the project's established module and interface terms. Select `design-interface` only when an unresolved caller contract or responsibility boundary needs a design decision; vocabulary alone does not require another Skill.
+--- a/triage/SKILL.md
++++ b/triage/SKILL.md
+@@ -43 +43 @@
+-These are canonical role names. The actual label strings used in the issue tracker may differ. The mapping should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
++These are canonical role names. The actual label strings used in the issue tracker may differ. Inspect the repository's tracker configuration and prior mappings first. If a required mapping is still unresolved, ask the maintainer for that mapping before changing labels.
+@@ -76 +76 @@
+-4. **Grill (if needed).** If the request needs fleshing out, call the Skill tool twice, for "grilling" and "domain-modeling", and grill it into shape a round of questions at a time, sharpening domain terms and updating `CONTEXT.md`/ADRs inline as decisions land.
++4. **Clarify (if needed).** Ask only about consequential gaps that the available evidence cannot resolve. Select `challenge-plan` when the maintainer wants assumptions stress-tested, and `model-domain` when disputed domain meanings need resolution. Select each only for its own outcome. Preserve accepted terms and durable decisions in the project's `CONTEXT.md` or relevant ADR without reopening settled questions.
+--- a/retro/SKILL.md
++++ b/retro/SKILL.md
+@@ -11 +11 @@
+-1. Call the Skill tool with `writing-for-agents` for the writing style guide.
++1. Use the current repository guidance for the retrospective; a writing-style lookup alone does not require another Skill.
+@@ -44 +44 @@
+-- Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.
++- Skills: select `write-skill` for a separately authorized Skill instruction change, or `write-agent-guidance` for repository instruction delivery. Ordinary prose needs no additional Skill. Retrospective suggestions alone do not authorize implementation.

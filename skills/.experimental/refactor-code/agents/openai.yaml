@@ -1,0 +1,6 @@
+interface:
+  display_name: "Refactor Code"
+  short_description: "Change code structure with behavior preservation proof"
+  default_prompt: "Use $refactor-code to implement this structural change while preserving observable behavior."
+policy:
+  allow_implicit_invocation: true

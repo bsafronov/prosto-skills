@@ -1,0 +1,1 @@
+Extract the audit, quantity validation, and send operation into dispatchOne(item, hooks); dispatchBatch keeps iteration and enabled filtering, and calls that helper. Its public signature and all caller-visible behavior stay the same. This local refactor is authorized. No new validation policy, filtering behavior, API redesign, feature, or rollout is requested.

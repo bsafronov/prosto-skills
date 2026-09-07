@@ -1,0 +1,1 @@
+Hypothetical task: The shared range predicate excludes end even though the agreed inclusive contract requires it. The exact boundary reproduction already establishes this cause. Fix the bug using TDD: first demonstrate that behavior in a failing test, then make and verify the correction. No renewed diagnosis or design decision is needed.

@@ -1,0 +1,26 @@
+{
+  "id": "feature-only",
+  "case": "tests/cases/refactor-code/feature-only.md",
+  "workspace": "tests/evaluations/refactor-code/fixtures/feature-only",
+  "request": "Read evidence.md. This is a hypothetical task and supplied-catalog classification, not execution. Select the smallest set only from the exact names and descriptions in the supplied catalog. Core and ordinary implementation need no Skill name. Native installed Skills outside that catalog are outside this classification. Return outcome selection, no findings, and a brief selection reason in summary.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "refactor-code"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 3000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

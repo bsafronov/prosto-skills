@@ -1,0 +1,1 @@
+Hypothetical task: A notification sometimes sends twice; its cause is unknown. Find the responsible mechanism, then fix it using TDD once the cause and expected behavior are established. The contract is exactly one send per accepted event. No interface redesign or specification document is requested.

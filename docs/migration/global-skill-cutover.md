@@ -4,7 +4,24 @@ This document records the evidence and stop conditions for replacing the current
 global third-party Skill installation with the Prosto Skill Suite. It is a
 migration ledger, not authorization to remove installed Skills.
 
-## Current state
+## Current migration scope
+
+On 2026-09-07, the user confirmed the agreed Replace/Drop list and retention of
+specialists, with hands-on testing after migration. The authorized installation
+is an Experimental trial; it does not promote Skills or claim deferred manual or
+cross-host testing has passed. The reproducible scope is recorded in
+[experimental-cutover.json](experimental-cutover.json). The historical snapshots
+and per-branch trial counts below remain attached to their original dates.
+
+The final scope has twenty owned Experimental Skills and twenty-three legacy
+removals. Twelve Retain entries, seven Review entries, and the three existing
+Core trials (`caveman`, `verify-and-stop`, `to-questionnaire`) remain installed.
+`lean-build` was a Replace candidate and is absorbed by Core/native implementation
+after the bounded probe below. System and plugin Skills remain outside the scope.
+Installation status and the exact source revision are recorded in the manifest;
+`prepared` means the global change has not yet happened.
+
+## Initial snapshot (2026-09-05)
 
 Snapshot date: 2026-09-05.
 
@@ -209,11 +226,11 @@ No explicit signal was found for 23 globally listed Skills:
 | `caveman-optimize` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
 | `caveman-setup` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
 | `caveman-stats` | Removed | Removed 2026-09-05; session statistics need no replacement. |
-| `investigate-first` | Replace | Diagnose an ambiguous failure and name a credible mechanism before editing. |
-| `lean-build` | Replace | Deliver a bounded feature without speculative infrastructure. |
-| `migration` | Replace | Preserve compatibility and rollback during a transition. |
-| `safe-refactor` | Replace | Preserve behavior while changing structure. |
-| `surgical-patch` | Replace | Fix a known bug at the narrowest responsible layer with regression proof. |
+| `investigate-first` | Replace | Experimental `investigate-bug` owns causal discrimination for an unexplained failure; its bounded Codex/OpenCode trials pass before the prepared cutover. |
+| `lean-build` | Core trial | The ownership audit and independent CLI feature probe support Core/native implementation; independent design or decomposition can compose when needed. No duplicate feature Skill is created. |
+| `migration` | Replace | Experimental `migrate-system` owns requested compatibility/data transition stages with recovery and rollback preserving post-start writes. |
+| `safe-refactor` | Replace | Experimental `refactor-code` owns agreed structural changes with before/after observable-behavior preservation proof. |
+| `surgical-patch` | Replace | Experimental `fix-bug` repairs an established mechanism with regression evidence; ordinary new behavior stays with Core/native implementation. Its bounded trials pass before the prepared cutover. |
 | `verify-and-stop` | Core trial | Proportional proof and stopping already belong to Core; test host behavior before retaining a separate Skill. |
 
 ### mattpocock/skills
@@ -221,8 +238,8 @@ No explicit signal was found for 23 globally listed Skills:
 | Skill | Provisional disposition | Reason or candidate outcome |
 | --- | --- | --- |
 | `claude-handoff` | Review | Claude-specific continuation may be a host adapter, not a portable Skill. |
-| `code-review` | Replace | Split into the host's defect review and Experimental `review-requirements`; keep installed until composition evidence passes. |
-| `codebase-design` | 6 | 23 | 25 |
+| `code-review` | Replace | Native review owns behavior defects and documented repository standards; Experimental `review-requirements` owns originating-spec conformance. The bounded standards probe below covers an unlinted rule; the generic smell checklist is intentionally retired. |
+| `codebase-design` | Replace | Experimental `design-interface` owns caller contracts and responsibility boundaries; retain the third-party Skill until cutover evidence passes. |
 | `domain-modeling` | Replace | Experimental `model-domain` establishes shared domain language and consequential domain decisions; keep the third-party Skill until cutover evidence passes. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
 | `grilling` | Replace | Experimental `challenge-plan` tests consequential assumptions in a user-selected plan; keep the third-party Skill until cutover evidence passes. |
@@ -230,7 +247,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `improve-codebase-architecture` | Drop candidate | Prefer composition of independent design, inspection, and discussion capabilities. |
 | `loop-me` | Drop candidate | Workspace-specific orchestration should not become a generic replacement. |
 | `migrate-to-shoehorn` | Retain | Narrow third-party migration knowledge. |
-| `prototype` | 23 | 13 | 14 |
+| `prototype` | Replace | Experimental `build-prototype` owns a disposable experiment and bounded answer to one design question; keep the third-party Skill until cutover evidence passes. |
 | `research` | Replace | Experimental `synthesize-evidence` reconciles bounded source evidence into attributable findings; keep the third-party Skill until cutover evidence passes. |
 | `resolving-merge-conflicts` | Retain | Specialist Git procedure; revisit after observing repeated gaps. |
 | `retro` | Review | Retrospection should remain outside product delivery and requires concrete recurring value. |
@@ -329,10 +346,258 @@ user-reported usage ranking. Real-case testing of the first wave runs separately
    evidence synthesis trial below.
 4. `prototype`: Experimental `build-prototype` created 2026-09-07; see the prototype trial below.
 
-All four queued replacements have repository-only Experimental candidates;
-their trial evidence is recorded below. The documented engineering
-candidates—bug diagnosis, narrow fixes, feature building, refactoring, and
-migration—remain for later consideration; verification remains a Core trial.
+All four queued replacements have Experimental candidates and recorded trial
+evidence. The remaining engineering owners and Core consolidation are recorded
+below; verification remains an unchanged Core trial.
+
+## Remaining engineering replacements
+
+On 2026-09-07, the user authorized continuing the agreed Replace/Drop migration
+and confirmed that retained specialists remain in scope as retained capabilities.
+The user will perform hands-on testing after migration; that testing is not a
+prerequisite for completing the remaining implementations. Repository checks,
+targeted behavior evidence, reproducible installation, and honest maturity status
+remain part of the work.
+
+The remaining implementation work is split by independently useful outcome:
+
+| Source | Proposed owner | Distinguishing outcome |
+| --- | --- | --- |
+| `investigate-first` | `investigate-bug` | Discriminate an unknown failure mechanism before choosing a repair. |
+| `surgical-patch` | `fix-bug` | Correct an established mechanism with credible regression evidence. |
+| `safe-refactor` | `refactor-code` | Achieve an authorized structural change with observable behavior preserved. |
+| `migration` | `migrate-system` | Complete the requested compatibility transition stage with coexistence, recovery, and rollback evidence. |
+
+The overlap audit found no separate owner needed for `lean-build`: ordinary
+complete feature delivery belongs to native implementation under Core.
+`design-interface` owns an unresolved contract decision and `split-work` owns a
+requested work breakdown; neither becomes a mandatory feature pipeline. A
+bounded Core implementation trial checks this consolidation below.
+Generic scope, inspection, proportional proof, and stopping remain in Core.
+`implement-test-first` alone owns explicitly requested red–green sequencing.
+
+Two disposition rows accidentally acquired invocation-count cells during the
+previous integration. The `codebase-design` and `prototype` rows above now again
+record their owned replacements; historical usage counts remain in their original
+table. This is a ledger repair, not a change to those Skill boundaries.
+
+## Diagnosis and repair trial
+
+On 2026-09-07, `investigate-bug` and `fix-bug` became repository-only Experimental candidates for the agreed replacements. Historical reference evidence records `investigate-first` at zero explicit user invocations and one assistant declaration in one session, and `surgical-patch` at zero and seven respectively across four sessions. The user's approved Replace decision supports implementation; reference counts alone establish neither effectiveness nor superiority over Core.
+
+The isolated branch starts at `16e861dc4afda203cf83aedd0ba503a737bfc029`. Installed sources were inspected directly: `investigate-first/SKILL.md` SHA-256 `7cc19dd2fc457eb20d65c44dee4d1b72dcdfcd1617182f5bff666700f2a055d8` and `surgical-patch/SKILL.md` SHA-256 `81ea9f7b51409970099e04b98875dd65806cd35472f9a774b847030328187387`. Core, domain vocabulary, contribution rules, relevant ADRs, current peers, and the cutover ledger supplied the ownership constraints.
+
+`investigate-bug` discriminates plausible failure mechanisms through evidence that would change their ranking. Correlation remains a lead; event order and controlled contrasts matter for intermittent faults. Completion is a supported mechanism or the exact missing observation and its discriminating predictions. Diagnosis alone does not authorize repair.
+
+`fix-bug` consumes an established cause and expected behavior, reopening only uncertainty that would change the repair. It corrects the owning behavior even when that spans files or layers, and requires credible regression evidence proportionate to recurrence risk. Existing checks, concrete before/after observations, and focused tests can supply proof; no new test or test-before-code sequence is automatic. The source's generic small-behavior-change scope is removed. Core owns general inspection, scope, implementation and stopping; requested TDD, interface decisions, feature behavior, structural preservation and staged compatibility remain separate outcomes. No dependency or Flow is added.
+
+Seven diagnosis cases cover a supplied asynchronous race with controlled completion orders, missing queue/DNS timing, intermittent performance selection, known repair rejection, ordinary new behavior rejection, external source synthesis rejection, and diagnosis with authorized TDD repair. Eight repair cases cover an executable shared-helper correction with generated regression source, known shared-cause selection, continuation handover with an unrelated baseline failure and unavailable real integration, diagnosis rejection, a user calling an unpromised new capability a bug, structural refactoring rejection, staged compatibility rejection, and requested TDD composition.
+
+Eleven cases are explicit hypothetical supplied-catalog classifications. Candidate and exact peer metadata are supplied; native Codex Skills remain visible, so these are not ordinary discovery trials. Four cases generate structured diagnosis, source, or handover artifacts. The source observer independently executes the returned correction against missing IDs, empty arrays, first/middle/last removals, duplicate IDs, Unicode IDs, object identity, input immutability, and fresh-array guarantees. It also runs each generated regression against the correction and the original defect. This is executable artificial-slice evidence, not an agent editing production source or demonstrating its own execution. Diagnosis and handover assertions check sampled facts, evidence IDs, uncertainty and proof limits; regex checks do not establish arbitrary semantic equivalence.
+
+Four deterministic test groups accept seven positive controls and reject twenty-four semantic or executable corruptions. Corruptions cover wrong causes and completion order, lost competing hypotheses or measurements, invented repair, retaining the original defect, deleting every duplicate, input mutation, cloned identity, vacuous or always-failing regression checks, and overstated baseline/integration evidence. The unchanged shared evaluator supplies read-only workspace checks. The external observer uses existing Codex/OpenCode flags and does not redesign the shared harness; raw CLI sessions are discarded while final artificial reports, input hashes, aggregate results and selected evidence remain outside the repository.
+
+The isolated worker adds two Skills and fifteen cases to its baseline: eighteen Skills, 143 behavior cases and 134 artificial scenarios. Its only full-check failure was the intentionally unchanged shared count assertion. Integration reconciles that assertion: Node 24.20.0 checks pass for all twenty Skills, 159 cases, seventeen evaluation suites with 150 scenarios, thirty-four deterministic tests, and complete-file installation smoke.
+
+Local collision screening found neither candidate name in shared, Codex, or Claude installation roots; Cursor and checked default/legacy OpenCode roots were absent. Alternate roots are outside that local screen. Both candidates remain Experimental with `metadata.internal: true`, consistent UI metadata, no Stable release impact and no Changeset. The worker performed no global changes or publishing. The authorized Experimental cutover is recorded separately in the current manifest; Claude Code and Cursor compatibility, complete clean-revision Promotion evidence, Maintainer Promotion approval and the user's later hands-on tasks remain deferred.
+
+Artifacts: `/Users/bogdan/.codex/artifacts/2026-09-07-engineering-migration/diagnosis-fix/`. Root received one raw assertion-free actual-artifact probe per outcome in `raw-probes/`; those independent observations belong separately from repeated read-only scenario evidence.
+
+Final results on 2026-09-07: all fifteen scenarios pass hard behavior and presentation 5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol` (75/75) and 1/1 on OpenCode 1.18.21 with `openai/gpt-5.6-sol` (15/15). Final evidence selects original reports by scenario without rewriting them. The initial diagnosis group retains three assertion-only failures caused by the equivalent written-number phrase “four-second gap”; five fresh timing runs pass the corrected gate. The source observer's frozen entries also masked attempted mutation in a non-strict corruption control; the corrected gate uses mutable inputs and compares full entries. All five existing Codex repair artifacts pass that stronger assessment, explicitly recorded as re-scores rather than new model runs; OpenCode loads it directly.
+
+One initial OpenCode handover attempt returned no parseable final report. Its aggregate remains failed; the original observer discarded the unparseable text, so the cause is unassessed. An unchanged targeted retry passes, and the retry observer retains selected final text if parsing fails again. Across both candidates there were 96 evaluation attempts: 90 final selected runs, five superseded Codex timing runs, and one incomplete OpenCode attempt. No candidate body, metadata, scenario request or fixture changed during these gate repairs.
+
+The independent root probes meet both outcomes. Diagnosis varies workspace while holding note ID constant, contrasts fresh/direct fetches and reversed load order, and attributes the failure to the omitted cache-key dimension without modifying product source. Repair changes the shared nullish default and records the same check failing on the original and passing through three local entry points, including zero, positive values, null/undefined, omitted input, and preservation. Both handovers state their local evidence limits. Their separate assessment is retained in `independent-probe-assessment.md`.
+
+Implementation is committed locally as `dbc494381ddc40a8f4f752887604ca434ced5d58` (`feat: separate diagnosis from bug repair`). The worktree is clean and `git diff 16e861dc4afda203cf83aedd0ba503a737bfc029..HEAD --check` passes. Codex reports retain the pre-commit `16e861dc4afda203cf83aedd0ba503a737bfc029+dirty` revision; final OpenCode reports identify the clean candidate commit. Candidate and fixture hashes prove input agreement across that commit boundary. These mixed-revision local trials are not full Promotion evidence.
+
+## Refactor and migration trials
+
+On 2026-09-07, `refactor-code` and `migrate-system` became repository-only
+Experimental candidates for the agreed `safe-refactor` and `migration`
+replacements. The baseline is `16e861dc4afda203cf83aedd0ba503a737bfc029`, with
+sixteen Skills and 128 behavior cases. The previous usage scan found five
+assistant declarations across three sessions for `migration`, and no explicit
+signal for `safe-refactor`; these are frequency observations, not outcome proof.
+Candidate development was isolated from global mutation; the current manifest
+records the separately authorized Experimental cutover. Promotion is deferred.
+
+The installed sources were inspected directly: `safe-refactor/SKILL.md` SHA-256
+`cd52867aba26aafb53379d43068cef9b2feca3a3fff850f877a99f710ccd02c0` and
+`migration/SKILL.md` SHA-256
+`fe7cf96a58b0521130fbb886dab2a326869d6ed0001e0306fd244014ba7a9662`.
+Core keeps generic inspection, scope, proportional proof, and stopping.
+`refactor-code` owns an agreed structural change whose affected observable
+behavior remains equivalent. Its distinctive evidence brackets the structural
+change and includes side effects, order, failures, identity, and caller
+obligations where relevant. `migrate-system` owns a requested transition stage
+with actual consumer/data states, partial-progress recovery, compatibility, and
+rollback that preserves writes made after migration begins. It permits a
+coordinated offline conversion when a mixed deployment is unnecessary.
+
+The source Skills' useful decision boundaries are restated without copying their
+instruction bodies. The replacements introduce no dependency graph, generic
+implementation workflow, mandatory TDD sequence, or repeated authorization
+round. Existing authorization covers reversible preparation; destructive
+contraction executes only within its existing authorized scope after its actual
+conditions hold. Independently useful interface design, test-first sequencing,
+work decomposition, and specialist conversion remain separate capabilities.
+No Retain disposition changes.
+
+Eight cases per Skill cover selection, rejection, composition, and observable
+outcomes. Refactor cases reject feature work, known-bug repair, an interface-only
+decision, and staged compatibility work; they compose unresolved interface design
+with separately requested structural implementation. Migration cases select an
+offline data conversion, reject a dev-only dependency patch, an in-place
+refactor, ticket decomposition, and a specialist test-fixture conversion, and
+compose with expressly requested TDD. Peer selection uses exact metadata in a
+hypothetical supplied catalog because native Codex Skills remain visible; these
+cases prove that catalog classification, not ordinary discovery or installed
+preference.
+
+Three returned JavaScript artifacts receive independent execution in bounded
+fresh VM contexts without host APIs. The refactor artifact is compared to the
+original over eight input sequences and three callback failure modes (24
+before/after combinations), with separate helper interception proving the chosen
+extraction is used and six standalone-helper observations proving its moved
+responsibility. The additive migration checks new reads before backfill,
+interruption after a processed row, old and new writes during coexistence,
+retries, record identity, and rollback retaining the latest writes. The
+contraction checks authorized obsolete-field removal and recovery from later
+new-format writes. Deterministic controls reject nine preservation defects,
+seven additive-transition defects, and five contraction defects, plus false
+baseline completion and workspace mutation. These are artificial in-memory
+proofs, not database transactional, storage durability, deployment, or production
+proof. Some actor reports claim they executed local checks; the standard runner
+discards raw provider sessions, so only observer execution is credited.
+
+The two initial observer processes loaded their checker modules before two
+additional observations were added: a later invalid item after a successful
+refactor send, and migration reads before backfill. Candidate text, requests,
+fixtures, and actor prompts did not change. Final checker re-scoring of retained
+reports is recorded separately from actual model reruns. An observed valid
+in-place balance update also exposed a checker aliasing defect: the earlier
+observation held a live object that a later write changed. Snapshotting temporal
+observations repaired scoring; positive in-place and read-repair controls pass,
+and corruption controls still reject the same behavior defects. The candidate,
+request, and fixtures were unchanged.
+
+Final selected results pass hard behavior and presentation on every case:
+`refactor-code` has 40/40 Codex and 8/8 OpenCode passes; `migrate-system` has
+40/40 and 8/8. The harnesses are Codex CLI 0.153.4 with `gpt-5.6-sol` and
+OpenCode 1.18.21 with `openai/gpt-5.6-sol`.
+
+The initial migration Codex aggregate retains 38/40 passes: one checker-alias
+failure and one call that returned no report. All thirty-nine returned artifacts
+pass corrected re-scoring, which adds no model runs. Final evidence instead uses
+a fresh five-run additive-transition batch, four successful original contraction
+calls plus one separately recorded missing-report replacement, and successful
+catalog runs. The missing report establishes no behavioral result.
+
+OpenCode's initial migration batch retained 7/8 passes. Its dependency-only case
+correctly selected no Skill but violated the artificial report contract by using
+`not_applicable` instead of the explicitly requested `selection`. This is a real
+report-contract failure, not a checker false negative. The case now specifies
+`not_applicable` for an empty selection; expected Skill choices and candidate
+instructions are unchanged. That changed request passed a full new five Codex
+runs and one OpenCode run. Unchanged scenarios were not repeated. Original
+aggregates, old/new request hashes, re-scores and replacement provenance remain
+separate from final selected evidence.
+
+Implementation commit `4be6280eb44c18d3a4258559bbf62466e17d6a24` and the one-case
+contract follow-up `36a5384f6da5c745e01db4e49d655cce9a492f4f` are integrated with
+identical owned files. Earlier Codex runs identify the baseline working tree;
+fresh artifact retries and OpenCode use clean candidate commits, and the final
+status-contract batches use the follow-up commit. These mixed-revision local
+trials are not full Promotion evidence.
+
+Separate parent executions received the candidate instructions and raw tasks
+without expected assertions. The refactor replacement passed forty-two
+before/after observations and helper delegation. The additive migration covered
+four interruption points, old/new writer coexistence, idempotent resume,
+identity preservation and rollback retaining the latest writes. The worker's
+withheld artifact checks independently accepted both. These local source
+executions do not prove storage durability, deployment or live contraction.
+
+Name screening found no `refactor-code` or `migrate-system` collision in the
+shared, Codex, Claude, Cursor, or default OpenCode roots inspected. Absent Cursor
+and OpenCode Skill roots are recorded as absent; symlinked Skills were followed,
+and alternate configuration roots remain outside this screen.
+
+The isolated worker adds two Experimental Skills and sixteen cases to its
+baseline, with only the intentionally unchanged shared count assertion failing.
+Integration reconciles the count: Node 24.20.0 checks pass for twenty Skills,
+159 cases, seventeen suites with 150 scenarios, thirty-four deterministic tests
+and complete-file installation smoke. The shared evaluator remains unchanged.
+
+The candidates remain Experimental with no Stable release impact or Changeset.
+The worker performed no global changes; the authorized Experimental cutover is
+recorded separately. Claude Code and Cursor compatibility, complete clean-revision
+Promotion evidence, Maintainer Promotion approval and the user's later hands-on
+tasks remain deferred. Aggregate reports, exact hashes, selected
+artifacts, deterministic controls, failures, and independent probes are retained
+outside the repository at
+`/Users/bogdan/.codex/artifacts/2026-09-07-engineering-migration/refactor-migration/`.
+
+## Consolidation and installation proof
+
+The independent ownership audit found no additional recurring judgment in
+`lean-build` after Core/native feature implementation and independently selected
+interface design or work decomposition. A raw artificial CLI task then required
+persisted renaming through argument parsing, an existing service, and storage.
+The parent received the request and fixture without expected assertions, added
+the service behavior and CLI command, reused title validation and persistence,
+and executed the runnable CLI checks. Open and completed records preserve ID,
+state, other fields and neighboring records; invalid IDs and empty titles leave
+storage byte-for-byte unchanged. Existing add/list/complete coverage passes.
+No feature Skill, framework, configuration mode, prototype, mandatory design
+phase, or decomposition was introduced. This is one bounded Core/native probe,
+not comparative effectiveness or cross-host evidence.
+
+A second raw read-only review probe contained a new retry worker that copied a
+formula while currently returning correct values. The repository explicitly
+requires all workers to call one retry-policy owner, with no lint enforcement.
+Native review reported the changed line, exact ownership rule, maintenance
+consequence and shared-helper correction despite both tests passing. This
+supports documented-standards coverage in the `code-review` replacement map.
+The old universal smell checklist is deliberately retired; originating
+requirements remain a separate `review-requirements` outcome.
+
+The independent artifact directory retains the requests, checks, outputs and
+assessments under the dated engineering-migration evidence root. These probes
+used the coordinating session, whose native catalog was visible. No legacy
+source Skill body was applied for the native feature or review probes. They do
+not establish clean discovery, hands-on user acceptance, or Promotion.
+
+The old installation smoke check enumerated only five Skills. It now discovers
+the repository's complete set, checks normal/internal visibility, installs in a
+temporary directory, and compares every installed source file, including metadata
+and references. A deterministic regression fixture proves that a future Skill
+is included and that an omitted reference or changed metadata fails. Throwing
+on failure also preserves temporary-directory cleanup.
+
+Before removal, three surviving upstream entries need reference-only patches:
+`setup-ts-deep-modules`, `triage`, and the unchanged Review entry `retro`.
+[The patch](retained-reference-patches.patch) removes obsolete invocations and
+selects owned neighbors only for independent outcomes; it introduces no aliases
+or copied specialist implementation. [Provenance](retained-reference-patches.json)
+records upstream registry data and exact before/after SHA-256 values. Upstream
+updates must recheck these patches rather than silently overwrite them. Tracker
+mutations and retrospective implementation keep their existing authorization
+boundaries.
+
+A private backup preserves all shared Skill files, registry, saved Codex
+steering and the retained local `frontend-design`. An isolated project-scope
+Skills CLI rehearsal installed and verified all twenty owned Skills, applied
+the three patches, removed all twenty-three scoped names, and verified the
+forty-one resulting shared Skill directories. It then reversed the patches,
+removed the owned trial copies, and restored all 141 original shared files and
+the simulated steering change byte-for-byte. The zero-context patch format was
+checked in both directions against the unchanged before/after hashes. This
+rehearsal does not claim a global source-registry mutation: registry and
+configuration were saved as exact copies. Global provenance verification and
+its recorded source revision follow the merged candidate checks. Rollback
+material remains available through the user's deferred hands-on testing.
 
 ## Commit wording trial
 
@@ -1336,7 +1601,11 @@ Registry repair is complete when no registry record points to a missing Skill,
 every installed third-party Skill has known provenance, and local Experimental
 exceptions are documented.
 
-## Cutover sequence
+## Stable cutover sequence
+
+The user-authorized Experimental trial above may precede this Stable sequence.
+It replaces the agreed names reversibly while leaving maturity unchanged.
+
 
 1. Add completed-task evidence to this ledger without committing raw sessions.
 2. Confirm **Core trial**, **Replace**, **Retain**, or **Drop** for every Skill.
@@ -1353,9 +1622,14 @@ Stop the cutover if a removed Skill owns a still-used outcome, a replacement
 fails compatibility evidence, the registry cannot reproduce the installed
 state, or rollback evidence is missing.
 
-## Completion criteria
+## Stable completion criteria
 
-The migration is complete only when:
+The authorized Experimental migration is complete when its agreed replacements
+are implemented and checked, its installation and removals match the recorded
+scope, surviving references work, and rollback evidence is retained. User testing
+and Promotion are explicitly deferred.
+
+The later Stable cutover is complete only when:
 
 - every former global Skill has an evidence-backed disposition;
 - every required replacement is Stable and passes its Quality Gate;

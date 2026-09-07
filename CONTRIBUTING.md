@@ -75,7 +75,10 @@ Use `--harness opencode --runs 1` for the required OpenCode compatibility run.
 Model runs use the selected CLI's existing sign-in and send artificial fixtures
 to its model provider. OpenCode requires a local `opencode/auth.json` in the
 XDG data directory; its sign-in is linked into temporary storage so OAuth refresh
-remains available. User configuration, external Skills, and session sharing are disabled.
+remains available. OpenCode disables user configuration, external Skills, and
+session sharing. Codex uses temporary workspace files and ignores user config
+and rules, but its native Skill catalog can remain visible. Supplied-catalog
+classification is not evidence of normal Skill discovery or complete isolation.
 
 Hard behavior requires 5/5 runs. Presentation quality allows one variable run and
 requires 4/5. The runner deletes raw task output and prints only aggregate evidence.

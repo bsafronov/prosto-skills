@@ -4,7 +4,7 @@ Atomic Skills written for agents, by agents.
 
 Prosto Skills lets a developer state a product outcome in ordinary language. The agent applies a small Core mindset, selects zero or more relevant Skills from their names and descriptions, uses deterministic tools for mechanical work, proves the result, and stops.
 
-The project is pre-release. All sixteen Skills are Experimental; no Skill is Stable or included in a normal install yet.
+The project is pre-release. All twenty Skills are Experimental; no Skill is Stable or included in a normal install yet.
 
 ## Model
 
@@ -39,6 +39,14 @@ Experimental product capabilities:
 - `design-interface` designs code contracts and responsibility boundaries from caller needs.
 - `synthesize-evidence` answers bounded research questions with attributable findings and explicit evidence limits.
 - `build-prototype` answers a design question with a disposable experiment and bounded evidence.
+- `investigate-bug` identifies an unexplained failure's mechanism through discriminating evidence.
+- `fix-bug` repairs an established mechanism with regression and affected-behavior proof.
+- `refactor-code` implements an agreed structural change with before/after behavior equivalence.
+- `migrate-system` proves a requested compatibility or persisted-data transition stage and recovery.
+
+Ordinary feature implementation stays with Core and native tools. Interface design,
+work decomposition, diagnosis, repair, refactoring, and migration are selected only
+when their independent outcomes are needed; no mandatory implementation pipeline is added.
 
 Every Skill uses an unprefixed verb-object name. Its description states what outcome it owns, when to use it, and when not to use it. Search, rewrite, typecheck, and similar phases remain tools rather than Skills.
 
@@ -72,8 +80,10 @@ npm run check
 
 - `npm run validate` checks Skill, invocation, reference, and behavior-case contracts.
 - `npm run evaluate:validate` checks artificial scenario definitions without model calls.
-- `npm run evaluate -- <skill> --model <model>` runs each scenario five times in an isolated,
-  read-only Codex task. Hard behavior must pass 5/5 runs; wording quality must pass 4/5.
+- `npm run evaluate -- <skill> --model <model>` runs each scenario five times in a temporary,
+  read-only Codex workspace. Its native Skill catalog can remain visible; supplied-catalog
+  classification does not prove normal discovery. Hard behavior must pass 5/5 runs;
+  wording quality must pass 4/5.
 - Add `--harness opencode` and an OpenCode model name for an isolated, read-only compatibility run.
 - `npm test` tests deterministic repository tooling.
 - `npm run smoke` verifies normal and internal Skills CLI discovery and installation.

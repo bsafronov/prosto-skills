@@ -1,24 +1,30 @@
 #!/usr/bin/env node
 
 import { spawnSync } from "node:child_process";
-import { access, mkdtemp, rm } from "node:fs/promises";
+import { mkdtemp, readFile, readdir, rm, stat } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { inspectRepository } from "../lib/repository.mjs";
 
 const root = process.cwd();
 const command = path.join(root, "node_modules", ".bin", "skills");
-const experimental = [
-  "write-skill", "evaluate-skill", "improve-skill", "review-requirements", "write-commit-message",
-];
+const repository = await inspectRepository(root);
+if (repository.errors.length) fail(repository.errors.join("\n"));
+const internalSkills = repository.skills.filter((skill) => skill.internal);
 
-const normal = run({}, { allowEmpty: true });
-for (const skill of experimental) {
-  if (normal.includes(skill)) fail(`Experimental ${skill} leaked into normal Skills CLI discovery`);
+const normal = run({ INSTALL_INTERNAL_SKILLS: "" }, { allowEmpty: true });
+for (const skill of repository.skills) {
+  if (skill.internal && normal.includes(skill.name)) {
+    fail(`Internal ${skill.name} leaked into normal Skills CLI discovery`);
+  }
+  if (!skill.internal && !normal.includes(skill.name)) {
+    fail(`Normal Skills CLI discovery did not find ${skill.name}`);
+  }
 }
 
 const internal = run({ INSTALL_INTERNAL_SKILLS: "1" });
-for (const skill of experimental) {
-  if (!internal.includes(skill)) fail(`Internal Skills CLI discovery did not find ${skill}`);
+for (const skill of repository.skills) {
+  if (!internal.includes(skill.name)) fail(`Internal Skills CLI discovery did not find ${skill.name}`);
 }
 
 const installRoot = await mkdtemp(path.join(os.tmpdir(), "prosto-install-smoke-"));
@@ -36,12 +42,20 @@ try {
     fail(`Skills CLI install exited ${install.status}:\n${install.stderr || install.stdout}`);
   }
 
-  for (const skill of experimental) {
-    const installedSkill = path.join(installRoot, ".agents/skills", skill, "SKILL.md");
-    try {
-      await access(installedSkill);
-    } catch {
-      fail(`Installed Skill is missing: ${installedSkill}`);
+  for (const skill of repository.skills) {
+    for (const relative of await readdir(skill.directory, { recursive: true })) {
+      const source = path.join(skill.directory, relative);
+      if (!(await stat(source)).isFile()) continue;
+      const installed = path.join(installRoot, ".agents/skills", skill.name, relative);
+      let contents;
+      try {
+        contents = await readFile(installed);
+      } catch (error) {
+        throw new Error(`Installed Skill file is unreadable: ${installed}`, { cause: error });
+      }
+      if (!contents.equals(await readFile(source))) {
+        throw new Error(`Installed Skill file differs from source: ${installed}`);
+      }
     }
   }
 } finally {
@@ -49,7 +63,7 @@ try {
 }
 
 console.log(
-  "Skills CLI hides Experimental Skills normally, exposes them internally, and installs each atomic Skill.",
+  `Skills CLI hides ${internalSkills.length} internal Skills normally and installs all ${repository.skills.length} Skills with matching files.`,
 );
 
 function run(environment, options = {}) {
@@ -67,6 +81,5 @@ function run(environment, options = {}) {
 }
 
 function fail(message) {
-  console.error(message);
-  process.exit(1);
+  throw new Error(message);
 }

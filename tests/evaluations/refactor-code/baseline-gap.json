@@ -1,0 +1,33 @@
+{
+  "id": "baseline-gap",
+  "case": "tests/cases/refactor-code/baseline-gap.md",
+  "workspace": "tests/evaluations/refactor-code/fixtures/baseline-gap",
+  "request": "Read evidence.md. Continue the refactor handover. No code changes are needed in this trial. Return a JSON-encoded summary object with complete (boolean), baseline (string), next (string), and authorization (string). Assess the actual evidence and next useful action; do not claim tools ran. Use outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "refactor-code"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\"complete\"\\s*:\\s*false",
+      "\"baseline\"\\s*:\\s*\"[^\"\\n]*(unverified|unproved|not established|not verified|no behavioral|not.*(run|execut)|unavailable|failed.*import)",
+      "\"next\"\\s*:\\s*\"[^\"\\n]*(parser|baseline|before|original|compar)",
+      "\"authorization\"\\s*:\\s*\"[^\"\\n]*(already|existing|authorized|authorised|no.*(approval|permission)|sufficient)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "\"complete\"\\s*:\\s*true"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 3000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

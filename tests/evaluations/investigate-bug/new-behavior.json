@@ -1,0 +1,26 @@
+{
+  "id": "new-behavior",
+  "case": "tests/cases/investigate-bug/new-behavior.md",
+  "workspace": "tests/evaluations/investigate-bug/fixtures/new-behavior",
+  "request": "This is supplied-catalog classification, not task execution or native Skill discovery. Read catalog.md and evidence.md. Select the exact catalog IDs needed for the hypothetical task in selectedCapabilities; an empty selection is a completed classification. Do not execute the task. Return outcome selection, no findings, and a concise boundary reason in summary.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "investigate-bug"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 800,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
