@@ -1,0 +1,38 @@
+{
+  "id": "ui-evidence-limit",
+  "case": "tests/cases/build-prototype/ui-evidence-limit.md",
+  "workspace": "tests/evaluations/build-prototype/fixtures/ui-evidence-limit",
+  "request": "Use $build-prototype to finish our active prototype task. Read evidence.md and return a compact handover in summary. This is an outcome continuation after prior invocation, not a fresh selection test. For review, use one line each: Artifact:, Run/reset:, Observed:, Preference:, Reliability:, Adoption:. Each status must reflect the supplied evidence. Preference and Reliability are conclusions: start each with Established or Unresolved, followed by its basis. Adoption is an activity: start it with Performed or Not performed, followed by scope. Do not create files. Return outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "build-prototype"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Artifact:[^\\n]*prototypes/invoice-compare\\.html",
+      "Run/reset:[^\\n]*(open|browser)[^\\n]*(reload|refresh)",
+      "Observed:[^\\n]*I-17",
+      "Observed:[^\\n]*810[^\\n]*180",
+      "Preference:\\s*Unresolved",
+      "Reliability:\\s*Unresolved",
+      "Adoption:\\s*Not performed"
+    ],
+    "forbiddenSummaryPatterns": [
+      "Preference:[^\\n]*(validated|settled|proven)",
+      "Reliability:[^\\n]*(validated|proven)",
+      "Adoption:\\s*(Complete|Implemented|Done)"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 2500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

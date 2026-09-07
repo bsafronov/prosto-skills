@@ -1,0 +1,28 @@
+{
+  "id": "direct-answer",
+  "case": "tests/cases/build-prototype/direct-answer.md",
+  "workspace": "tests/evaluations/build-prototype/fixtures/direct-answer",
+  "request": "This is supplied-catalog classification. The exact catalog is build-prototype only. Hypothetical request: \"What is 14 times 3? Just give me the result.\" Return selectedCapabilities for that task, outcome selection, no findings, and the actual result in summary. Do not build an artifact.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "build-prototype"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "^42\\.?$"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 10,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "persistence-scope",
+  "case": "tests/cases/build-prototype/persistence-scope.md",
+  "workspace": "tests/evaluations/build-prototype/fixtures/persistence-scope",
+  "request": "Read evidence.md. Return an inline artifact slice as summary encoded as JSON with keys source, scope, reset, verdict, limit. source must declare function reload(serialized) returning the parsed array of draft IDs and function save(ids) returning its serialized form. No imports or I/O in the delivered slice. Explain in scope how the caller uses the authorized scratch path. verdict must be a single JSON string beginning with \"Unresolved\" for the actual disk/restart result; distinguish the narrower serialization claim after that status. Do not use a nested object for verdict. In reset give the exact authorized scratch directory. Return outcome satisfied and no findings. This is a read-only artifact slice, so do not write files or claim disk execution.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "build-prototype"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\"source\"\\s*:",
+      "\"scope\"\\s*:\\s*\"[^\"\\n]*prototypes/scratch-renewals",
+      "\"reset\"\\s*:\\s*\"[^\"\\n]*prototypes/scratch-renewals",
+      "\"verdict\"\\s*:\\s*\"Unresolved",
+      "\"limit\"\\s*:\\s*\"[^\"\\n]*(disk|restart|crash|durab)"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 2500,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

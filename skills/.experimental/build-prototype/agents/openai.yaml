@@ -1,0 +1,6 @@
+interface:
+  display_name: "Build Prototype"
+  short_description: "Answer a design question with a disposable artifact"
+  default_prompt: "Use $build-prototype to build a disposable experiment for this design question and report what it establishes."
+policy:
+  allow_implicit_invocation: true
