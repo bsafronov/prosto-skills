@@ -1,0 +1,27 @@
+{
+  "id": "compose-spec",
+  "case": "tests/cases/synthesize-evidence/compose-spec.md",
+  "workspace": "tests/evaluations/synthesize-evidence/fixtures/catalog",
+  "request": "Classify this hypothetical task against only the supplied catalog in catalog.md. Do not execute the task or select installed alternatives. Select the smallest sufficient set, possibly empty. Return outcome selection, no findings, and one brief reason in summary. Task: Compare the supplied current provider contracts and original measurements to establish feasible retry guarantees, then draft our feature specification. The accepted product choice is to use the strongest supported guarantee; record an open question if the evidence cannot determine it.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "synthesize-evidence",
+        "write-spec"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 2600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "spec-only",
+  "case": "tests/cases/synthesize-evidence/spec-only.md",
+  "workspace": "tests/evaluations/synthesize-evidence/fixtures/catalog",
+  "request": "Classify this hypothetical task against only the supplied catalog in catalog.md. Do not execute the task or select installed alternatives. Select the smallest sufficient set, possibly empty. Return outcome selection, no findings, and one brief reason in summary. Task: The API behavior is already verified and agreed. Capture the settled bulk export behavior, exclusions, and acceptance criteria as a feature specification.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-spec"
+      ],
+      "exclude": [
+        "synthesize-evidence"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 2600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

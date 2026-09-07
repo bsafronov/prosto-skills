@@ -1,0 +1,28 @@
+{
+  "id": "domain-choice",
+  "case": "tests/cases/synthesize-evidence/domain-choice.md",
+  "workspace": "tests/evaluations/synthesize-evidence/fixtures/catalog",
+  "request": "Classify this hypothetical task against only the supplied catalog in catalog.md. Do not execute the task or select installed alternatives. Select the smallest sufficient set, possibly empty. Return outcome selection, no findings, and one brief reason in summary. Task: Support uses account for the paying organization while product uses it for a login. Resolve the shared terms and their relationships in our glossary; the relevant behavior evidence is already settled.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "model-domain"
+      ],
+      "exclude": [
+        "synthesize-evidence"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 2600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

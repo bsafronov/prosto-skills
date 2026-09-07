@@ -1,0 +1,37 @@
+{
+  "id": "versioned-answer",
+  "case": "tests/cases/synthesize-evidence/versioned-answer.md",
+  "workspace": "tests/evaluations/synthesize-evidence/fixtures/versioned-answer",
+  "request": "Use only these artificial source snapshots; live browsing is outside this trial. Return your actual synthesized answer in summary, outcome satisfied, and no findings. Cite local source paths using Markdown links on the same line as each supported claim or unresolved conflict. For RelayHub cloud API 3.2 with serial=true, what delivery guarantee, ordering boundary, and retry window can we rely on? Use four single-line paragraphs labeled Delivery:, Ordering:, Retry:, and Assessment:. On Assessment explain whether the newsletter is supported. Do not design the consumer.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "synthesize-evidence"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Delivery:[^\\n]*at.least.once[^\\n]*\\]\\((?:[^)\\n]*/workspace/)?sources/current\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Ordering:[^\\n]*(within|per|each|single)[^\\n]*stream[^\\n]*\\]\\((?:[^)\\n]*/workspace/)?sources/current\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Ordering:[^\\n]*serial\\s*=\\s*true",
+      "Ordering:[^\\n]*(no|not|without)[^\\n]*(global|across.stream|cross.stream|between.stream)",
+      "Retry:[^\\n]*48\\s*hours[^\\n]*\\]\\((?:[^)\\n]*/workspace/)?sources/current\\.md(?:(?:#|:)[^)]*)?\\)",
+      "Assessment:[^\\n]*(overstat|unsupported|incorrect|contradict|not supported|not establish|false)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "Delivery:[^\\n]*\\bexactly.once (is|guaranteed)",
+      "(implement|build|create)[^\\n]*(consumer|pipeline|database)",
+      "Delivery:[^\\n]*(not|never) at.least.once"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 2600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

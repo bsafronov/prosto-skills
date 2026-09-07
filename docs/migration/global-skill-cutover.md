@@ -230,8 +230,8 @@ No explicit signal was found for 23 globally listed Skills:
 | `improve-codebase-architecture` | Drop candidate | Prefer composition of independent design, inspection, and discussion capabilities. |
 | `loop-me` | Drop candidate | Workspace-specific orchestration should not become a generic replacement. |
 | `migrate-to-shoehorn` | Retain | Narrow third-party migration knowledge. |
-| `prototype` | Replace | Experimental `build-prototype` owns a disposable experiment and bounded answer to one design question; keep the third-party Skill until cutover evidence passes. |
-| `research` | Replace | Gather authoritative evidence and preserve concise findings. |
+| `prototype` | 23 | 13 | 14 |
+| `research` | Replace | Experimental `synthesize-evidence` reconciles bounded source evidence into attributable findings; keep the third-party Skill until cutover evidence passes. |
 | `resolving-merge-conflicts` | Retain | Specialist Git procedure; revisit after observing repeated gaps. |
 | `retro` | Review | Retrospection should remain outside product delivery and requires concrete recurring value. |
 | `scaffold-exercises` | Retain | Domain-specific course tooling. |
@@ -324,10 +324,12 @@ user-reported usage ranking. Real-case testing of the first wave runs separately
    It comes first because it supports current Skill authoring work; Skill authoring
    itself stays in `write-skill`. See the agent guidance trial below.
 2. `codebase-design`: decide module boundaries and deepen interfaces.
-3. `research`: gather authoritative evidence and preserve concise findings.
+3. `research`: Experimental `synthesize-evidence` created 2026-09-07; see the
+   evidence synthesis trial below.
 4. `prototype`: Experimental `build-prototype` created 2026-09-07; see the prototype trial below.
 
-Individual trials below record implemented candidates. The documented engineering
+The queue began with `write-agent-guidance`; subsequent implementations and
+evidence are recorded in their trials below. The documented engineering
 candidates—bug diagnosis, narrow fixes, feature building, refactoring, and
 migration—remain for later consideration; verification remains a Core trial.
 
@@ -956,6 +958,111 @@ cutover remain separate work.
 Actual files increase the baseline from twelve Skills and 88 behavior cases to
 thirteen Skills and 98 cases. The other queued and engineering candidates remain
 unimplemented in this task.
+
+## Evidence synthesis trial
+
+On 2026-09-07, the user authorized an owned replacement for `research` alongside
+independent module-design and prototype work. This work started from
+`6242feb845bb04439443795932dc607f4de108e7`, with thirteen Experimental Skills and
+98 behavior cases. The installed source, Core, contribution contract, relevant
+ADRs, and owned neighbors were inspected before writing.
+
+Experimental `synthesize-evidence` owns an answer that reconciles a bounded
+source set into attributable findings, applicability limits, and unresolved
+conflicts. The source's 21 explicit user invocations are recurring-use evidence,
+not proof of effectiveness. Core supplies general evidence and stopping judgment;
+search tools locate or retrieve material. Neither determines whether different
+contracts apply to the same version, whether repeated reports represent independent
+observations, or whether inaccessible evidence leaves a conclusion unresolved.
+Single factual lookup and literal file search need no replacement Skill.
+`model-domain` owns meaning and domain choices; `write-spec` owns a specification
+from settled facts. Evidence synthesis and specification writing compose only
+when both outcomes are requested. No dependency or durable Flow is introduced.
+
+The candidate follows primary evidence to its proper authority: contracts,
+implementation, and empirical measurements answer different kinds of claim.
+It compares scope before resolving disagreement, preserves measurement limits,
+and keeps same-scope conflicts open when recency provides no authority. It
+returns the requested answer or artifact and stops at the bounded question.
+The source's mandatory background agent and Markdown file are not retained.
+No source prose, universal workflow, browser wrapper, or new evaluation runtime
+was introduced.
+
+Eight artificial cases cover three generated research answers, four rejection
+classifications, and one composition classification. The generated answers
+reconcile a current contract with an archived version and an overstated article;
+leave a same-scope conflict between two current first-party documents unresolved;
+and separate a narrow memory benchmark from inaccessible production latency
+evidence and a repeated announcement. The supplied classification catalog names
+exactly `synthesize-evidence`, `model-domain`, `write-spec`, and `map-decisions`.
+These catalog classifications do not prove native host discovery: Codex's
+installed Skill catalog remains visible despite temporary file isolation.
+
+The outcome assertions check selected factual values, attribution to the source
+that owns each claim, applicable conditions, uncertainty, evidence independence,
+coverage counts, and scope boundaries. Nine positive controls pass; nineteen
+semantic corruptions and three workspace mutations fail. Corruptions include
+unsupported delivery, an outdated retry window, wrong primary sources, a reversed
+measurement, invented certainty, false independent corroboration, hidden access
+failure, and unsolicited implementation. These checks cover sampled invariants;
+regular expressions do not prove arbitrary source support, locator accuracy, or
+semantic equivalence. Expected assertions stay outside the temporary workspaces
+and model prompts.
+
+Observed generated answers exposed assertion false negatives for valid `#`,
+colon, and absolute workspace source locators, equivalent measurement and limitation wording, and
+negated independent-corroboration claims. Cross-stream ordering wording and an
+explicitly historical retry limit are also accepted without confusing them with
+a global guarantee or the current window. The assertions now accept those
+forms while retaining source identity and the corresponding semantic corruption
+controls. Empty literal-search and factual-lookup classifications sometimes correctly
+selected no Skill but returned the wrong evaluation outcome on Codex or OpenCode;
+their requests now explicitly identify an empty selection as a completed
+classification. A later conflict answer used
+“Contradicted” while explicitly retaining both values and missing precedence;
+the request now defines its status vocabulary so an undetermined answer is
+Unresolved. Candidate instructions and
+expected Skill choices remain unchanged. Detailed trial totals are recorded
+below after the final repeated runs.
+
+A separate parent execution received only a raw Harbor Sync question, candidate
+instructions, and four new source snapshots. It created a temporary findings
+note. Independent assessment verified all four source links, the conditional
+36-hour retry answer within a non-sliding 48-hour window from first acceptance,
+the managed-versus-self-hosted scope distinction, and the absence of a supported
+60-second completion guarantee. The note preserved the original benchmark's
+sample, payload, warm-cache, p95, and failure-exclusion limits and treated the
+newsletter as the same evidence chain. This is one actual temporary-file artifact
+execution and source-based assessment, supplementary to the repeated read-only
+trials. It does not establish live retrieval or comparative effectiveness.
+
+Final local results on 2026-09-07: all eight scenarios pass hard behavior and
+presentation 5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol` (40/40), and 1/1 on
+OpenCode 1.18.21 with `openai/gpt-5.6-sol` (8/8). The three generated answers
+account for 15/15 Codex runs and the five catalog classifications for 25/25.
+Affected cases were rerun fully after their final request or assertion repair;
+unchanged case results are reused. The candidate body remained unchanged.
+
+Node 24.20.0 checks pass, including twenty deterministic tests and normal/internal
+installation smoke checks. These are pre-commit working-tree trials at
+`6242feb845bb04439443795932dc607f4de108e7+dirty`, not clean-revision Promotion
+evidence. Final per-scenario manifests, earlier aggregate failures, exact input
+hashes, assertion controls, runner flags, and independent probe assessment are
+retained outside the repository under
+`/Users/bogdan/.codex/artifacts/2026-09-07-parallel-skills-3539/research/`.
+The observer uses the existing harness executor flags and prints selected failed
+summaries for assessment; raw CLI sessions are discarded. Artificial output
+contracts, supplied-source coverage, regex limits, and visible native Codex
+Skills remain material limitations despite passing scores.
+
+No `synthesize-evidence` name or path collision was found in the shared, Codex,
+or Claude installation roots; the checked Cursor and default OpenCode roots
+were absent. Alternate roots remain outside this local screen. The candidate
+stays Experimental and has no Stable release impact or Changeset. Existing global
+Skills and steering remain unchanged. Claude Code and Cursor compatibility,
+clean-revision Promotion evidence, Maintainer approval, installation/removal,
+representative real tasks, and cutover remain separate work. This isolated change
+adds one Skill and eight behavior cases; parallel work is reconciled at merge.
 
 ## Prototype trial
 

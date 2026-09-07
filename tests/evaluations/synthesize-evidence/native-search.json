@@ -1,0 +1,26 @@
+{
+  "id": "native-search",
+  "case": "tests/cases/synthesize-evidence/native-search.md",
+  "workspace": "tests/evaluations/synthesize-evidence/fixtures/catalog",
+  "request": "Classify this hypothetical task against only the supplied catalog in catalog.md. Do not execute the task or select installed alternatives. Select the smallest sufficient set, possibly empty. The classification itself is completed even when the selected set is empty: return outcome selection, no findings, and one brief reason in summary. Task: Find every local file containing the literal MAX_RETRIES and return the paths.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "synthesize-evidence"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 2600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
