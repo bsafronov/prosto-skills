@@ -1,10 +1,11 @@
 {
-  "status": "prepared",
+  "status": "installed-experimental",
   "scope": "Authorized Experimental replacement of the agreed Replace/Drop list; specialists retained and user hands-on testing deferred. Promotion remains separate.",
   "source": {
     "repository": "https://github.com/bsafronov/prosto-skills.git",
     "branch": "main",
-    "revision": null
+    "revision": "9ca4ee792df2cc17a84f30faca17e4a43a9e2ffd",
+    "tree": "c166a536f65e751cabd4bcb98c299704d3196e66"
   },
   "owned": [
     "build-prototype",
@@ -81,5 +82,24 @@
     "to-questionnaire",
     "verify-and-stop"
   ],
-  "retainedReferencePatch": "retained-reference-patches.patch"
+  "retainedReferencePatch": "retained-reference-patches.patch",
+  "installedOn": "2026-09-07",
+  "installation": {
+    "cli": "skills@1.5.23",
+    "agent": "codex",
+    "scope": "global",
+    "mode": "copy",
+    "registryEntries": 41,
+    "sharedSkillDirectories": 41,
+    "visibleWithInternalSkills": 42,
+    "unregisteredOwnedSkills": 0,
+    "verifiedSharedFiles": 112,
+    "obsoleteSelectorsFound": 0
+  },
+  "rollback": {
+    "backupDirectory": "/Users/bogdan/.codex/artifacts/2026-09-07-engineering-migration/cutover-backup",
+    "workerCommitBundle": "/Users/bogdan/.codex/artifacts/2026-09-07-engineering-migration/engineering-worker-commits.bundle",
+    "rehearsal": "20 owned installs,23 legacy removals,3 reference patches,141 original shared files and steering restored in an isolated project",
+    "preserveUntil": "user hands-on testing supports removal"
+  }
 }
