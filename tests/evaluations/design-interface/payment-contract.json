@@ -1,0 +1,46 @@
+{
+  "id": "payment-contract",
+  "case": "tests/cases/design-interface/payment-contract.md",
+  "workspace": "tests/evaluations/design-interface/fixtures/payment-contract",
+  "request": "Read evidence.md and src/checkout.js. Propose the code interface that checkout and the retry worker should share. Return the design in summary with Contract, Caller, Ownership, Retry, Timeout, Persistence, Notification, Verification, and Trade-off labels. Each label should have a self-contained statement; Contract and Caller need a concrete signature or call example. In Persistence, state how recovery affects both the receipt and charging. Describe behavior supported by the evidence, including failed paths, and distinguish proposed checks from checks actually run. Use outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "design-interface"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Contract:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\((?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\)",
+      "Caller:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\((?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\)",
+      "Ownership:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(coordinat|payment|receipt)",
+      "(same|stable|reus|original)[^\\n]*requestId",
+      "Timeout:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*pending",
+      "Persistence:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(recover|reconcil|lookup|retri|retry|putOnce)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(receipt|persist|write)|Persistence:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(receipt|persist|write)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(recover|reconcil|lookup|retri|retry|putOnce)",
+      "Notification:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(remain|keep|preserv|does not|must not|cannot|without)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(paid|payment|state)|Notification:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(still|always) returns?(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*paid",
+      "Verification:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(provider|gateway)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(integration|real)|Verification:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(integration|real)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(provider|gateway)",
+      "Trade-off:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\S",
+      "Persistence:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(without (?:recharg(?:ing)?|charging again|(?:another|a second|a new|duplicat(?:e|ing)) (?:charge|payment))|(?:no|never) (?:new|second|another) (?:charge|payment)|(?:do|does|must) not (?:recharge|charge again)|avoid(?:s|ing)? (?:recharg|duplicate (?:charge|payment)))|Persistence:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*((?:never|must not|do not) charg(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*different key|at.most.once charg)|Persistence:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*((?:do|does|must) not (?:create|cause|make|issue) (?:a )?(?:second|new|another) (?:charge|payment)|prevent(?:s|ing)?(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(?:second|new|another) (?:charge|payment))",
+      "Retry:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*requestId"
+    ],
+    "forbiddenSummaryPatterns": [
+      "Retry:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(new|fresh|different) requestId",
+      "Timeout:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(unpaid|failed) (state|response|result)",
+      "Notification:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(mark|turn|set)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*unpaid",
+      "(tests|checks) (passed|pass successfully)",
+      "Retry:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(do not|never|must not|avoid)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(reus|same|stable)",
+      "Persistence:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(by|then|must|should) (?:recharging|recharge|charging again|charge again)",
+      "Persistence:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(do not|must not|never|need not) prevent"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 3000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

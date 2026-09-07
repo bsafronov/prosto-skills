@@ -1,0 +1,6 @@
+interface:
+  display_name: "Design Interface"
+  short_description: "Design caller contracts and responsibility boundaries"
+  default_prompt: "Use $design-interface to design this code interface from its callers and required behavior."
+policy:
+  allow_implicit_invocation: true
