@@ -2,7 +2,7 @@
   "id": "dependency-only",
   "case": "tests/cases/migrate-system/dependency-only.md",
   "workspace": "tests/evaluations/migrate-system/fixtures/dependency-only",
-  "request": "Read evidence.md. This is a hypothetical task and supplied-catalog classification, not execution. Select the smallest set only from the exact names and descriptions in the supplied catalog. Core and ordinary implementation need no Skill name. Native installed Skills outside that catalog are outside this classification. Return outcome selection, no findings, and a brief selection reason in summary.",
+  "request": "Read evidence.md. This is a hypothetical task and supplied-catalog classification, not execution. Select the smallest set only from the exact names and descriptions in the supplied catalog. Core and ordinary implementation need no Skill name. Native installed Skills outside that catalog are outside this classification. For this catalog classification, use outcome not_applicable when no supplied Skill applies, or selection when one or more apply. Return no findings and a brief selection reason in summary.",
   "expect": {
     "capabilities": {
       "include": [],
@@ -11,7 +11,7 @@
       ],
       "allowAdditional": false
     },
-    "outcome": "selection",
+    "outcome": "not_applicable",
     "findings": [],
     "allowAdditionalFindings": false,
     "readOnly": true,
