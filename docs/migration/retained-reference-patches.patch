@@ -1,48 +1,21 @@
 --- a/setup-ts-deep-modules/SKILL.md
 +++ b/setup-ts-deep-modules/SKILL.md
-@@ -8,7 +8,7 @@
- 
- Make every package in this repo a **deep module**: a lot of behaviour behind a small interface. A package's public surface is its **entry points** (the files at the package root), and everything in its subfolders is hidden. This skill installs [dependency-cruiser](https://github.com/sverweij/dependency-cruiser) and the rules that make the entry points the only way in, then proves the rules bite.
- 
+@@ -11 +11 @@
 -For the vocabulary (deep module, interface, seam, depth), call the Skill tool with "codebase-design" and use its language throughout.
 +Use the project's established module and interface terms. Select `design-interface` only when an unresolved caller contract or responsibility boundary needs a design decision; vocabulary alone does not require another Skill.
- 
- ## The shape this enforces
- 
 --- a/triage/SKILL.md
 +++ b/triage/SKILL.md
-@@ -40,7 +40,7 @@
- 
- Every triaged issue should carry exactly one category role and one state role. If state roles conflict, flag it and ask the maintainer before doing anything else.
- 
+@@ -43 +43 @@
 -These are canonical role names. The actual label strings used in the issue tracker may differ. The mapping should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
 +These are canonical role names. The actual label strings used in the issue tracker may differ. Inspect the repository's tracker configuration and prior mappings first. If a required mapping is still unresolved, ask the maintainer for that mapping before changing labels.
- 
- State transitions: an unlabeled issue normally goes to `needs-triage` first; from there it moves to `needs-info`, `ready-for-agent`, `ready-for-human`, or `wontfix`. `needs-info` returns to `needs-triage` once the reporter replies. The maintainer can override at any time; flag transitions that look unusual and ask before proceeding.
- 
-@@ -73,7 +73,7 @@
- 
- 3. **Verify the claim.** Before any grilling, check that the claim holds up. For a bug, reproduce it from the reporter's steps. For a PR, confirm the diff does what it claims: check it out, run the relevant tests or commands. Report what happened: confirmed (with code path), failed, or insufficient detail (a strong `needs-info` signal). A confirmed verification makes a much stronger agent brief.
- 
+@@ -76 +76 @@
 -4. **Grill (if needed).** If the request needs fleshing out, call the Skill tool twice, for "grilling" and "domain-modeling", and grill it into shape a round of questions at a time, sharpening domain terms and updating `CONTEXT.md`/ADRs inline as decisions land.
 +4. **Clarify (if needed).** Ask only about consequential gaps that the available evidence cannot resolve. Select `challenge-plan` when the maintainer wants assumptions stress-tested, and `model-domain` when disputed domain meanings need resolution. Select each only for its own outcome. Preserve accepted terms and durable decisions in the project's `CONTEXT.md` or relevant ADR without reopening settled questions.
- 
- 5. **Apply the outcome:**
-    - `ready-for-agent`: post an agent brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)).
 --- a/retro/SKILL.md
 +++ b/retro/SKILL.md
-@@ -8,7 +8,7 @@
- 
- ## Steps
- 
+@@ -11 +11 @@
 -1. Call the Skill tool with `writing-for-agents` for the writing style guide.
 +1. Use the current repository guidance for the retrospective; a writing-style lookup alone does not require another Skill.
- 
- 2. Read the primary sources for the session the user specifies. This may mean searching through session logs on this machine. If the user doesn't specify a session, default to the current one.
- 
-@@ -41,4 +41,4 @@
- - `CLAUDE.md`/`AGENTS.md`: these files are pushed to the context window of any agent working in this repo. They should be used incredibly sparingly, usually only for **navigation pointers** to other files.
- - `CODING_STANDARDS.md`: this file is read during review, not implementation. Add **navigation pointers** to docs folders if the standards file gets more than 1,000 lines long.
- - Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
+@@ -44 +44 @@
 -- Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.
 +- Skills: select `write-skill` for a separately authorized Skill instruction change, or `write-agent-guidance` for repository instruction delivery. Ordinary prose needs no additional Skill. Retrospective suggestions alone do not authorize implementation.
