@@ -1,0 +1,37 @@
+{
+  "id": "clarify-completion",
+  "case": "tests/cases/write-agent-guidance/clarify-completion.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/clarify-completion",
+  "request": "Read runbook.md and owner-note.md. Return revised runbook text in summary. Use Completion: and Publication: lines so the owner can review the two boundaries. Draft only; outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-agent-guidance"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Completion:[^\\n]*(all|every|each)[^\\n]*row",
+      "Completion:[^\\n]*imported[^\\n]*reject",
+      "Completion:[^\\n]*((recorded|documented)[^\\n]*reason|reason[^\\n]*(recorded|documented))",
+      "Completion:[^\\n]*((zero|no) unexplained|unexplained row[^\\n]*incomplete)",
+      "Publication:[^\\n]*(owner[^\\n]*approv|approv[^\\n]*owner)",
+      "(run[^\\n]*import[^\\n]*staging|staging[^\\n]*run[^\\n]*import)"
+    ],
+    "forbiddenSummaryPatterns": [
+      "Completion:[^\\n]*(zero|no) reject",
+      "Publication:[^\\n]*(automatically|automatic)",
+      "Completion:[^\\n]*(without[^.\\n]*reason|reason[^.\\n]*(optional|unnecessary|not required))"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 1600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

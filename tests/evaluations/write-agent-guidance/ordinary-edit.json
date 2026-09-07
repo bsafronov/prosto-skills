@@ -1,0 +1,26 @@
+{
+  "id": "ordinary-edit",
+  "case": "tests/cases/write-agent-guidance/ordinary-edit.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/ordinary-edit",
+  "request": "Read evidence.md. Select capabilities for this task only; outcome selection and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [],
+      "exclude": [
+        "write-agent-guidance"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

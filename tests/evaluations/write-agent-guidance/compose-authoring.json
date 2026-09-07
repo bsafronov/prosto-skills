@@ -1,0 +1,27 @@
+{
+  "id": "compose-authoring",
+  "case": "tests/cases/write-agent-guidance/compose-authoring.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/compose-authoring",
+  "request": "The peer write-skill creates or revises one atomic agent Skill with a precise selection boundary and observable completion. Read evidence.md. Select capabilities only; outcome selection and no findings. For this isolated comparison, the candidate and the described peer are the complete available Skill catalog. Select none, either, or both as justified, using their exact names; report outcome selection even when no Skill applies.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-skill",
+        "write-agent-guidance"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

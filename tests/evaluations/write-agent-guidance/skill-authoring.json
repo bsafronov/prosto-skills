@@ -1,0 +1,28 @@
+{
+  "id": "skill-authoring",
+  "case": "tests/cases/write-agent-guidance/skill-authoring.md",
+  "workspace": "tests/evaluations/write-agent-guidance/fixtures/skill-authoring",
+  "request": "This is a hypothetical catalog-classification exercise, not a request to perform Skill authoring. The available peer write-skill creates or revises one atomic agent Skill with a precise selection boundary and observable completion. Read evidence.md. Select capabilities only; outcome selection and no findings. For this isolated comparison, the candidate and the described peer are the complete available Skill catalog. Select none, either, or both as justified, using their exact names; report outcome selection even when no Skill applies. selectedCapabilities must report the catalog IDs that the hypothetical task would select; do not perform authoring or invoke installed Skills during this comparison.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "write-skill"
+      ],
+      "exclude": [
+        "write-agent-guidance"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 600,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

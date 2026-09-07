@@ -1,0 +1,1 @@
+Create a reusable invoice-review Skill. Separately repair the repository release guidance: agents miss the publication approval rule because the root steering has a vague pointer. Keep Skill authoring and repository release policy separate.

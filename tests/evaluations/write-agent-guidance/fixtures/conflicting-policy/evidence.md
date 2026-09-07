@@ -1,0 +1,1 @@
+The project owner asks to consolidate agent guidance. Two current policies have equal authority: operations says delete logs after 30 days; audit says retain logs for 90 days. No superseding decision or exception is documented.
