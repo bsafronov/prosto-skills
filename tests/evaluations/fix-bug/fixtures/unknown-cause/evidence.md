@@ -1,0 +1,1 @@
+Hypothetical task: An item sometimes saves twice. We have not distinguished retry delivery, a repeated UI callback, or database behavior. Identify the mechanism and diagnostic evidence only; do not repair it yet.

@@ -1,0 +1,1 @@
+Hypothetical task: The agreed contract keeps items with count >= 1. The current shared predicate uses count > 1; the supplied reproduction shows count 1 disappearing and count 2 remaining. Repair this established defect and verify both values.

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Investigate Bug"
+  short_description: "Discriminate causes of an unexplained failure"
+  default_prompt: "Use $investigate-bug to identify the mechanism behind this unexplained failure."
+policy:
+  allow_implicit_invocation: true

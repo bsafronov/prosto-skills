@@ -1,0 +1,26 @@
+{
+  "id": "stale-completion",
+  "case": "tests/cases/investigate-bug/stale-completion.md",
+  "workspace": "tests/evaluations/investigate-bug/fixtures/stale-completion",
+  "request": "Read evidence.md and src/panel.js. Diagnose the observed failure. Put a JSON object in summary with status (supported or unresolved), mechanism (string), evidenceIds (array of supplied IDs), cacheConclusion (string), and contrast (object with olderLast and newerLast giving the predicted final record IDs for those completion orders). Include scope (string) stating the limit of this diagnosis. Return outcome satisfied and no findings. Do not provide a repair or claim new execution.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "investigate-bug"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1800,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

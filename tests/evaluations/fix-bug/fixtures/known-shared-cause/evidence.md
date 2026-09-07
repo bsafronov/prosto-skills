@@ -1,0 +1,1 @@
+Hypothetical task: We traced timeout=0 being replaced with 5000 to normalizeOptions using options.timeout || 5000. The agreed API allows 0 and defaults only null or undefined. Repair the established shared helper used by both CLI and server and prove that 0 and absent input retain their documented meanings. Do not redesign the API.

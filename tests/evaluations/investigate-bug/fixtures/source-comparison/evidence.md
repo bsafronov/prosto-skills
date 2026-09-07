@@ -1,0 +1,1 @@
+Hypothetical task: Compare the supplied SDK documentation, release notes, and operations guide to determine which retry guarantees apply to v4 clients, with attributable findings and unresolved conflicts. No running application failure is being diagnosed.

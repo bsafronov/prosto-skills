@@ -1,0 +1,1 @@
+Hypothetical task: Search p95 doubled only during some imports after the latest release. We do not know whether lock contention, workload shape, or a query-plan change causes it. Find the mechanism and its evidence; diagnosis only.

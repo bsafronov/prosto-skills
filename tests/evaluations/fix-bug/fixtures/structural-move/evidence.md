@@ -1,0 +1,1 @@
+Hypothetical task: Move the agreed parsing responsibility from the controller into the parser module while keeping outputs, side effects, exception order, and caller obligations identical. No bug correction, new behavior, or unresolved interface decision is requested.

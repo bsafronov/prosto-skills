@@ -1,0 +1,1 @@
+Hypothetical task: Implement the agreed additive stage of a persisted timestamp transition while old and new application versions coexist. Preserve writes from both versions, resume partial backfill safely, and prove recovery after new writes. No defective current behavior or separate refactor is being repaired.
