@@ -1,0 +1,42 @@
+{
+  "id": "export-lifecycle",
+  "case": "tests/cases/design-interface/export-lifecycle.md",
+  "workspace": "tests/evaluations/design-interface/fixtures/export-lifecycle",
+  "request": "Read evidence.md. Design the export contract and give a caller example for its material lifecycle. Return summary with Contract, Caller, Cancellation, Cleanup, Failure, Dependency, Verification, and Trade-off labels. Keep each label self-contained, with signature/call examples for Contract and Caller. Assess the supplied one-method proposal through the caller requirements. Use outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "design-interface"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Contract:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\((?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\)",
+      "Caller:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\((?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\)",
+      "Cancellation:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(prevent|suppress|discard|ignore|never|cannot|must not|no late)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(late|publish|success)|Cancellation:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(late|publish|success)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(prevent|suppress|discard|ignore|never|cannot|must not)",
+      "Cleanup:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(release|terminat|dispos|close|teardown)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*worker|Cleanup:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*worker(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(release|terminat|dispos|close|teardown)",
+      "Failure:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(distinct|separat|distinguish)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(cancel|abort)|Failure:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(cancel|abort)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(distinct|separat|distinguish)",
+      "Dependency:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(worker|encoder|factor|creation|construct|inject)",
+      "Verification:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(keep|retain|preserv|cover)(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(cancel|lifecycle|teardown)",
+      "Trade-off:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*\\S"
+    ],
+    "forbiddenSummaryPatterns": [
+      "(delete|remove|discard) (all |the )?(existing |old )?(lifecycle|cancellation|teardown) tests",
+      "(require|add|need) a second production (adapter|encoder)",
+      "Cleanup:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(never|do not|must not|need not) (release|terminat|dispos|close)",
+      "Failure:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(not distinct|not separate|indistinguishable)",
+      "Cancellation:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(do not|must not|never|need not) (suppress|prevent|discard|ignore)",
+      "Cleanup:(?:(?!(?:Contract|Caller|Ownership|Retry|Timeout|Persistence|Notification|Verification|Trade-off|Recommendation|Responsibility|Cancellation|Cleanup|Failure|Dependency|First slice):)[\\s\\S])*(no|without|skip|omit) (worker )?teardown"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 3000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

@@ -222,7 +222,7 @@ No explicit signal was found for 23 globally listed Skills:
 | --- | --- | --- |
 | `claude-handoff` | Review | Claude-specific continuation may be a host adapter, not a portable Skill. |
 | `code-review` | Replace | Split into the host's defect review and Experimental `review-requirements`; keep installed until composition evidence passes. |
-| `codebase-design` | Replace | Decide module boundaries and deepen interfaces. |
+| `codebase-design` | Replace | Experimental `design-interface` designs caller contracts and responsibility boundaries; retain the third-party Skill until compatibility, representative-task, and cutover evidence passes. |
 | `domain-modeling` | Replace | Experimental `model-domain` establishes shared domain language and consequential domain decisions; keep the third-party Skill until cutover evidence passes. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
 | `grilling` | Replace | Experimental `challenge-plan` tests consequential assumptions in a user-selected plan; keep the third-party Skill until cutover evidence passes. |
@@ -323,11 +323,12 @@ user-reported usage ranking. Real-case testing of the first wave runs separately
 1. `writing-for-agents`: Experimental `write-agent-guidance` created 2026-09-07.
    It comes first because it supports current Skill authoring work; Skill authoring
    itself stays in `write-skill`. See the agent guidance trial below.
-2. `codebase-design`: decide module boundaries and deepen interfaces.
+2. `codebase-design`: Experimental `design-interface` created 2026-09-07.
+   It owns code contracts and responsibility boundaries; see the interface design trial below.
 3. `research`: gather authoritative evidence and preserve concise findings.
 4. `prototype`: build a disposable artifact that answers one design question.
 
-Only the first candidate is implemented in this task. The documented engineering
+The first two candidates have repository-only implementations. The documented engineering
 candidates—bug diagnosis, narrow fixes, feature building, refactoring, and
 migration—remain for later consideration; verification remains a Core trial.
 
@@ -956,6 +957,126 @@ cutover remain separate work.
 Actual files increase the baseline from twelve Skills and 88 behavior cases to
 thirteen Skills and 98 cases. The other queued and engineering candidates remain
 unimplemented in this task.
+
+## Interface design trial
+
+On 2026-09-07, the approved replacement work created repository-only Experimental
+`design-interface`. The usage scan found 6 explicit user invocations and 23
+assistant declarations across 25 sessions for `codebase-design`. These counts
+justify investigating a recurring capability, not a claim of successful outcomes.
+The installed source and its deepening/alternative-design references supplied
+boundary evidence. Existing owned Skills leave a distinct outcome: a concrete
+caller contract and responsibility boundary, justified through caller and failure
+or lifecycle examples.
+
+The candidate places repeated coordination with its information and consistency
+requirements while keeping necessary caller choices visible. It accounts for
+resource ownership, failure, cancellation, and recovery when relevant, compares
+the proposal with a meaningful alternative or existing boundary, and makes
+verification ownership explicit. A current interface can be the right answer.
+It uses project language without requiring the source's glossary, adapter count,
+method-count heuristic, blanket test deletion, or parallel-agent process.
+
+Domain meaning belongs to `model-domain`; critique alone belongs to
+`challenge-plan`; `implement-test-first` owns requested implementation sequencing.
+Settled structural changes belong to refactoring, settled feature work to ordinary
+implementation, and visual interface design to frontend work. The candidate can
+compose with another outcome without depending on a peer Skill. Core and tools
+retain general judgment and deterministic discovery. No new ADR, workflow, or
+shared evaluation runtime is introduced.
+
+Ten artificial scenarios cover three generated interface recommendations,
+one generated design plus test-first slice, and six supplied-catalog rejection
+classifications. Payment coordination preserves retry identity and ambiguous
+outcomes across independent payment and receipt systems. Export lifecycle tests
+a one-method proposal against caller cancellation, error identity, resource
+cleanup, late success, and a single production encoder. The formatter case keeps
+an already useful boundary when a facade adds unrelated database initialization.
+The composition case preserves the accepted expiry boundary and distinguishes a
+planned red-green slice from executed proof.
+
+Selection trials supply exact peer names and descriptions and classify a
+hypothetical task against that catalog. This is not normal discovery or proof
+that installed competitors are hidden. Codex filesystem isolation does not hide
+its host Skill catalog, as established in the agent-guidance trial. Generated
+summary contracts are artificial read-only design artifacts; they do not prove
+implemented runtime behavior. Expected answers remain outside model input.
+
+Deterministic controls initially accepted late successful publication after
+cancellation and unnecessary database initialization. Stronger assertions now
+require suppression of late success and reject abandoned cleanup, collapsed
+failure identity, and facade prerequisites. Eleven positive controls, twenty
+semantic corruptions, and a workspace-mutation control pass. These checks protect
+sampled invariants, not general semantic correctness; no candidate-body repair
+has yet been supported by a failed artifact.
+
+An independent parent execution read only the lifecycle task and candidate and
+wrote a temporary `design.md`, without receiving expected cases or assertions.
+It is supplementary artifact execution, not an isolated reference-harness run.
+The artifact and its assessment remain outside the repository.
+
+Initial OpenCode trials passed 6/10 scenarios. The other four failed lifecycle
+error wording, payment notification wording, a formatter recommendation pattern,
+and the no-Skill result status. Their raw sessions were discarded, so those
+initial failures alone do not establish whether the generated contracts were
+semantically wrong. Observed diagnostic outputs subsequently preserved the
+required behavior with equivalent expressions such as a private worker factory,
+notification that "still returns paid," and no charging under a different key.
+A formatter legitimately kept lifecycle with its existing owners rather than
+repeating a particular separation term. The gate now accepts those meanings,
+recognizes worker teardown as cleanup, and scopes labels to their own statements
+so a single-paragraph artifact cannot borrow or contradict another label's words.
+An empty supplied-catalog selection uses `not_applicable` consistently.
+
+The observed Codex design batch initially scored 1/5 on lifecycle, 2/5 on payment,
+and 0/5 on retaining the boundary under earlier assertions. All fifteen generated
+outputs were inspected; those failures exposed assertion phrasing and label-scope
+problems, not a supported candidate-body defect. Re-scoring the same five outputs
+per case against the final assertions passes 15/15 hard behavior and presentation.
+Their candidate, request, and fixture inputs stayed unchanged throughout that
+batch; the original aggregate remains available. A separate ordinary-feature
+rejection rerun passes 5/5 under its final result contract.
+
+The final observed OpenCode batch initially passed 7/10 under its starting
+assertions. The three generated-design outputs failed cleanup terminology, retry
+identity phrasing, and responsibility wording. Each actual output was inspected
+and all ten pass hard behavior and presentation after the same assertion-only
+re-scoring. No model input changed during that batch. The reports distinguish
+new executions from re-scored evidence and retain exact final input hashes.
+
+The initial Codex batch passed 38/50 hard checks: composition 1/5, lifecycle
+1/5, ordinary-feature status 4/5, payment 5/5, retained boundary 2/5, and the
+other five rejection groups 5/5 each. Their original aggregate is preserved.
+The five unchanged rejection groups contribute 25 final passing runs; their
+request and assertion contracts are unchanged. The observed composition rerun initially scored 2/5 because valid drafts used
+dash labels, parenthetical planned labels, or `undefined` as their declared miss
+representation. Accepting these equivalent forms without changing the task or
+expected behavior yields 5/5 on re-scoring; semantic inversion controls still
+fail. All five outputs contain a concrete cache contract, caller example,
+controlled clock, and a planned failing expiry check before implementation.
+
+Final local evidence on 2026-09-07: Codex CLI 0.153.4 with `gpt-5.6-sol` passes
+50/50 hard checks and presentation across ten cases. That total comprises 25
+unchanged rejection runs, five ordinary-feature status reruns, fifteen re-scored
+design outputs, and five re-scored composition outputs. OpenCode 1.18.21 with
+`openai/gpt-5.6-sol` passes 10/10 after the documented re-scoring. These are
+working-tree trials at `6242feb845bb04439443795932dc607f4de108e7+dirty`, not
+clean-revision Promotion evidence. Model requests and fixtures for re-scored
+batches are unchanged; exact input hashes, original aggregates, selected generated
+artifacts, semantic controls, and independent assessments remain outside the repo.
+No raw CLI sessions are committed.
+
+Node 24.20.0 checks pass: fourteen Experimental Skills, 108 behavior cases,
+eleven evaluation suites with 99 scenarios, twenty deterministic tests, and
+normal/internal installation smoke checks. The candidate adds one Skill and ten
+cases to the thirteen-Skill, 98-case baseline. No shared evaluator code changed.
+This candidate remains Experimental. No Stable release impact or
+Changeset is required. Shared, Codex, and Claude installation roots had no
+`design-interface` collision; checked Cursor and default OpenCode roots were
+absent. Alternate roots remain outside this screen. Existing global Skills and
+steering are unchanged. Claude Code, Cursor, clean-revision Promotion evidence,
+Maintainer approval, installation/removal, and representative live cutover work
+remain deferred.
 
 ## Registry repair plan
 

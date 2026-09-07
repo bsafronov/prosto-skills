@@ -1,0 +1,28 @@
+{
+  "id": "test-first-only",
+  "case": "tests/cases/design-interface/test-first-only.md",
+  "workspace": "tests/evaluations/design-interface/fixtures/test-first-only",
+  "request": "Read evidence.md. This is only a supplied-catalog classification, not task execution or Skill authoring. Classify the hypothetical task using only the exact names and descriptions in that catalog; select none, either, or both as applicable. Return outcome selection, no findings, and one brief reason in summary.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "implement-test-first"
+      ],
+      "exclude": [
+        "design-interface"
+      ],
+      "allowAdditional": false
+    },
+    "outcome": "selection",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 1200,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

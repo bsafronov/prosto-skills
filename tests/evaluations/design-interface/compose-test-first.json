@@ -1,0 +1,36 @@
+{
+  "id": "compose-test-first",
+  "case": "tests/cases/design-interface/compose-test-first.md",
+  "workspace": "tests/evaluations/design-interface/fixtures/compose-test-first",
+  "request": "Read evidence.md. Use only the supplied catalog for selectedCapabilities. Return the concrete design and first implementation slice in summary with Contract, Caller, Dependency, and First slice labels. Contract and Caller need signature/call examples. In First slice explain expected observation and implementation order. This trial is read-only: use outcome satisfied, no findings, and distinguish planned from executed evidence.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "design-interface",
+        "implement-test-first"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "Contract(?: \\([^)]*\\))?\\s*(?::|[\u2014\u2013-])[^\\n]*get\\([^\\n]*\\)",
+      "Caller(?: \\([^)]*\\))?\\s*(?::|[\u2014\u2013-])[^\\n]*\\([^\\n]*\\)",
+      "Dependency(?: \\([^)]*\\))?\\s*(?::|[\u2014\u2013-])[^\\n]*(clock|time)",
+      "First slice(?: \\([^)]*\\))?\\s*(?::|[\u2014\u2013-])[^\\n]*(equal|exact|boundary|now\\s*=|expiresAt)[^\\n]*(miss|expired|undefined)|First slice(?: \\([^)]*\\))?\\s*(?::|[\u2014\u2013-])[^\\n]*(miss|expired|undefined)[^\\n]*(equal|exact|boundary|now\\s*=|expiresAt)",
+      "First slice(?: \\([^)]*\\))?\\s*(?::|[\u2014\u2013-])[^\\n]*(fail|red)[^\\n]*(implement|change|green)",
+      "(planned|not (run|executed)|no (tests|code|checks).{0,15}(run|executed))"
+    ],
+    "forbiddenSummaryPatterns": [
+      "(tests|checks) (passed|pass successfully)"
+    ]
+  },
+  "quality": {
+    "summaryMaxCharacters": 3000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}
