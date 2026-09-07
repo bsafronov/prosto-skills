@@ -18,8 +18,65 @@ removals. Twelve Retain entries, seven Review entries, and the three existing
 Core trials (`caveman`, `verify-and-stop`, `to-questionnaire`) remain installed.
 `lean-build` was a Replace candidate and is absorbed by Core/native implementation
 after the bounded probe below. System and plugin Skills remain outside the scope.
-Installation status and the exact source revision are recorded in the manifest;
-`prepared` means the global change has not yet happened.
+The Experimental cutover is installed and verified. The exact source revision,
+source tree, installation counts and rollback location are recorded in the
+manifest. The historical statements below describe their original trial stages.
+
+## Verified Experimental cutover
+
+On 2026-09-07, PR #10 merged the combined changes into `main` at
+`9ca4ee792df2cc17a84f30faca17e4a43a9e2ffd` (tree
+`c166a536f65e751cabd4bcb98c299704d3196e66`). Its CI gate passed. Local Node 24.20.0
+checks cover twenty Skills, 159 behavior cases, seventeen evaluation suites with
+150 scenarios, thirty-four deterministic tests and complete-file installation
+smoke. The four new Skills' final selected trials total 155/155 Codex and 31/31
+OpenCode hard and presentation passes. Earlier failures and re-scores remain
+separately recorded in the trial sections and artifacts.
+
+Skills CLI 1.5.23 installed all twenty owned Experimental Skills from
+`https://github.com/bsafronov/prosto-skills.git#main`, globally for Codex in copy
+mode. Sixteen names were new; the four existing owned copies matched source
+exactly before their updates. No foreign-name collision occurred. Every installed
+file and every registry Skill tree hash was then compared with the exact merged
+revision before any legacy removal. This comparison closes the moving-`main`
+race; reading the branch pointer before installation alone would not suffice.
+
+The three retained-reference patches passed their recorded before/after hashes.
+Only the saved Codex `git-commit-instructions` selector changed, from
+`$caveman-commit` to `$write-commit-message`. Skills CLI then removed six scoped
+Caveman entries, sixteen Matt Pocock entries and one Vercel discovery entry,
+checking removed names and registry records after each source batch.
+
+Final verification found forty-one registered/shared Skill directories and no
+unregistered owned exceptions. All 112 shared files match the expected owned
+source, original survivor bytes or the three exact reference patches. The normal
+global CLI listing has twenty-two entries; including internal Skills has
+forty-two, because the retained Codex-local `frontend-design` is outside the shared
+directory. All twenty owned names are present and all twenty-three removed names
+are absent. A scan of surviving Markdown found no obsolete explicit selectors.
+Twelve Retain entries, seven Review entries and three pre-existing Core trials
+are preserved. Codex system/local Skill files, Claude-local files and global Core
+steering match their before hashes; plugin directories were not targeted.
+
+The source registry now records one upstream source path for every owned Skill.
+The manifest pins the observed commit and tree even though normal updates follow
+`main`. To reproduce these exact owned bytes, check out that recorded revision in
+a separate checkout and use its locked Skills CLI with
+`INSTALL_INTERNAL_SKILLS=1 skills add <checkout> -g -a codex --copy -s '*' -y`
+after checking collisions. A local-path replay does not populate upstream global
+registry records; preserve the recorded source manifest or use the saved registry
+when reconstructing the exact original installation. Unqualified source updates
+follow the configured branch and are a new installation, not replay of this proof.
+
+The private artifact root is
+`/Users/bogdan/.codex/artifacts/2026-09-07-engineering-migration/`.
+It retains install/removal logs, before/after inventories, exact registry backup,
+source hashes, verification receipts, worker commits and the tested rollback
+copies. `cutover-backup/RESTORE.md` requires preserving later edits before any
+rollback; an old snapshot must not erase changes made during user testing.
+Rollback material remains available. User hands-on testing, native discovery
+across all hosts and formal Promotion remain deferred. This completes the agreed
+Experimental replacement/install/removal scope and makes no Stable claim.
 
 ## Initial snapshot (2026-09-05)
 
@@ -119,8 +176,8 @@ as a separate host-maintenance task; it is outside the shared Skill cutover.
 
 - **Core trial**: test whether Core and native host behavior make the Skill
   unnecessary. Do not write a replacement first.
-- **Replace**: recurring agent judgment likely needs a first-party Skill before
-  removal. The name below is not an approved new Skill name.
+- **Replace**: recurring agent judgment needs an owned capability before removal;
+  keep the legacy entry until the authorized cutover evidence passes.
 - **Retain**: specialist or vendor knowledge is cheaper and safer to keep until
   evidence supports owning it.
 - **Drop candidate**: no first-party replacement is expected. Confirm absence of
@@ -211,11 +268,11 @@ No explicit signal was found for 23 globally listed Skills:
 
 ### JuliusBrussee/caveman
 
-| Skill | Provisional disposition | Reason or candidate outcome |
+| Skill | Disposition | Reason or current coverage |
 | --- | --- | --- |
 | `cavecrew` | Removed | Removed 2026-09-05 after no explicit usage signal and a recoverable backup. |
 | `caveman` | Core trial | Owned global steering replaced the external invocation on 2026-09-05. Keep the Skill installed until normal-task behavior proves the thin rule sufficient. |
-| `caveman-commit` | Replace | Experimental `write-commit-message` owns commit wording; Core keeps general brevity. The third-party Skill and current Codex invocation remain until approved cutover. |
+| `caveman-commit` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `write-commit-message` owns commit wording; saved Codex commit steering now names it. |
 | `caveman-compress` | Removed | Removed 2026-09-05 after one explicit signal and a recoverable backup. |
 | `caveman-discover` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
 | `caveman-evidence-review` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
@@ -226,67 +283,67 @@ No explicit signal was found for 23 globally listed Skills:
 | `caveman-optimize` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
 | `caveman-setup` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
 | `caveman-stats` | Removed | Removed 2026-09-05; session statistics need no replacement. |
-| `investigate-first` | Replace | Experimental `investigate-bug` owns causal discrimination for an unexplained failure; its bounded Codex/OpenCode trials pass before the prepared cutover. |
-| `lean-build` | Core trial | The ownership audit and independent CLI feature probe support Core/native implementation; independent design or decomposition can compose when needed. No duplicate feature Skill is created. |
-| `migration` | Replace | Experimental `migrate-system` owns requested compatibility/data transition stages with recovery and rollback preserving post-start writes. |
-| `safe-refactor` | Replace | Experimental `refactor-code` owns agreed structural changes with before/after observable-behavior preservation proof. |
-| `surgical-patch` | Replace | Experimental `fix-bug` repairs an established mechanism with regression evidence; ordinary new behavior stays with Core/native implementation. Its bounded trials pass before the prepared cutover. |
+| `investigate-first` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `investigate-bug` owns causal discrimination for unexplained failures. |
+| `lean-build` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. The independent feature probe supports Core/native implementation; no duplicate feature Skill is introduced. |
+| `migration` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `migrate-system` owns compatibility/data transition stages and recovery. |
+| `safe-refactor` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `refactor-code` owns agreed structural change with behavior equivalence. |
+| `surgical-patch` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `fix-bug` owns established-cause repair and regression proof. |
 | `verify-and-stop` | Core trial | Proportional proof and stopping already belong to Core; test host behavior before retaining a separate Skill. |
 
 ### mattpocock/skills
 
-| Skill | Provisional disposition | Reason or candidate outcome |
+| Skill | Disposition | Reason or current coverage |
 | --- | --- | --- |
 | `claude-handoff` | Review | Claude-specific continuation may be a host adapter, not a portable Skill. |
-| `code-review` | Replace | Native review owns behavior defects and documented repository standards; Experimental `review-requirements` owns originating-spec conformance. The bounded standards probe below covers an unlinted rule; the generic smell checklist is intentionally retired. |
-| `codebase-design` | Replace | Experimental `design-interface` owns caller contracts and responsibility boundaries; retain the third-party Skill until cutover evidence passes. |
-| `domain-modeling` | Replace | Experimental `model-domain` establishes shared domain language and consequential domain decisions; keep the third-party Skill until cutover evidence passes. |
+| `code-review` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. Native review covers documented standards and defects; `review-requirements` covers originating requirements. The generic smell checklist is retired. |
+| `codebase-design` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `design-interface` owns caller contracts and responsibility boundaries; retained specialist references are updated. |
+| `domain-modeling` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `model-domain` owns shared domain language and consequential domain decisions. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
-| `grilling` | Replace | Experimental `challenge-plan` tests consequential assumptions in a user-selected plan; keep the third-party Skill until cutover evidence passes. |
+| `grilling` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `challenge-plan` owns stress-testing a user-selected plan or decision. |
 | `handoff` | Review | Frequent explicit use blocks removal until native task continuation is compared against the owned outcome. |
-| `improve-codebase-architecture` | Drop candidate | Prefer composition of independent design, inspection, and discussion capabilities. |
-| `loop-me` | Drop candidate | Workspace-specific orchestration should not become a generic replacement. |
+| `improve-codebase-architecture` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. Native inspection and independently selected interface/domain/critique outcomes cover useful work; mandatory orchestration is retired. |
+| `loop-me` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. Workspace-specific orchestration conventions are retired; requested critique and specification remain independent outcomes. |
 | `migrate-to-shoehorn` | Retain | Narrow third-party migration knowledge. |
-| `prototype` | Replace | Experimental `build-prototype` owns a disposable experiment and bounded answer to one design question; keep the third-party Skill until cutover evidence passes. |
-| `research` | Replace | Experimental `synthesize-evidence` reconciles bounded source evidence into attributable findings; keep the third-party Skill until cutover evidence passes. |
+| `prototype` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `build-prototype` owns a disposable experiment for one design question. |
+| `research` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `synthesize-evidence` owns bounded attributable evidence synthesis. |
 | `resolving-merge-conflicts` | Retain | Specialist Git procedure; revisit after observing repeated gaps. |
 | `retro` | Review | Retrospection should remain outside product delivery and requires concrete recurring value. |
 | `scaffold-exercises` | Retain | Domain-specific course tooling. |
-| `setup-matt-pocock-skills` | Drop candidate | Source-suite bootstrap becomes obsolete after cutover. |
+| `setup-matt-pocock-skills` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. The source-suite bootstrap is obsolete; retained triage now inspects existing tracker mappings and asks only about unresolved labels. |
 | `setup-pre-commit` | Retain | Narrow ecosystem setup that can later move to a deterministic tool. |
 | `setup-ts-deep-modules` | Retain | TypeScript-specific architecture setup. |
-| `tdd` | Replace | Experimental `implement-test-first` owns requested red–green sequencing; keep the third-party Skill until cutover evidence passes. |
+| `tdd` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `implement-test-first` owns explicitly requested red–green sequencing. |
 | `teach` | Review | Broad outcome and explicit invocation need evidence before first-party ownership. |
 | `to-questionnaire` | Core trial | Core can ask only material unresolved questions; external sharing needs usage evidence. |
-| `to-spec` | Replace | Experimental `write-spec` owns grounded specification synthesis without tracker mutation by default; keep the third-party Skill until cutover evidence passes. |
-| `to-tickets` | Replace | Experimental `split-work` owns bounded work decomposition and genuine blockers; keep the third-party Skill until cutover evidence passes. |
+| `to-spec` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `write-spec` owns specifications from agreed behavior and evidence. |
+| `to-tickets` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `split-work` owns bounded work decomposition and real blockers. |
 | `triage` | Retain | Tracker-specific state and external mutation require deliberate compatibility evidence. |
-| `wait-what` | Replace | Experimental `reframe-explanation` repairs a previous explanation after expressed confusion; keep the third-party Skill until cutover evidence passes. |
-| `wayfinder` | Replace | Experimental `map-decisions` owns resumable uncertainty and decision dependencies; Core, existing Skills, and native tools cover the remaining outcomes. Keep the third-party Skill until cutover evidence passes. |
+| `wait-what` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `reframe-explanation` owns a new explanation after expressed confusion. |
+| `wayfinder` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `map-decisions` owns resumable uncertainty and decision dependencies; Core/native tools cover the rest. |
 | `wizard` | Retain | Useful boundary for human-only infrastructure steps; consider first-party ownership after usage review. |
 | `writing-beats` | Review | Keep only if long-form writing is a recurring supported outcome. |
-| `writing-for-agents` | Replace | Experimental `write-agent-guidance` owns repository instruction delivery; `write-skill` owns Skill authoring and Core keeps general mindset. Keep the third-party Skill until cutover evidence passes. |
+| `writing-for-agents` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. `write-agent-guidance` owns repository instruction delivery, `write-skill` owns Skill authoring, and Core keeps general mindset. |
 | `writing-fragments` | Review | Keep only if long-form writing is a recurring supported outcome. |
-| `writing-great-skills` | Drop candidate | `write-skill` should own Skill-writing judgment after behavior comparison. |
+| `writing-great-skills` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. The owned Skill-development capabilities cover authoring and evaluation without a second authoring router. |
 | `writing-shape` | Review | Keep only if long-form writing is a recurring supported outcome. |
 
 ### shadcn/ui
 
-| Skill | Provisional disposition | Reason or candidate outcome |
+| Skill | Disposition | Reason or current coverage |
 | --- | --- | --- |
 | `migrate-radix-to-base` | Retain | Library-specific migration knowledge changes with upstream packages. |
 | `shadcn` | Retain | Vendor-maintained component knowledge should not be copied without a concrete ownership reason. |
 
 ### Vercel
 
-| Skill | Provisional disposition | Reason or candidate outcome |
+| Skill | Disposition | Reason or current coverage |
 | --- | --- | --- |
-| `find-skills` | Drop candidate | External discovery becomes unnecessary when the selected suite is intentionally owned. |
+| `find-skills` | Removed | Removed 2026-09-07 in the authorized Experimental cutover with a recoverable backup. Native host/CLI discovery remains available; broad external-skill interception is retired. |
 | `web-design-guidelines` | Retain | Specialist guidance changes over time; first-party ownership would require an update policy. |
 
 ### Local
 
-| Skill | Provisional disposition | Reason or candidate outcome |
+| Skill | Disposition | Reason or current coverage |
 | --- | --- | --- |
 | `frontend-design` | Retain | Frequent use blocks removal; identify upstream provenance before deciding whether to own an equivalent. |
 
