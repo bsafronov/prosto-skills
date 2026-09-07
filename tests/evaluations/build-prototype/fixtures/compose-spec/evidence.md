@@ -1,0 +1,1 @@
+First build a disposable executable experiment to compare two proposed expiry policies. Then write a local spec recording only the policy the owner has accepted from the observed result; keep unaccepted alternatives explicit. Both outcomes are requested; production implementation is excluded.

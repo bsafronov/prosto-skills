@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Disposable invoice comparison</title>
+<style>body{font:17px system-ui;max-width:900px;margin:40px auto;padding:0 20px;color:#243329}button,select{font:inherit;padding:8px;margin:5px}button[aria-pressed=true]{background:#243329;color:white}table{border-collapse:collapse;width:100%;margin-top:24px}td,th{padding:16px;text-align:left;border-bottom:1px solid #ccd4ce}.changed{background:#fff1c7}.badge{font-size:13px;font-weight:normal;margin-left:8px}aside{padding:16px;background:#eef3ef}caption{text-align:left;font-size:22px;padding:16px 0}</style>
+<h1>Invoice comparison</h1><p>Disposable experiment · synthetic invoices · no saving or service calls</p>
+<label>Invoice <select id="invoice" aria-label="Invoice"></select></label>
+<div aria-label="Comparison approach"><button id="adjacent" aria-pressed="true">Adjacent columns</button><button id="switched" aria-pressed="false">Switch views</button></div>
+<div id="viewControls" hidden><button id="original" aria-pressed="true">Original view</button><button id="corrected" aria-pressed="false">Corrected view</button></div>
+<p id="status" aria-live="polite"></p><div id="comparison"></div>
+<aside>Try the same invoices in both approaches. Record comparison time, missed differences, and preference before choosing. No reviewer has tried these approaches yet.</aside>
+<script>
+const invoices = [
+ {id:'I-17',original:{customer:'Orchid',amount:810,due:'2026-10-01'},corrected:{customer:'Orchid',amount:180,due:'2026-10-01'}},
+ {id:'I-18',original:{customer:'Cedar',amount:1200,due:'2026-10-05'},corrected:{customer:'Cedar Labs',amount:1200,due:'2026-10-12'}},
+ {id:'I-19',original:{customer:'Moss',amount:54,due:'2026-10-08'},corrected:{customer:'Moss',amount:54,due:'2026-10-08'}},
+ {id:'I-20',original:{customer:'Fern',amount:9900,due:'2026-10-11'},corrected:{customer:'Fern',amount:990,due:'2026-10-01'}}
+];
+const fields = [['customer','Customer'],['amount','Amount'],['due','Due date']];
+const byId = id => document.getElementById(id);
+let mode = 'adjacent', view = 'original';
+for(const invoice of invoices){const option = document.createElement('option');option.value=invoice.id;option.textContent=invoice.id;byId('invoice').append(option)}
+const format = (field,value) => field==='amount' ? value.toLocaleString('en-US') : value;
+function render(){
+ const invoice=invoices.find(x=>x.id===byId('invoice').value);
+ const changes=fields.filter(([key])=>invoice.original[key]!==invoice.corrected[key]).length;
+ byId('status').textContent=changes===0?'No values changed.':`${changes} ${changes===1?'field changed':'fields changed'}. Changed rows are highlighted.`;
+ byId('viewControls').hidden=mode!=='switched';
+ for(const id of ['adjacent','switched'])byId(id).setAttribute('aria-pressed',id===mode);
+ for(const id of ['original','corrected'])byId(id).setAttribute('aria-pressed',id===view);
+ const heading=mode==='adjacent'?'<th>Original</th><th>Corrected</th>':`<th>${view==='original'?'Original':'Corrected'}</th>`;
+ const rows=fields.map(([key,label])=>{const changed=invoice.original[key]!==invoice.corrected[key];const values=mode==='adjacent'?['original','corrected']:[view];return `<tr class="${changed?'changed':''}"><th scope="row">${label}${changed?'<span class="badge">Changed</span>':''}</th>${values.map(side=>`<td>${format(key,invoice[side][key])}</td>`).join('')}</tr>`}).join('');
+ byId('comparison').innerHTML=`<table><caption>${invoice.id} · ${mode==='adjacent'?'Adjacent columns':(view==='original'?'Original view':'Corrected view')}</caption><thead><tr><th>Field</th>${heading}</tr></thead><tbody>${rows}</tbody></table>`;
+}
+byId('invoice').addEventListener('change',render);
+for(const id of ['adjacent','switched'])byId(id).addEventListener('click',()=>{mode=id;render()});
+for(const id of ['original','corrected'])byId(id).addEventListener('click',()=>{view=id;render()});
+render();
+</script></html>

@@ -230,7 +230,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `improve-codebase-architecture` | Drop candidate | Prefer composition of independent design, inspection, and discussion capabilities. |
 | `loop-me` | Drop candidate | Workspace-specific orchestration should not become a generic replacement. |
 | `migrate-to-shoehorn` | Retain | Narrow third-party migration knowledge. |
-| `prototype` | Replace | Build a disposable artifact that answers one design question. |
+| `prototype` | Replace | Experimental `build-prototype` owns a disposable experiment and bounded answer to one design question; keep the third-party Skill until cutover evidence passes. |
 | `research` | Replace | Gather authoritative evidence and preserve concise findings. |
 | `resolving-merge-conflicts` | Retain | Specialist Git procedure; revisit after observing repeated gaps. |
 | `retro` | Review | Retrospection should remain outside product delivery and requires concrete recurring value. |
@@ -325,9 +325,9 @@ user-reported usage ranking. Real-case testing of the first wave runs separately
    itself stays in `write-skill`. See the agent guidance trial below.
 2. `codebase-design`: decide module boundaries and deepen interfaces.
 3. `research`: gather authoritative evidence and preserve concise findings.
-4. `prototype`: build a disposable artifact that answers one design question.
+4. `prototype`: Experimental `build-prototype` created 2026-09-07; see the prototype trial below.
 
-Only the first candidate is implemented in this task. The documented engineering
+Individual trials below record implemented candidates. The documented engineering
 candidates—bug diagnosis, narrow fixes, feature building, refactoring, and
 migration—remain for later consideration; verification remains a Core trial.
 
@@ -956,6 +956,139 @@ cutover remain separate work.
 Actual files increase the baseline from twelve Skills and 88 behavior cases to
 thirteen Skills and 98 cases. The other queued and engineering candidates remain
 unimplemented in this task.
+
+## Prototype trial
+
+On 2026-09-07, `build-prototype` became a repository-only Experimental candidate
+for the installed `prototype` Skill. Historical usage records 23 user invocations
+and 13 assistant declarations across 14 sessions. This supports recurring demand,
+not successful outcomes or superiority over Core with a capable host.
+
+The isolated worktree started at
+`6242feb845bb04439443795932dc607f4de108e7`, including thirteen Experimental Skills
+and 98 behavior cases. The installed `prototype/SKILL.md` (SHA-256
+`714de632d116bb73f65cdb5a882db15b9369a6713b9a47c0fad827848f0bfbe3`), `LOGIC.md`,
+and `UI.md` were inspected directly alongside owned neighbors, Core, contribution rules, and
+relevant ADRs. The candidate owns one disposable experiment that discriminates a
+design question and reports a supported answer or the specific missing evidence.
+Core supplies general scope and proportional proof. An interface decision,
+domain definition, source synthesis, specification, or visual polish can finish
+without a disposable artifact; those outcomes remain independent.
+
+The candidate preserves the proposal under test, exposes relevant state and
+awkward event orders, and picks artifact fidelity from the actual uncertainty.
+It isolates disposable work, uses synthetic in-memory state by default, and allows
+explicitly scoped scratch persistence when persistence is the question. Read-only
+or draft-only delivery remains within that scope. Observations, simulated inputs,
+analysis, and human preference remain distinct. The source's mandatory HTML,
+framework restrictions, fixed variation counts, routing/switcher conventions,
+blanket prohibition on tests, automatic production adoption, and branch/tracker
+capture requirements are not retained. No hard dependency or Flow is added.
+
+Twelve artificial cases cover two generated executable artifact slices, a supplied
+UI handover with unresolved preference and reliability, a materially ambiguous
+question, seven rejection boundaries, and composition with specification writing.
+The seven rejections distinguish production implementation, visual polish, source
+synthesis, specification capture, domain modeling, interface design, and direct
+arithmetic. Peer cases explicitly name `write-spec`, `model-domain`,
+`frontend-design`, `synthesize-evidence`, and `design-interface` alongside the
+candidate. They are supplied-catalog classifications: temporary workspaces do
+not hide Codex's native Skills. They do not prove ordinary discovery or preference
+over installed Skills.
+
+The artifact cases return executable source in the read-only report. A narrow
+candidate-specific observer executes each generated source without host APIs and
+with a per-execution time bound. It checks the seat-ledger proposal and guarded
+alternative over 31 event sequences each, including duplicated expiry, both
+confirm/expiry orders, and reset. Serialization runs across fresh instances and
+checks empty, quoted, Unicode, and duplicate IDs. These checks validate the
+returned artifact slices; the model's stated basis remains analysis, and no disk
+restart, service integration, or production behavior is inferred. The shared
+harness is unchanged. Aggregate reports include every supplementary source result
+and its hash; minimal artificial deliverables are retained outside the repository.
+
+The first deterministic control run exposed a missing duplicate ID in the
+serialization oracle: a deduplicating implementation was incorrectly accepted.
+Adding a repeated ID repaired the oracle without changing the expected behavior.
+Three valid controls now pass; sixteen corruptions reject repaired-away proposals,
+broken guards, inert or non-executable artifacts, fake execution, memory-only
+reloads, lost IDs, unauthorized persistence/reset scope, and unjustified
+preference, reliability, or adoption. A workspace mutation is also rejected.
+
+An independent parent probe received only the candidate, raw invoice-comparison
+task, and four synthetic invoices, without expected assertions. It produced a
+local HTML artifact with record selection, adjacent and switched comparisons,
+changed-field cues, and a run/reset handover. Source inspection confirmed all
+four records and their differences; Node syntax checking passed. The browser tool
+rejected the local file URL, and no alternate browser route was attempted.
+Rendering, control behavior, keyboard operation, and small-screen usability
+remain unverified. The handover explicitly leaves reviewer preference and
+production reliability unresolved. This is one supplementary artifact-generation
+probe, not a successful browser run or repeated reference-harness evidence. It
+used the body before the branch-wording repair and does not test that repair.
+
+Independent boundary review also found that the original final paragraph could
+require separate authorization for a reversible scratch branch. It now says
+branches and tracker setup are unnecessary and keeps ordinary isolation within
+existing authorization. Initial model work was interrupted and retained as
+superseded evidence; final trials use the revised body.
+
+Actual generated reports exposed three artificial review-format ambiguities.
+Ledger outputs supplied an analysis paragraph where the checker expected the
+literal basis status `analysis`. Persistence outputs correctly left disk/restart
+untested but used a nested verdict object or put `Unresolved` after an explanation.
+A UI handover marked reliability testing `Not performed`, while the gate expected
+the reliability conclusion `Unresolved`. The requests now specify the scalar
+status formats and distinguish conclusions from activities. The ambiguity case
+also returned appropriate focused questions under mixed report enums. Its final
+contract uses `selection`, because the material answer still blocks starting the
+experiment. Two UI reports used Core alone to hand over an already built artifact;
+the final outcome case explicitly continues an earlier `build-prototype`
+invocation and makes no fresh-selection claim. Semantic outcome requirements and
+rejection controls are unchanged. These are evaluation-contract and attribution
+repairs, not evidence of candidate-body failure. Affected cases receive full new
+runs.
+Provider calls exceeding the ten-minute bound are retained as failed runs and
+rerun separately; incomplete calls establish no behavioral result.
+
+The first complete batches on the revised body scored 42/60 hard passes on Codex
+and 8/12 on OpenCode, including the format/status failures and three Codex and
+two OpenCode timeouts above. After the scalar-format repair, both artifact cases
+passed 5/5 Codex runs; the UI handover passed 4/5 until its continuation scope was
+made explicit. All failed and superseded results remain distinguishable from
+final evidence.
+
+Final results on 2026-09-07: all twelve scenarios pass hard behavior and quality
+5/5 on Codex CLI 0.153.4 with `gpt-5.6-sol` (60/60), and 1/1 on OpenCode 1.18.21
+with `openai/gpt-5.6-sol` (12/12). Both executable-source cases additionally pass
+all runtime checks for every final generated artifact: ten Codex and two OpenCode
+slices. Each changed request received a full new 5+1 run; unaffected successful
+results are retained, with exact report provenance in the final aggregate.
+The continuation case tests handover and stopping after explicit invocation, not
+fresh selection. The other catalog cases remain supplied-catalog classification.
+
+Node 24.20.0 `npm run check` passes, including 19 deterministic tests and normal
+and internal installation smoke checks. Trial input hashes cover the candidate,
+metadata, cases, fixtures, artifact checker, deterministic tests, and unchanged
+shared evaluator. A full-task diff check then removed only extra EOF blank lines
+from seven catalog fixtures; separate final repository hashes record that change.
+Candidate source, scenario requests, and catalog content are unchanged; the
+whitespace-only equivalence is recorded without repeating model calls. Aggregate reports, failures, source results, controls, hashes,
+and selected independent evidence remain outside the repository under the dated
+`build-prototype` artifact directory. No raw sessions are committed. These are
+working-tree trials at `6242feb845bb04439443795932dc607f4de108e7+dirty`, not
+clean-revision Promotion evidence; artificial output contracts, supplied state,
+and the visible native Codex catalog remain explicit limitations.
+
+No `build-prototype` collision was found in the shared, Codex, Claude, Cursor, or
+default OpenCode Skill roots checked; absent directories are recorded as absent,
+and alternate installation roots remain outside the screen. This Experimental
+candidate has no Stable release impact and needs no Changeset. Global Skills,
+steering, installs, removals, and production behavior remain unchanged. Claude
+Code and Cursor compatibility, clean-revision Promotion evidence, Maintainer
+approval, first-wave real-task testing, and approved cutover remain separate work.
+This branch adds one Skill and twelve cases to its baseline: fourteen Skills and
+110 behavior cases. Other parallel candidate dispositions are preserved.
 
 ## Registry repair plan
 
