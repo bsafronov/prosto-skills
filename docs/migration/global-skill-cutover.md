@@ -4,7 +4,24 @@ This document records the evidence and stop conditions for replacing the current
 global third-party Skill installation with the Prosto Skill Suite. It is a
 migration ledger, not authorization to remove installed Skills.
 
-## Current state
+## Current migration scope
+
+On 2026-09-07, the user confirmed the agreed Replace/Drop list and retention of
+specialists, with hands-on testing after migration. The authorized installation
+is an Experimental trial; it does not promote Skills or claim deferred manual or
+cross-host testing has passed. The reproducible scope is recorded in
+[experimental-cutover.json](experimental-cutover.json). The historical snapshots
+and per-branch trial counts below remain attached to their original dates.
+
+The final scope has twenty owned Experimental Skills and twenty-three legacy
+removals. Twelve Retain entries, seven Review entries, and the three existing
+Core trials (`caveman`, `verify-and-stop`, `to-questionnaire`) remain installed.
+`lean-build` was a Replace candidate and is absorbed by Core/native implementation
+after the bounded probe below. System and plugin Skills remain outside the scope.
+Installation status and the exact source revision are recorded in the manifest;
+`prepared` means the global change has not yet happened.
+
+## Initial snapshot (2026-09-05)
 
 Snapshot date: 2026-09-05.
 
@@ -210,7 +227,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `caveman-setup` | Removed | Removed 2026-09-05; Caveman Cloud integration is outside Prosto Core. |
 | `caveman-stats` | Removed | Removed 2026-09-05; session statistics need no replacement. |
 | `investigate-first` | Replace | Diagnose an ambiguous failure and name a credible mechanism before editing. |
-| `lean-build` | Replace | Deliver a bounded feature without speculative infrastructure. |
+| `lean-build` | Core trial | The overlap audit found its feature-delivery judgment already covered by Core/native implementation and independently selected design or decomposition outcomes; test that coverage before cutover instead of creating a duplicate Skill. |
 | `migration` | Replace | Preserve compatibility and rollback during a transition. |
 | `safe-refactor` | Replace | Preserve behavior while changing structure. |
 | `surgical-patch` | Replace | Fix a known bug at the narrowest responsible layer with regression proof. |
@@ -221,8 +238,8 @@ No explicit signal was found for 23 globally listed Skills:
 | Skill | Provisional disposition | Reason or candidate outcome |
 | --- | --- | --- |
 | `claude-handoff` | Review | Claude-specific continuation may be a host adapter, not a portable Skill. |
-| `code-review` | Replace | Split into the host's defect review and Experimental `review-requirements`; keep installed until composition evidence passes. |
-| `codebase-design` | 6 | 23 | 25 |
+| `code-review` | Replace | Native review owns behavior defects and documented repository standards; Experimental `review-requirements` owns originating-spec conformance. The bounded standards probe below covers an unlinted rule; the generic smell checklist is intentionally retired. |
+| `codebase-design` | Replace | Experimental `design-interface` owns caller contracts and responsibility boundaries; retain the third-party Skill until cutover evidence passes. |
 | `domain-modeling` | Replace | Experimental `model-domain` establishes shared domain language and consequential domain decisions; keep the third-party Skill until cutover evidence passes. |
 | `git-guardrails-claude-code` | Retain | Host-specific safety setup should remain until an equivalent adapter or tool exists. |
 | `grilling` | Replace | Experimental `challenge-plan` tests consequential assumptions in a user-selected plan; keep the third-party Skill until cutover evidence passes. |
@@ -230,7 +247,7 @@ No explicit signal was found for 23 globally listed Skills:
 | `improve-codebase-architecture` | Drop candidate | Prefer composition of independent design, inspection, and discussion capabilities. |
 | `loop-me` | Drop candidate | Workspace-specific orchestration should not become a generic replacement. |
 | `migrate-to-shoehorn` | Retain | Narrow third-party migration knowledge. |
-| `prototype` | 23 | 13 | 14 |
+| `prototype` | Replace | Experimental `build-prototype` owns a disposable experiment and bounded answer to one design question; keep the third-party Skill until cutover evidence passes. |
 | `research` | Replace | Experimental `synthesize-evidence` reconciles bounded source evidence into attributable findings; keep the third-party Skill until cutover evidence passes. |
 | `resolving-merge-conflicts` | Retain | Specialist Git procedure; revisit after observing repeated gaps. |
 | `retro` | Review | Retrospection should remain outside product delivery and requires concrete recurring value. |
@@ -329,10 +346,96 @@ user-reported usage ranking. Real-case testing of the first wave runs separately
    evidence synthesis trial below.
 4. `prototype`: Experimental `build-prototype` created 2026-09-07; see the prototype trial below.
 
-All four queued replacements have repository-only Experimental candidates;
-their trial evidence is recorded below. The documented engineering
-candidates—bug diagnosis, narrow fixes, feature building, refactoring, and
-migration—remain for later consideration; verification remains a Core trial.
+All four queued replacements have Experimental candidates and recorded trial
+evidence. The remaining engineering owners and Core consolidation are recorded
+below; verification remains an unchanged Core trial.
+
+## Remaining engineering replacements
+
+On 2026-09-07, the user authorized continuing the agreed Replace/Drop migration
+and confirmed that retained specialists remain in scope as retained capabilities.
+The user will perform hands-on testing after migration; that testing is not a
+prerequisite for completing the remaining implementations. Repository checks,
+targeted behavior evidence, reproducible installation, and honest maturity status
+remain part of the work.
+
+The remaining implementation work is split by independently useful outcome:
+
+| Source | Proposed owner | Distinguishing outcome |
+| --- | --- | --- |
+| `investigate-first` | `investigate-bug` | Discriminate an unknown failure mechanism before choosing a repair. |
+| `surgical-patch` | `fix-bug` | Correct an established mechanism with credible regression evidence. |
+| `safe-refactor` | `refactor-code` | Achieve an authorized structural change with observable behavior preserved. |
+| `migration` | `migrate-system` | Complete the requested compatibility transition stage with coexistence, recovery, and rollback evidence. |
+
+The overlap audit found no separate owner needed for `lean-build`: ordinary
+complete feature delivery belongs to native implementation under Core.
+`design-interface` owns an unresolved contract decision and `split-work` owns a
+requested work breakdown; neither becomes a mandatory feature pipeline. A
+bounded Core implementation trial checks this consolidation below.
+Generic scope, inspection, proportional proof, and stopping remain in Core.
+`implement-test-first` alone owns explicitly requested red–green sequencing.
+
+Two disposition rows accidentally acquired invocation-count cells during the
+previous integration. The `codebase-design` and `prototype` rows above now again
+record their owned replacements; historical usage counts remain in their original
+table. This is a ledger repair, not a change to those Skill boundaries.
+
+## Consolidation and installation proof
+
+The independent ownership audit found no additional recurring judgment in
+`lean-build` after Core/native feature implementation and independently selected
+interface design or work decomposition. A raw artificial CLI task then required
+persisted renaming through argument parsing, an existing service, and storage.
+The parent received the request and fixture without expected assertions, added
+the service behavior and CLI command, reused title validation and persistence,
+and executed the runnable CLI checks. Open and completed records preserve ID,
+state, other fields and neighboring records; invalid IDs and empty titles leave
+storage byte-for-byte unchanged. Existing add/list/complete coverage passes.
+No feature Skill, framework, configuration mode, prototype, mandatory design
+phase, or decomposition was introduced. This is one bounded Core/native probe,
+not comparative effectiveness or cross-host evidence.
+
+A second raw read-only review probe contained a new retry worker that copied a
+formula while currently returning correct values. The repository explicitly
+requires all workers to call one retry-policy owner, with no lint enforcement.
+Native review reported the changed line, exact ownership rule, maintenance
+consequence and shared-helper correction despite both tests passing. This
+supports documented-standards coverage in the `code-review` replacement map.
+The old universal smell checklist is deliberately retired; originating
+requirements remain a separate `review-requirements` outcome.
+
+The independent artifact directory retains the requests, checks, outputs and
+assessments under the dated engineering-migration evidence root. These probes
+used the coordinating session, whose native catalog was visible. No legacy
+source Skill body was applied for the native feature or review probes. They do
+not establish clean discovery, hands-on user acceptance, or Promotion.
+
+The old installation smoke check enumerated only five Skills. It now discovers
+the repository's complete set, checks normal/internal visibility, installs in a
+temporary directory, and compares every installed source file, including metadata
+and references. A deterministic regression fixture proves that a future Skill
+is included and that an omitted reference or changed metadata fails. Throwing
+on failure also preserves temporary-directory cleanup.
+
+Before removal, three surviving upstream entries need reference-only patches:
+`setup-ts-deep-modules`, `triage`, and the unchanged Review entry `retro`.
+[The patch](retained-reference-patches.patch) removes obsolete invocations and
+selects owned neighbors only for independent outcomes; it introduces no aliases
+or copied specialist implementation. [Provenance](retained-reference-patches.json)
+records upstream registry data and exact before/after SHA-256 values. Upstream
+updates must recheck these patches rather than silently overwrite them. Tracker
+mutations and retrospective implementation keep their existing authorization
+boundaries.
+
+A private backup preserves all shared Skill files, registry and saved Codex
+steering. An isolated project-scope Skills CLI rehearsal applied the three
+patches, removed all twenty-three scoped names, verified survivors, reversed
+the patches, and restored all 141 shared files to their original hashes. The
+rehearsal does not claim a global registry mutation: registry and configuration
+were saved as exact copies. Global installation verification and its recorded
+source revision follow the merged candidate checks. Rollback material remains
+available through the user's deferred hands-on testing.
 
 ## Commit wording trial
 
@@ -1336,7 +1439,11 @@ Registry repair is complete when no registry record points to a missing Skill,
 every installed third-party Skill has known provenance, and local Experimental
 exceptions are documented.
 
-## Cutover sequence
+## Stable cutover sequence
+
+The user-authorized Experimental trial above may precede this Stable sequence.
+It replaces the agreed names reversibly while leaving maturity unchanged.
+
 
 1. Add completed-task evidence to this ledger without committing raw sessions.
 2. Confirm **Core trial**, **Replace**, **Retain**, or **Drop** for every Skill.
@@ -1353,9 +1460,14 @@ Stop the cutover if a removed Skill owns a still-used outcome, a replacement
 fails compatibility evidence, the registry cannot reproduce the installed
 state, or rollback evidence is missing.
 
-## Completion criteria
+## Stable completion criteria
 
-The migration is complete only when:
+The authorized Experimental migration is complete when its agreed replacements
+are implemented and checked, its installation and removals match the recorded
+scope, surviving references work, and rollback evidence is retained. User testing
+and Promotion are explicitly deferred.
+
+The later Stable cutover is complete only when:
 
 - every former global Skill has an evidence-backed disposition;
 - every required replacement is Stable and passes its Quality Gate;
