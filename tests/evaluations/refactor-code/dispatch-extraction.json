@@ -1,0 +1,29 @@
+{
+  "id": "dispatch-extraction",
+  "case": "tests/cases/refactor-code/dispatch-extraction.md",
+  "workspace": "tests/evaluations/refactor-code/fixtures/dispatch-extraction",
+  "request": "Read evidence.md and source.js. Apply the authorized extraction. This read-only trial asks for the complete replacement source inline. Return summary as a JSON-encoded object with source and verification strings. source must declare dispatchBatch(items, hooks) and dispatchOne(item, hooks) in plain JavaScript without imports or I/O. verification should explain relevant before/after observations and accurately distinguish analysis, proposed checks, and anything actually executed. Do not invent execution. Use outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "refactor-code"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\"source\"\\s*:",
+      "\"verification\"\\s*:"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 12000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

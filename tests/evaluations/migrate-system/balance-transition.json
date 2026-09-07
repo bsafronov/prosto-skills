@@ -1,0 +1,29 @@
+{
+  "id": "balance-transition",
+  "case": "tests/cases/migrate-system/balance-transition.md",
+  "workspace": "tests/evaluations/migrate-system/fixtures/balance-transition",
+  "request": "Read evidence.md and source.js. Implement this authorized additive stage as complete inline source. Return summary as a JSON-encoded object with source and verification strings. source declares readBalance(row), writeBalance(row, minor), backfill(rows, stopAfter), and rollback(rows), using plain JavaScript without imports or I/O. verification describes stage evidence and limitations, distinguishing analysis or planned checks from execution. Use outcome satisfied and no findings.",
+  "expect": {
+    "capabilities": {
+      "include": [
+        "migrate-system"
+      ],
+      "exclude": [],
+      "allowAdditional": false
+    },
+    "outcome": "satisfied",
+    "findings": [],
+    "allowAdditionalFindings": false,
+    "readOnly": true,
+    "requiredSummaryPatterns": [
+      "\"source\"\\s*:",
+      "\"verification\"\\s*:"
+    ],
+    "forbiddenSummaryPatterns": []
+  },
+  "quality": {
+    "summaryMaxCharacters": 12000,
+    "findingSummaryMaxCharacters": 160,
+    "orderedFindingSourceIds": []
+  }
+}

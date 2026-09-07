@@ -1,0 +1,6 @@
+interface:
+  display_name: "Migrate System"
+  short_description: "Prove compatibility and recovery through a transition"
+  default_prompt: "Use $migrate-system to implement this transition stage with compatibility and recovery proof."
+policy:
+  allow_implicit_invocation: true
